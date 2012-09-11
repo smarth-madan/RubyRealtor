@@ -9,5 +9,10 @@
 	<definition name="realtor/MyProfile" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/realtor/MyProfile.jsp" />
 	</definition>
-
+	<definition name="realtor/CustomerList" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/realtor/CustomerList.jsp" />
+	</definition>
+	<definition name="realtor/PropertyList" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/realtor/PropertyList.jsp" />
+	</definition>
 </tiles-definitions>

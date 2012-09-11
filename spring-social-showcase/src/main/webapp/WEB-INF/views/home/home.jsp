@@ -11,7 +11,7 @@
 		<table style="float:left">
 			<tr ><td><b> News: </b></td></tr>
 			<tr ><td><hr /></td></tr>
-			<tr><td> Some crap Some crap Some crap Some crap Some crap  Some crap</td></tr>
+			<tr><td> Breaking news: Latest news on Real estate, Market going Down!!!</td></tr>
 		</table>
 	 </td>
 	 <td>
@@ -22,7 +22,7 @@
 	 </td>
 	 </tr>
 </table>
-<hr />
+<br />
 <table border ="0"width="100%">	 
 	 <tr><td>
 		<table style="float:left">
@@ -32,8 +32,8 @@
 	 </td>
 	 <td>
 	 	<table style="float:right">
-			<tr><td><b> Analysis: <hr /></b></td></tr>
-			<tr><td> Graphs coming up ... !!</td></tr>
+			<tr><td><b> Property Listings (MLS Data) <hr /></b></td></tr>
+			<tr><td> <a href="<c:url value="/properties" />">List Properties</a></td></tr>
 		</table>
 	 </td>
 	 </tr>
