@@ -15,17 +15,27 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body >
 		<div id="header">
-			<h1><a href="<c:url value="/"/>">Social Realtor</a></h1>
+			<table width="100%">
+			<tr>
+			<td width="86%" ><h1><a href="<c:url value="/"/>">Social Realtor</a></h1></td>
+			<td width="7%" align="right"><a href="<c:url value="/"/>"><img height="42" width="42" src="resources/images/home.jpg" /></a></td>
+			<td width="7%" align="right"><a href="<c:url value="/signout" />">Sign Out</a></td>
+			</tr>
+			</table>
 		</div>
+		<hr />
 		
 		<div id="leftNav">
 			<tiles:insertTemplate template="menu.jsp" />
 		</div>
 		
-		<div id="content">
+		<div id="content" style="background-color:#E8E8E8" >
 			<tiles:insertAttribute name="content" />
-		</div>		
+		</div>	
+		<div id="footer">
+			
+		</div>	
 	</body>
 </html>

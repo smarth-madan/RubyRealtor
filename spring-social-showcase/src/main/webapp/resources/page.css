@@ -6,14 +6,25 @@ body {
 #header {
 	margin: 0 auto;
 	width: 100%;
-	height: 92px;
+	height: 52px;
 	position: relative;
 	display: block;
-	background-color: #006600;
+	background-color: #FFFFFF;
+	#background-image: url('resources/images/download.jpg');
+	
 }
 
+#footer {
+	margin: 0 auto;
+	width: 100%;
+	height: 32px;
+	position: relative;
+	display: block;
+	background-color: #339900;
+	
+}
 #header h1 a {
-	color: #ccff99;
+	color: #339900;
 	text-decoration: none;
 }
 
@@ -21,14 +32,16 @@ body {
 	float: left;
 	width: 150px;
 	background-color: #ccffcc;
+	height: 85%;
 }
 
 #content {
 	margin-left: 170px;
+	height: 85%;
 }
 
 a {
-	color: #006600;
+	color: #339900;
 }
 
 ul.menu li {
