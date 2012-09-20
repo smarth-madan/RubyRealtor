@@ -25,6 +25,9 @@
 		<table style="float:left">
 			<tr ><td><b> Customers: <hr /></b></td></tr>
 			<tr><td> <a href="<c:url value="/customers" />">List Customers</a></td></tr>
+			<tr><td> <a href="<c:url value="/customer" />">View Customers</a></td></tr>
+			<tr><td> <a href="<c:url value="/customer/add" />">Add Customers</a></td></tr>
+			<tr><td> <a href="<c:url value="/customer/edit" />">Edit Customers</a></td></tr>
 		</table>
 	 </td>
 	 <td>

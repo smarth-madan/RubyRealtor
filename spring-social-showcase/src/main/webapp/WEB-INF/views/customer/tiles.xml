@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="customer/addCustomer" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/customer/addCustomer.jsp" />
+	</definition>
+
+	<definition name="customer/viewCustomer" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/customer/viewCustomer.jsp" />
+	</definition>
+	
+	<definition name="customer/editCustomer" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/customer/editCustomer.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

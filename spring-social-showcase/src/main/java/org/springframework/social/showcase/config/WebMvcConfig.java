@@ -26,6 +26,8 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles2.TilesView;
@@ -45,6 +47,18 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	public ViewResolver viewResolver() {
 		UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
 		viewResolver.setViewClass(TilesView.class);
+		viewResolver.setOrder(1);
+		return viewResolver;
+	}
+	
+	@Bean
+	public InternalResourceViewResolver viewResolver2() {
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		viewResolver.setViewClass(JstlView.class);
+		viewResolver.setExposeContextBeansAsAttributes(true);
+		viewResolver.setPrefix("/WEB-INF/views");
+		viewResolver.setSuffix(".jsp");
+		viewResolver.setOrder(2);
 		return viewResolver;
 	}
 
