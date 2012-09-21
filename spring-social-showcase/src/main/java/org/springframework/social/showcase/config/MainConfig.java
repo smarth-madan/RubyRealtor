@@ -33,6 +33,8 @@ import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 import org.springframework.social.showcase.account.JdbcAccountRepository;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import com.mysql.jdbc.Driver;
 
 /**
  * Main configuration class for the application.
@@ -52,6 +54,16 @@ public class MainConfig {
 		factory.setDatabaseType(EmbeddedDatabaseType.H2);
 		factory.setDatabasePopulator(databasePopulator());
 		return factory.getDatabase();
+	}
+	
+	@Bean
+	public DriverManagerDataSource mysqldataSource() {
+		@SuppressWarnings("deprecation")
+		DriverManagerDataSource factory = new DriverManagerDataSource("com.mysql.jdbc.Driver",
+																		"jdbc:mysql://localhost/realtor_social",
+																		"realtor",
+																		"realtor");
+		return factory;
 	}
 	
 	@Bean
