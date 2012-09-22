@@ -13,11 +13,8 @@
 <body>
 <h1>View Customer</h1>
 
-<ul class="customer">
 <table class ="formatHTML5">
 <caption> Customers </caption>
-
-	
 	<colgroup />
 	<colgroup span="2" title="title" />
 	<thead>
@@ -32,24 +29,27 @@
 			<th scope="col">Salary Range</th>
 			<th scope="col">Email Id</th>
 			<th scope="col">Phone Number</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
-<c:forEach items="${customers}" var="customer">
-	<tr>
-		<td><c:out value="${customer.fName}"/></td>
-		<td><c:out value="${customer.lName}"/></td>
-		<td><c:out value="${customer.street}"/></td>
-		<td><c:out value="${customer.city}"/></td>
-		<td><c:out value="${customer.state}"/></td>
-		<td><c:out value="${customer.zipcode}"/></td>
-		<td><c:out value="${customer.martial_status}"/></td>
-		<td><c:out value="${customer.salary_range}"/></td>
-		<td><c:out value="${customer.email_ID}"/></td>
-		<td><c:out value="${customer.phone_number}"/></td>
-	</tr>
-</c:forEach>
+		<c:forEach items="${customers}" var="customer">
+		<tr>
+			<td><c:out value="${customer.fName}"/></td>
+			<td><c:out value="${customer.lName}"/></td>
+			<td><c:out value="${customer.street}"/></td>
+			<td><c:out value="${customer.city}"/></td>
+			<td><c:out value="${customer.state}"/></td>	
+			<td><c:out value="${customer.zipcode}"/></td>
+			<td><c:out value="${customer.martial_status}"/></td>
+			<td><c:out value="${customer.salary_range}"/></td>
+			<td><c:out value="${customer.email_ID}"/></td>
+			<td><c:out value="${customer.phone_number}"/></td>
+			<td><a href="http://localhost:8080/spring-social-showcase/customer/edit">Edit</a></td>
+		</tr>
+		</c:forEach>
 	</tbody>
 </table>
+<a href="http://localhost:8080/spring-social-showcase/customer/add">Add new Customer</a>
 </body>
 </html>
