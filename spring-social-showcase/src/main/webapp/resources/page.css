@@ -6,42 +6,40 @@ body {
 #header {
 	margin: 0 auto;
 	width: 100%;
-	height: 52px;
+	height: 45px;
 	position: relative;
 	display: block;
-	background-color: #FFFFFF;
-	#background-image: url('resources/images/download.jpg');
-	
-}
+	background-color:white;
+	}
 
 #footer {
 	margin: 0 auto;
 	width: 100%;
-	height: 32px;
+	height: 28px;
 	position: relative;
 	display: block;
-	background-color: #339900;
-	
+	background-color:#500000;
 }
 #header h1 a {
-	color: #339900;
+	color: #500000;
 	text-decoration: none;
 }
 
 #leftNav {
-	float: left;
-	width: 150px;
-	background-color: #ccffcc;
-	height: 85%;
+	margin-left: 0px;
+	margin-right: 0px;
+	align:center;
 }
 
 #content {
-	margin-left: 170px;
-	height: 85%;
+	margin-left: 150px;
+	margin-right: 150px;
+	height: 100%;
+	background-color:white;
 }
 
 a {
-	color: #339900;
+	color: #006600;
 }
 
 ul.menu li {
@@ -130,8 +128,9 @@ div.accountConnection h4 {
 div.accountConnection h4 img {
 	vertical-align: middle;
 }
- 
-        /*** central column on page ***/
+
+
+/*** central column on page Added by Smart***/
         div#divContainer
         {
             max-width: 800px;

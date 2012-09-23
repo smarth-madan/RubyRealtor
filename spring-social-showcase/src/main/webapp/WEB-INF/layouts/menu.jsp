@@ -2,6 +2,56 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@ taglib uri="http://www.springframework.org/spring-social/social/tags" prefix="social" %>
 
+
+<div id="colortab" class="ddcolortabs">
+<ul>
+
+<li><a href="<c:url value="/"/>"><span style="width:50;text-align:center"> Home </span></a></li>
+<li><a href="<c:url value="/customers"/>"><span>Customers</span></a></li>
+<li><a href="<c:url value="/properties"/>"><span>Property Listings</span></a></li>
+<li><a href="<c:url value="/connect"/>"><span>Manage FB/Twitter Connections</span></a></li>
+<li><a href="#"  title="Dropdown options available only when connected" rel="dropmenu1_c"><span>Facebook</span></a></li>
+<li><a href="#"  title="Dropdown options available only when connected" rel="dropmenu2_c"><span>Twitter</span></a></li>
+<li><a href="http://tools.dynamicdrive.com" title="Analytics"><span>Analytics</span></a></li>
+<li><a href="http://tools.dynamicdrive.com" title="Matching"><span>Matching</span></a></li>
+	
+<li><a style="float:right" href="<c:url value="/signout"/>" title="Matching"><span>Signout</span></a></li>	
+</ul>
+</div>
+
+<div class="ddcolortabsline">&nbsp;</div>
+
+<!--1st drop down menu -->                                                   
+<div id="dropmenu1_c" class="dropmenudiv_a">
+<social:connected provider="facebook">
+	<a href="<c:url value="/facebook"/>">User Profile</a>
+	<a href="<c:url value="/facebook/feed"/>">Feed</a></li>
+	<a href="<c:url value="/facebook/friends"/>">Friends</a>
+	<a href="<c:url value="/facebook/albums"/>">Albums</a>
+</social:connected>
+</div>
+
+
+
+<!--2nd drop down menu -->                                                
+<div id="dropmenu2_c" class="dropmenudiv_a" style="width: 150px;">
+<social:connected provider="twitter">
+	<a href="<c:url value="/twitter"/>">User Profile</a>
+	<a href="<c:url value="/twitter/timeline"/>">Timeline</a>
+	<a href="<c:url value="/twitter/friends"/>">Friends</a>
+	<a href="<c:url value="/twitter/followers"/>">Followers</a>
+	<a href="<c:url value="/twitter/messages"/>">Messages</a>
+	<a href="<c:url value="/twitter/trends/daily"/>">Daily Trends</a>
+</social:connected>
+</div>
+
+
+<script type="text/javascript">
+//SYNTAX: tabdropdown.init("menu_id", [integer OR "auto"])
+tabdropdown.init("colortab", 3)
+</script>
+
+<%-- 
 <h4><a href="<c:url value="/connect"/>">Connections</a></h4>
 
 <h4><a href="<c:url value="/twitter"/>">Twitter</a></h4>
@@ -34,3 +84,4 @@
 	<li><a href="<c:url value="/linkedin"/>">User Profile</a></li>
 </ul>
 </social:connected>
+ --%>

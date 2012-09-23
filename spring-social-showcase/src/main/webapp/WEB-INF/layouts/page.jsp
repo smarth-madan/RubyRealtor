@@ -5,9 +5,18 @@
 <html>
 	<head>
 		<title>Social Realtor</title>
+		<script type="text/javascript" src="<c:url value="/resources/dropdowntabs.js" />">
+		
+		</script>
+
+	
+
+		<!-- CSS for Drop Down Tabs Menu #3 -->
+		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/ddcolortabs.css" />"  />
 		<link rel="stylesheet" href="<c:url value="/resources/page.css" />" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<c:url value="/resources/form.css" />" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<c:url value="/resources/messages/messages.css" />" type="text/css" media="screen" />
+		
 		<style type="text/css">
 			#p
 			{			
@@ -15,7 +24,7 @@
 			}
 		</style>
 	</head>
-	<body >
+	<body>
 		<div id="header">
 			<table width="100%">
 			<tr>
@@ -26,16 +35,17 @@
 			</table>
 		</div>
 		<hr />
-		
-		<div id="leftNav">
+		<div style="background-color:#D0D0D0;width: 100%;height: 100%;">
+		<div  id="leftnav">
 			<tiles:insertTemplate template="menu.jsp" />
 		</div>
 		
-		<div id="content" style="background-color:#E8E8E8" >
+		<div id="content">
 			<tiles:insertAttribute name="content" />
 		</div>	
+		</div>
 		<div id="footer">
 			
-		</div>	
+		</div>
 	</body>
 </html>
