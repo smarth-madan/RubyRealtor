@@ -7,8 +7,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import com.mysql.jdbc.Connection;
@@ -21,40 +23,23 @@ public class CustomerHelper {
 	private DataSource mysqldataSource;
 	private Connection connection;
 	private JdbcTemplate jdbctemplate;
+	private SimpleJdbcInsert	jdbcInsert;
 	
 	public CustomerHelper(DataSource mysqldataSource) {
 		this.mysqldataSource = mysqldataSource;
 		this.jdbctemplate = new JdbcTemplate(mysqldataSource);
 	}
 	
-
-	
-	public List<Customer> getCustomers(){
-		try {
-			connection = (Connection) DataSourceUtils.getConnection(mysqldataSource);
-		    // retrieve a list of three random cities
-		    PreparedStatement ps = (PreparedStatement) connection.prepareStatement("select * from Customer");
-		    ResultSet rs = ps.executeQuery();
-		    while(rs.next()) {
-		        String city = rs.getString("City");
-		        String country = rs.getString("Country");
-		        System.out.printf("The city %s is in %s%n", city, country);
-		    }
-		} catch (SQLException ex) {
-		    // something has failed and we print a stack trace to analyse the error
-		    ex.printStackTrace();
-		    // ignore failure closing connection
-		    try { connection.close(); } catch (SQLException e) { }
-		} finally {
-		    // properly release our connection
-		    DataSourceUtils.releaseConnection(connection, mysqldataSource);
-		}
-		
-		return null;
-	}
 	
 	public List<Customer> findAllCustomers() {
-	    return this.jdbctemplate.query( "select * from Customer", new CustomerMapper());
+	    try{
+	    	return this.jdbctemplate.query( "select * from Customer", new CustomerMapper());
+	    }catch(DataAccessException de){
+	    	de.printStackTrace();
+	    	System.out.println("ERROR :" +  de.getMessage());
+	    	return null;
+	    }
+		
 	}
 
 	private static final class CustomerMapper implements RowMapper<Customer> {
