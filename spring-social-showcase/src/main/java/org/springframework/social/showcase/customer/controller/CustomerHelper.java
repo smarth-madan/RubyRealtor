@@ -74,33 +74,16 @@ public class CustomerHelper {
 			return -1;
 		}
 		
-		/*String INSERT_SQL = "insert into Customer (fName, lName,street,city,State,zipcode,marital_status,salary_range,email_ID,phone_number) values (?,?,?,?,?,?,?,?,?,?)";
-		try{
-	    	int i = this.jdbctemplate.update(
-	    	        "insert into Customer (fName, lName,street,city,State,zipcode,marital_status,salary_range,email_ID,phone_number) values (?,?,?,?,?,?,?,?,?,?)", 
-	    	        c.getfName(), c.getlName(),c.getStreet(),c.getCity(),c.getState(),c.getZipcode(),c.getMartial_status(),c.getSalary_range(),c.getEmail_ID(),c.getPhone_number());
-	    	if(i==1)
-	    		return true;
-	    	else{
-	    		System.out.println("No rows affected!!!!");
-	    		return false;
-	    	}
-	    }catch(DataAccessException de){
-	    	de.printStackTrace();
-	    	System.out.println("ERROR :" +  de.getMessage());
-	    	return false;
-	    }*/
-		
 	}
 	
 	public int addCustomerReq(CRequirements c) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("noOfPersons", c.getNoOfPersons());
-		parameters.put("noOfBedrooms", c.getNoOfBedrooms());
+		parameters.put("number_of_persons", c.getNoOfPersons());
+		parameters.put("number_of_bedrooms", c.getNoOfBedrooms());
 		parameters.put("city", c.getCity());
 		parameters.put("state", c.getState());
 		parameters.put("zipcode", c.getZipcode());
-		parameters.put("rangeAmount", c.getRangeAmount());
+		parameters.put("range_amount", c.getRangeAmount());
 		parameters.put("type", c.getType());
 		
 		try{
@@ -137,8 +120,7 @@ public class CustomerHelper {
 	    }        
 	}
 
-	public Boolean updateCustomer(int customerId, int newCustomerReqId) {
-		
+	public Boolean updateCustomer(int customerId, int newCustomerReqId) {		
 		try{
 	    	int i= this.jdbctemplate.update("update customer set CR_ID = ? where c_id = ?", 
 	    				newCustomerReqId , customerId);
@@ -153,6 +135,45 @@ public class CustomerHelper {
 		    	System.out.println("ERROR :" +  de.getMessage());
 		    	return false;
 		 }
-		
+	}
+	
+	public Boolean editCustomer(Customer customer) {		
+		try{
+	    	int i= this.jdbctemplate.update("update customer set " +
+	    									"fName=?," +
+	    									"lName=?," +
+	    									"street=?," +
+	    									"city=?," +
+	    									"state=?," +
+	    									"zipcode=?," +
+	    									"marital_status=?," +
+	    									"salary_min_val=?," +
+	    									"salary_max_val=?," +
+	    									"email_ID=?," +
+	    									"phone_number=?" +
+	    									" where c_id = ?", 
+	    									customer.getfName(),
+	    									customer.getlName(),
+	    									customer.getStreet(),
+	    									customer.getCity(),
+	    									customer.getState(),
+	    									customer.getZipcode(),
+	    									customer.getMartial_status(),
+	    									customer.getSalary_min_val(),
+	    									customer.getSalary_max_val(),
+	    									customer.getEmail_ID(),
+	    									customer.getPhone_number(),
+	    									customer.getC_id());
+	    	if(i==1)
+	    		return true;
+	    	else{
+	    		System.out.println("No rows affected!!!!");
+	    		return false;
+	    	}
+		 }catch(DataAccessException de){
+		    	de.printStackTrace();
+		    	System.out.println("ERROR :" +  de.getMessage());
+		    	return false;
+		 }
 	}
 }

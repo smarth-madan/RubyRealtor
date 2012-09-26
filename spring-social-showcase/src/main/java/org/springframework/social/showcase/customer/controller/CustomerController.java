@@ -10,13 +10,14 @@ import javax.sql.DataSource;
 import org.springframework.social.showcase.customer.model.CRequirements;
 import org.springframework.social.showcase.customer.model.Customer;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-@SessionAttributes({"customerId"})
+@SessionAttributes({"customerId","customers"})
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
@@ -71,7 +72,14 @@ public class CustomerController {
 		
 		if(newCustomerReqId >=0 ){
 			mv.setViewName("customer/addCustomerRequirements");
-			customerHelper.updateCustomer(customerId,newCustomerReqId);
+			Boolean success = customerHelper.updateCustomer(customerId,newCustomerReqId);
+			if(success){
+				mv.setViewName("home/home");
+			}
+			else{
+				mv.setViewName("error/error");
+				mv.addObject("error", "Sorry, Customer Requirement could not be added due to internal error!!!");
+			}
 		}
 		else{
 			mv.setViewName("error/error");
@@ -82,13 +90,26 @@ public class CustomerController {
 		return mv;
 	}
 	
-	@RequestMapping("/edit")
-	public ModelAndView editCustomer(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value="/edit" , method=RequestMethod.POST)
+	public ModelAndView editCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("c_id") String c_id, @ModelAttribute("customers") List<Customer> customers){
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("feed","blah blah");
-		mv.setViewName("customer/editCustomer");
+		for (Customer customer : customers){
+			if(c_id.equalsIgnoreCase(customer.getC_id())){
+				mv.addObject("customer", customer);
+				mv.setViewName("customer/editCustomer");
+			}
+		}
 		return mv;
-		
+	}
+	
+	@RequestMapping(value="/editSubmit" , method=RequestMethod.POST)
+	public ModelAndView editCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("input") Customer customer){
+		ModelAndView mv = new ModelAndView();
+		Boolean success = customerHelper.editCustomer(customer);
+		if(success){
+			mv.setViewName("home/home");
+		}
+		return mv;	
 	}
 	
 	
