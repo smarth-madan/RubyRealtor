@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.showcase.SessionRealtor;
 import org.springframework.social.showcase.customer.model.CRequirements;
 import org.springframework.social.showcase.customer.model.Customer;
 import org.springframework.stereotype.Controller;
@@ -22,12 +24,13 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	private DataSource mysqldataSource;
 	private static CustomerHelper customerHelper;
+	
+	@Autowired
+	private SessionRealtor sessionRealtor;
 	
 	@Inject
 	public CustomerController(DataSource mysqldataSource) {
-		this.mysqldataSource = mysqldataSource;
 		customerHelper = new CustomerHelper(mysqldataSource);
 	}
 	
@@ -51,6 +54,7 @@ public class CustomerController {
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public ModelAndView addCustomerSubmit(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("input") Customer inputModel){
 		ModelAndView mv = new ModelAndView();
+		inputModel.setR_ID(String.valueOf((sessionRealtor.getRealtorId())));
 		int newCustomerId = customerHelper.addCustomer(inputModel);
 		
 		if(newCustomerId >=0 ){

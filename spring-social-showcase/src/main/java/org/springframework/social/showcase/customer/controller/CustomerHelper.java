@@ -61,6 +61,7 @@ public class CustomerHelper {
 		parameters.put("salary_min_val", c.getSalary_min_val());
 		parameters.put("salary_max_val", c.getSalary_max_val());
 		parameters.put("email_ID", c.getEmail_ID());
+		parameters.put("R_ID" , c.getR_ID());
 		parameters.put("phone_number", c.getPhone_number());
 		
 		try{
