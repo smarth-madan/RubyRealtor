@@ -6,49 +6,51 @@
 <h3>My Profile</h3>
 <hr />
 <div>
-<form method="post" action="/myProfile/update">
+<form method="post" action="update">
 <table border="0" align="center">
 	<tr >
-		<td align="center"><h3> Personal Info </h3></td><td align="right" ><h4><a href="<c:url value="/myprofile/edit"/>">Edit</a></h4></td>
-	</tr></td>
+		<td align="center"><h3> Personal Info </h3></td><!-- <td><h3>Facebook/Twitter Registeration</h3> --></td>
 	</tr>
 	<tr>
 		<td><b>First Name:</b></td>
-		<td><c:out value="${myProfile.fname}"/></td>
+		<td><input name="fname" type="text" size="30" value="<c:out value="${myProfile.fname}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>Last Name:</b></td>
-		<td><c:out value="${myProfile.lname}"/></td>
+		<td><input name="lname" type="text" size="30" value="<c:out value="${myProfile.lname}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>Street:</b></td>
-		<td><c:out value="${myProfile.street}"/></td>
+		<td><input name="street" type="text"  size="30" value="<c:out value="${myProfile.street}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>City:</b></td>
-		<td><c:out value="${myProfile.city}"/></td>
+		<td><input name="city" type="text" size="30" value="<c:out value="${myProfile.city}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>State:</b></td>
-		<td><c:out value="${myProfile.state}"/></td>
+		<td><input name="state" type="text" size="30" value="<c:out value="${myProfile.state}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>Zipcode:</b></td>
-		<td><c:out value="${myProfile.zipcode}"/></td>
+		<td><input name="zipcode" type="text" size="30" value="<c:out value="${myProfile.zipcode}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>Realtor ID:</b></td>
-		<td><c:out value="${myProfile.realtorId}"/></td>
-	</tr>
-	<tr>
-		<td><b>Email ID:</b></td>
-		<td><c:out value="${myProfile.emailId}"/></td>
+		<td><input name="realtorId" type="text" size="30" value="<c:out value="${myProfile.realtorId}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>Phone Number:</b></td>
-		<td><c:out value="${myProfile.phoneNumber}"/></td>
+		<td><input name="phoneNumber" type="text" size="30" value="<c:out value="${myProfile.phoneNumber}"/>" /></td>
 	</tr>
-	
+	<tr>
+		<td><b>Email ID:</b></td>
+		<td><input name="emailId" type="text" size="30" value="<c:out value="${myProfile.emailId}"/>" /></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit"  value="Update" /></td>
+	</tr>
 	<!-- <td>
 		<table border="0">
 			<tr><td>

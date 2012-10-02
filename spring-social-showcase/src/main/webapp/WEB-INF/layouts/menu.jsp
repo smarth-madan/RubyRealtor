@@ -7,6 +7,7 @@
 <ul>
 
 <li><a href="<c:url value="/"/>"><span style="width:50;text-align:center"> Home </span></a></li>
+<li><a href="<c:url value="/myprofile"/>"  title="My Profile" rel="dropmenu3_c"><span>My Profile</span></a></li>
 <li><a href="<c:url value="/customers"/>"><span>Customers</span></a></li>
 <li><a href="<c:url value="/properties"/>"><span>Property Listings</span></a></li>
 <li><a href="<c:url value="/connect"/>"><span>Manage FB/Twitter Connections</span></a></li>
@@ -45,6 +46,12 @@
 </social:connected>
 </div>
 
+<!--  drop down menu for Profile -->                                                   
+<div id="dropmenu3_c" class="dropmenudiv_a">
+	<a href="<c:url value="/myprofile"/>">Personal Info</a>
+	<a href="<c:url value="/myprofile/socialProfiles"/>">Social Profiles</a></li>
+	<a href="<c:url value="/myprofile/settings"/>">Settings</a>
+</div>
 
 <script type="text/javascript">
 //SYNTAX: tabdropdown.init("menu_id", [integer OR "auto"])
