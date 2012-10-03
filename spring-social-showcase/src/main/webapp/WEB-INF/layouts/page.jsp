@@ -40,7 +40,7 @@
 			<tiles:insertTemplate template="menu.jsp" />
 		</div>
 		
-		<div id="content" style="background-color:#D0D0D0;height: 100%;">
+		<div id="content">
 			<tiles:insertAttribute name="content" />
 		</div>	
 		</div>
