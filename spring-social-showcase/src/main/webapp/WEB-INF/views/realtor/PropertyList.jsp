@@ -5,20 +5,33 @@
 
 <h3>Your MLS Feeds</h3>
 	
-<table border="1">
-	<tr>
-		<td><b>Name</b></td>
-		<td><b>Address</b></td>
-		<td><b>Rating</b></td>
-		<td><b>Image</b></td>
-	</tr>
+<table  class ="formatHTML5">
 <c:forEach items="${propertyList}" var="property">
-	<tr>
-		<td><c:out value="${property.name}"/></td>
-		<td><c:out value="${property.address}"/></td>
-		<td><c:out value="${property.rating}"/></td>
-		<td><img src = "${property.image}" ></td>
+	<tr border="1">
+	<td scope="col">
+		<table border="0">
+		<tr><td scope="col"><b>MLS_ID</b></td><td><c:out value="${property.MLS_ID}"/></td></tr>
+		<tr><td scope="col"><b>Street</b></td><td><c:out value="${property.street}"/></td></tr>
+		<tr><td scope="col"><b>City</b></td><td><c:out value="${property.city}"/></td></tr>
+		<tr><td scope="col"><b>State</b></td><td><c:out value="${property.state}"/></td></tr>
+		<tr><td scope="col"><b>Zipcode</b></td><td><c:out value="${property.zipcode}"/></td></tr>
+		<tr><td scope="col"><b>Bed/Bath</b></td><td><c:out value="${property.bed_bath}"/></td></tr>
+		</table>
+	</td>
+	<td valign="top" scope="col">
+		<img src = "${property.image}" >
+	</td>
+	<td>
+		<table border="0">
+		<tr><td scope="col"><b>Size</b></td><td><c:out value="${property.size}"/></td></tr>
+		<tr><td scope="col"><b>price</b></td><td><c:out value="${property.price}"/></td></tr>
+		<tr><td scope="col"><b>type</b></td><td><c:out value="${property.type}"/></td></tr>
+		<tr><td scope="col"><b>parking</b></td><td><c:out value="${property.parking}"/></td></tr>
+		<tr><td scope="col"><b>garage</b></td><td><c:out value="${property.garage}"/></td></tr>
+		</table>
+	</td>
 	</tr>
+	
 </c:forEach>
 </table>
 
