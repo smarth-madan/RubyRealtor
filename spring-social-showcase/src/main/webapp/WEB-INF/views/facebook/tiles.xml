@@ -22,5 +22,13 @@
 	<definition name="facebook/album" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/facebook/album.jsp" />
 	</definition>
+	
+	<definition name="facebook/page" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/facebook/page.jsp" />
+	</definition>
 
+	<definition name="facebook/pageEvent" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/facebook/pageEvent.jsp" />
+	</definition>
+	
 </tiles-definitions>

@@ -15,8 +15,11 @@
  */
 package org.springframework.social.showcase.facebook;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
+import org.springframework.social.facebook.api.Account;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,5 +47,4 @@ public class FacebookFeedController {
 		facebook.feedOperations().updateStatus(message);
 		return "redirect:/facebook/feed";
 	}
-	
 }

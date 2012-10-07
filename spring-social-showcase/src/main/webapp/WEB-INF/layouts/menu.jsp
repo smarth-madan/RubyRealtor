@@ -29,6 +29,8 @@
 	<a href="<c:url value="/facebook/feed"/>">Feed</a></li>
 	<a href="<c:url value="/facebook/friends"/>">Friends</a>
 	<a href="<c:url value="/facebook/albums"/>">Albums</a>
+	<a href="<c:url value="/facebook/page"/>">Page</a>
+	<a href="<c:url value="/facebook/pageEvent"/>">PageEvent</a>
 </social:connected>
 </div>
 
