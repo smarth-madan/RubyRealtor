@@ -63,6 +63,7 @@ public class CustomerHelper {
 		parameters.put("email_ID", c.getEmail_ID());
 		parameters.put("R_ID" , c.getR_ID());
 		parameters.put("phone_number", c.getPhone_number());
+		parameters.put("customer_priority", c.getCustomer_priority());
 		
 		try{
 		Number newId = jdbcInsertCustomer.executeAndReturnKey(parameters);

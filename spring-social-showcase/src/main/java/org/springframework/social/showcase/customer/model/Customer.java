@@ -1,5 +1,7 @@
 package org.springframework.social.showcase.customer.model;
 
+import java.sql.Timestamp;
+
 public class Customer {
 	
     private static final long serialVersionUID = 1L;
@@ -31,6 +33,21 @@ public class Customer {
 	String R_ID;
 	
 	String CR_ID;
+	
+	String customer_priority;
+	
+	String appointment;
+	
+	Timestamp time;
+
+
+	public String getCustomer_priority() {
+		return customer_priority;
+	}
+
+	public void setCustomer_priority(String customer_priority) {
+		this.customer_priority = customer_priority;
+	}
 
 	public String getC_id() {
 		return c_id;

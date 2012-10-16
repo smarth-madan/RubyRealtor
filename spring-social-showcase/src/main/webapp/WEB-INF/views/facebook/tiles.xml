@@ -31,4 +31,8 @@
 		<put-attribute name="content" value="/WEB-INF/views/facebook/pageEvent.jsp" />
 	</definition>
 	
+	<definition name="facebook/contactUs" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/facebook/ContactUs.jsp" />
+	</definition>
+	
 </tiles-definitions>

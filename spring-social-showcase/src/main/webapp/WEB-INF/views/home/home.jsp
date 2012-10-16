@@ -28,6 +28,7 @@
 			<tr><td> <a href="<c:url value="/customer" />">View Customers</a></td></tr>
 			<tr><td> <a href="<c:url value="/customer/add" />">Add Customers</a></td></tr>
 			<tr><td> <a href="<c:url value="/customer/edit" />">Edit Customers</a></td></tr>
+			<tr><td> <a href="<c:url value="/contactUs" />">Contact Us</a></td></tr>
 		</table>
 	 </td>
 	 <td>

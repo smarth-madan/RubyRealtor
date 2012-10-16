@@ -5,9 +5,8 @@
 <html>
 	<head>
 		<title>Social Realtor</title>
-		<script type="text/javascript" src="<c:url value="/resources/dropdowntabs.js" />">
-		
-		</script>
+		<script type="text/javascript" src="<c:url value="/resources/dropdowntabs.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
 
 	
 
