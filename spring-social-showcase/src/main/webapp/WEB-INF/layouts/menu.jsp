@@ -8,19 +8,22 @@
 
 <li><a href="<c:url value="/"/>"><span style="width:50;text-align:center"> Home </span></a></li>
 <li><a href="<c:url value="/myprofile"/>"  title="My Profile" rel="dropmenu3_c"><span>My Profile</span></a></li>
-<li><a href="<c:url value="/customers"/>"><span>Customers</span></a></li>
+<li><a href="<c:url value="/customer"/>" title="Customers" rel="dropmenu4_c"><span>Customers</span></a></li>
 <li><a href="<c:url value="/properties"/>"><span>Property Listings</span></a></li>
 <li><a href="<c:url value="/connect"/>"><span>Manage FB/Twitter Connections</span></a></li>
 <li><a href="#"  title="Dropdown options available only when connected" rel="dropmenu1_c"><span>Facebook</span></a></li>
 <li><a href="#"  title="Dropdown options available only when connected" rel="dropmenu2_c"><span>Twitter</span></a></li>
 <li><a href="http://tools.dynamicdrive.com" title="Analytics"><span>Analytics</span></a></li>
 <li><a href="http://tools.dynamicdrive.com" title="Matching"><span>Matching</span></a></li>
+<li><a href="http://tools.dynamicdrive.com" title="News"><span>News</span></a></li>
 	
 <li><a style="float:right" href="<c:url value="/signout"/>" title="Matching"><span>Signout</span></a></li>	
 </ul>
 </div>
 
 <div class="ddcolortabsline">&nbsp;</div>
+
+
 
 <!--1st drop down menu -->                                                   
 <div id="dropmenu1_c" class="dropmenudiv_a">
@@ -53,6 +56,12 @@
 	<a href="<c:url value="/myprofile"/>">Personal Info</a>
 	<a href="<c:url value="/myprofile/socialProfiles"/>">Social Profiles</a></li>
 	<a href="<c:url value="/myprofile/settings"/>">Settings</a>
+</div>
+
+<!--  drop down menu for Profile -->                                                   
+<div id="dropmenu4_c" class="dropmenudiv_a">
+	<a href="<c:url value="/customer"/>">View Customers</a>
+	<a href="<c:url value="/customer/add"/>">Add Customer</a></li>
 </div>
 
 <script type="text/javascript">
