@@ -65,30 +65,7 @@ private static CustomerHelper customerHelper;
 		return "redirect:/facebook/page";
 	}
 	
-	@RequestMapping(value="/contactUs", method=RequestMethod.POST)
-	public ModelAndView contactUsPage(String message) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("facebook/contactUs");
-		return mv;
-	}
-
-	@RequestMapping(value="/registerFromFB", method=RequestMethod.POST)
-	public ModelAndView registerFromFB(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("input") Customer inputModel) {
-		ModelAndView mv = new ModelAndView();
-		inputModel.setR_ID(String.valueOf((sessionRealtor.getRealtorId())));
-		inputModel.setCustomer_priority("1");
-		int newCustomerId = customerHelper.addCustomer(inputModel);
-		if(newCustomerId >=0 ){
-			mv.addObject("result", "Thank you. Your profile has been created, the Real estate Agent will be in touch with you soon");
-			mv.setViewName("realtor/result");
-		}
-		else{
-			mv.setViewName("realtor/result");
-			mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
-		}
-		
-		return mv;
-	}
+	
 	@RequestMapping(value="/facebook/pageEvent", method=RequestMethod.GET)
 	public String createEvent() {
 		return "facebook/pageEvent";
