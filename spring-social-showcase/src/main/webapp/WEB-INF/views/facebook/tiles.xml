@@ -33,6 +33,6 @@
 	
 	<definition name="facebook/contactUs" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/facebook/ContactUs.jsp" />
-	</definition>
+	</definition> 
 	
 </tiles-definitions>

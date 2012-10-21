@@ -22,9 +22,9 @@ public class Customer {
 	
 	String martial_status;
 	
-	String salary_min_val;
+	int salary_min_val;
 	
-	String salary_max_val;
+	int salary_max_val;
 
 	String email_ID;
 	
@@ -38,8 +38,24 @@ public class Customer {
 	
 	String appointment;
 	
-	Timestamp time;
+	//Timestamp time;
+	
+	public String getAppointment() {
+		return appointment;
+	}
 
+	public void setAppointment(String appointment) {
+		this.appointment = appointment;
+	}
+
+
+	/*public Timestamp getTime() {
+		return time;
+	}
+
+	public void setTime(Timestamp time) {
+		this.time = time;
+	}*/
 
 	public String getCustomer_priority() {
 		return customer_priority;
@@ -141,25 +157,27 @@ public class Customer {
 		return CR_ID;
 	}
 
+	public int getSalary_min_val() {
+		return salary_min_val;
+	}
+
+	public void setSalary_min_val(int salary_min_val) {
+		this.salary_min_val = salary_min_val;
+	}
+
+	public int getSalary_max_val() {
+		return salary_max_val;
+	}
+
+	public void setSalary_max_val(int salary_max_val) {
+		this.salary_max_val = salary_max_val;
+	}
+
 	public void setCR_ID(String cR_ID) {
 		CR_ID = cR_ID;
 	}
 	
-	public String getSalary_min_val() {
-		return salary_min_val;
-	}
-
-	public void setSalary_min_val(String salary_min_val) {
-		this.salary_min_val = salary_min_val;
-	}
-
-	public String getSalary_max_val() {
-		return salary_max_val;
-	}
-
-	public void setSalary_max_val(String salary_max_val) {
-		this.salary_max_val = salary_max_val;
-	}
+	
 	
 	
 	

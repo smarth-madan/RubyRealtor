@@ -11,41 +11,43 @@
 
 
 <form action="registerFromFB" method="post"> 
+	<table>
+	<tr><td valign="top">
 		<table>
 			<tr>
-				<td><b>*First Name: </b></td>
+				<td><b><font size="2">*First Name: </font></b></td>
 				<td><input type="text" name="fName" /></td>
 			</tr>
 			<tr>
-				<td><b>*Last Name: </b></td>
+				<td><b><font size="2">*Last Name: </font></b></td>
 				<td><input type="text" name="lName" /></td>
 			</tr>
 			<tr>
-				<td><b>*Email-Id: </b></td>
-				<td><input type="text" name="fName" /></td>
+				<td><b><font size="2">*Email-Id: </font></b></td>
+				<td><input type="text" name="email_ID" /></td>
 			</tr>
 			<tr>
-				<td><b>*Phone Number: </b></td>
-				<td><input type="text" name="phoneNumber" /></td>
+				<td><b><font size="2">*Phone Number: </font></b></td>
+				<td><input type="text" name="phone_number" /></td>
 			</tr>
 			<tr>
-				<td><b>Street: </b></td>
+				<td><b><font size="2">Street: </font></b></td>
 				<td><input type="text" name="street" /></td>
 			</tr>
 			<tr>
-				<td><b>City: </b></td>
+				<td><b><font size="2">City: </font></b></td>
 				<td><input type="text" name="city" /></td>
 			</tr>
 			<tr>
-				<td><b>State: </b></td>
+				<td><b><font size="2">State: </font></b></td>
 				<td><input type="text" name="state" /></td>
 			</tr>
 			<tr>
-				<td><b>Zipcode: </b></td>
+				<td><b><font size="2">Zipcode: </font></b></td>
 				<td><input type="text" name="zipcode" /></td>
 			</tr>
 			<tr>
-				<td><b>Marital Status: </b></td>
+				<td><b><font size="2">Marital Status: </font></b></td>
 				<td><select id="maritalStatus" name="martial_status"
 					data-inline="true">
 						<option value="SINGLE">Single</option>
@@ -58,11 +60,11 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td><b>Salary Range:: </b></td>
-				<td>Min: <input type="text" name="salary_min_val"/> Max: <input type="text"  name="salary_max_val"/></td>
+				<td><b><font size="2">Salary Range:</font></b></td>
+				<td><font size="2">Min: <input type="text" name="salary_min_val"/> Max: <input type="text"  name="salary_max_val"/></font></td>
 			</tr>
 			<tr>
-				<td><b>Appointment </b></td>
+				<td><b><font size="2">Appointment </font></b></td>
 				<td><select id="appointment" name="appointment"
 					data-inline="true">
 						<option value="yes">Yes</option>
@@ -71,17 +73,55 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td><b>Tentative Date/Time: </b></td>
+				<td><b><font size="2">Tentative Date/Time: </font></b></td>
 				<td>
 	  				<input type="Text" name="time" id="demo1" maxlength="25" size="25"><a href="javascript:NewCal('demo1','ddmmmyyyy',true,24)"><img src="resources/images/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a>
 	  				<span class="descriptions">pick a date..</span>
 	  			</td>
 			</tr>
-			<tr>
-				<td>
-
-					<td><input type="Submit" value="Register" /></td>
-			</tr>
+			
 		</table>
+		</td>
+		<td valign="top">
+			<table>
+				<tr><td><b><font size="2">Help us know you more</font></b></td></tr>
+				<tr><td><b><i><font size="2">Type of House:</font></b></i></td></tr>
+				<tr><td><select id="house_type" name="martial_status"
+					data-inline="true">
+						<option value="any">Any</option>
+						<option value="singleFH">Single Family Home</option>
+						<option value="condo">Condo</option>
+						<option value="townHome">Town Home</option>
+						<option value="co_op">CO OP</option>
+						<option value="apartment">Apt/Condo/Townhome</option>
+						<option value="UNKNOWN"{selected} >Unspecified</option>
+				</select></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="type_house" value="yes"  /> House </font></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="type_apartment" value="yes"  />  Apartment </font></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="type_studio" value="yes"  />  Studio </font></td></tr>
+				<tr><td><b><font size="2"><i>No of Bedrooms:</i></font></b></td></tr>
+				<tr><td><font size="2"><input type="checkbox" name="bedRoomNumber1" value="yes"  />  1  <input type="checkbox" name="bedRoomNumber2" value="yes"  />  2 <input type="checkbox" name="bedRoomNumber3" value="yes"  />  3 </font></td></tr>
+				<tr><td><b><font size="2"><i>No of Baths:</i></font></b></td></tr>
+				<tr><td><font size="2"><input type="checkbox" name="bathNumber1" value="yes"  />  1  <input type="checkbox" name="bathNumber2" value="yes"  />  2 <input type="checkbox" name="bathNumber3" value="yes"  />  3 </font></td></tr>
+				<tr><td><font size="2"><b><i>In/Around City </i></b><input type="text" name="house_city"  /></font></td></tr>
+				<tr><td><font size="2"><b><i>State </i></b><input type="text" name="house_state"  /></font></td></tr>
+				<tr><td><font size="2"><b><i>Location </i></b></font></td></tr>
+				<tr><td><font size="2"><input type="checkbox" name="location_downtown" value="yes"  /> Downtown </font></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="location_suburb" value="yes"  /> suburbs </font></td></tr>
+				<tr><td><font size="2"><b><i>Range Low</i></b></font></td></tr>
+				<tr><td><font size="2"><input type="checkbox" name="range_lt_100k" value="yes"  /> Under $100,000 </font></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="range_100k_400k" value="yes"  /> $100,000 - $400,000 </font></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="range_gt_400k" value="yes"  />  $400,000 and above</font></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="range_any" value="yes"  />  Any </font></td></tr>
+				<tr><td><font size="2"><b><i>Personal Preferences </i></b></font></td></tr>
+				<tr><td><font size="2"><input type="checkbox" name="location" value="downtown"  /> Downtown </font></td></tr>
+				<tr><td><font size="2"> <input type="checkbox" name="location" value="susburb"  /> suburbs </font></td></tr>
+			</table>
+		</td>
+		</tr>
+		<tr>
+			<td align="right"><input type="Submit" value="Register" /></td>
+		</tr>
+	</table>
 	</form> 
 <hr /></div>
