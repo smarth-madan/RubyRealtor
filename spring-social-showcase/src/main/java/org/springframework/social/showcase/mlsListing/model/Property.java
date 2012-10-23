@@ -7,7 +7,7 @@ public class Property {
 	private String city;
 	private String state;
 	private String zipcode;
-	private String rating;
+	//private String rating;
 	private String image;
 	private String bed_bath;
 	private String size;
@@ -15,6 +15,8 @@ public class Property {
 	private String type;
 	private String parking;
 	private String garage;
+	private String tags;
+	private String description;
 	
 	public String getBed_bath() {
 		return bed_bath;
@@ -52,9 +54,7 @@ public class Property {
 	public void setGarage(String garage) {
 		this.garage = garage;
 	}
-	public String getRating() {
-		return rating;
-	}
+	
 	public String getMLS_ID() {
 		return MLS_ID;
 	}
@@ -85,11 +85,20 @@ public class Property {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public void setRating(String rating) {
-		this.rating = rating;
-	}
 	public String getImage() {
 		return image;
+	}
+	public String getTags() {
+		return tags;
+	}
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public void setImage(String image) {
 		this.image = image;

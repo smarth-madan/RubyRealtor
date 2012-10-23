@@ -6,8 +6,10 @@
 <h3>Your MLS Feeds</h3>
 
 <table class="formatHTML5">
+
 	<c:forEach items="${propertyList}" var="property">
-		<tr>
+	<form method="post" action="postProperty">
+		<tr>		
 			<td width="30%">
 				<table>
 					<tr>
@@ -47,11 +49,13 @@
 				</table>
 			</td>
 
-			<td valign="top" scope="col" style="float: left"><img
-				height="125" width="150" src="${property.image}"></td>
-
+			<td valign="top" scope="col" style="float: left"><img height="125" width="150" src="${property.image}"></td>
+			<td valign="top" scope="col" style="float: left"><input type="hidden" name="mls_id" value="${property.MLS_ID}"><input type="submit" value="Post MLS listing to FB">
+			
+			</td>
 		</tr>
-
+		</form>
 	</c:forEach>
+	
 </table>
 

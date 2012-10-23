@@ -51,7 +51,19 @@ public class MlsListingHelper {
 		
 	}
 	
-	
+	public List<Property> getIndividualPropertyDetails(String mlsId) {
+	    try{	
+	    		System.out.println("Inside Realtor details");
+	    	 	return this.jdbctemplate.query("select * from mls_listings where MLS_ID = "+mlsId, new PropertyMapper());
+	    	 	//return this.jdbctemplate.query("select * from mls_listings", new PropertyMapper());
+	    	 	
+	    }catch(DataAccessException de){
+	    	de.printStackTrace();
+	    	System.out.println("ERROR :" +  de.getMessage());
+	    	return null;
+	    }
+		
+	}
 	
 	private static final class PropertyMapper implements RowMapper<Property> {
 
