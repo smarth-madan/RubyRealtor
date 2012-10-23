@@ -38,7 +38,7 @@ private static CustomerHelper customerHelper;
 	@RequestMapping(value="/contactUs", method=RequestMethod.POST)
 	public ModelAndView contactUsPage(String message) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("facebook/contactUs");
+		mv.setViewName("/facebook/ContactUs");
 		return mv;
 	}
 
