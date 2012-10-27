@@ -84,7 +84,7 @@ public class CustomerHelper {
 		parameters.put("lName", c.getlName());
 		parameters.put("street", c.getStreet());
 		parameters.put("city", c.getCity());
-		parameters.put("State", c.getCity());
+		parameters.put("State", c.getState());
 		parameters.put("zipcode", c.getZipcode());
 		parameters.put("marital_status", c.getMartial_status());
 		parameters.put("salary_min_val", c.getSalary_min_val());
@@ -110,6 +110,7 @@ public class CustomerHelper {
 	public int addFBCustomerReq(FBCustomer c, int c_id) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("number_of_persons", c.getNumber_of_persons());
+		System.out.println("Inside Add FB CSTMR REQ");
 		String number_of_bedrooms = "";
 		String number_of_baths = "";
 		
@@ -132,12 +133,14 @@ public class CustomerHelper {
 			number_of_baths = "1";
 		}
 		
-		
+		parameters.put("number_of_persons", c.getNumber_of_persons());
+		parameters.put("house_description", c.getHomeDescription());
 		parameters.put("number_of_bedrooms", number_of_bedrooms);
 		parameters.put("C_ID", c_id);
 		parameters.put("number_of_baths", number_of_baths);
-		parameters.put("city", c.getCity());
-		parameters.put("state", c.getState());
+		parameters.put("city", c.getHouse_city());
+		System.out.println("state ===" +c.getHouse_state());
+		parameters.put("state", c.getHouse_state());
 		parameters.put("zipcode", c.getZipcode());
 		List<String> rangeList = getRange(c);
 		parameters.put("range_low", rangeList.get(0));

@@ -45,33 +45,24 @@ private static CustomerHelper customerHelper;
 	@RequestMapping(value="/registerFromFB", method=RequestMethod.POST)
 	public ModelAndView registerFromFB(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("input") FBCustomer inputModel) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("city="+inputModel.getCity());
-		System.out.println("state="+inputModel.getState());
-		System.out.println("street="+inputModel.getStreet());
-		System.out.println("zipcode="+inputModel.getZipcode());
-		System.out.println("fname="+inputModel.getfName());
-		System.out.println("lname="+inputModel.getlName());
-		System.out.println("email ID="+inputModel.getEmail_ID());
-		System.out.println("p no="+inputModel.getPhone_number());
-		System.out.println("mar status"+inputModel.getMartial_status());
-		System.out.println("min="+inputModel.getSalary_min_val());
-		System.out.println("max="+inputModel.getSalary_max_val());
-		System.out.println("aptmnt="+inputModel.getAppointment());
-		System.out.println("type="+inputModel.getType_house());
-		System.out.println("type="+inputModel.getType_apartment());
-		System.out.println("type="+inputModel.getType_studio());
-		System.out.println("range="+inputModel.getRange_gt_400k());
-		System.out.println("range="+inputModel.getRange_100k_400k());
-		System.out.println("range="+inputModel.getRange_lt_100k());
+		
+		System.out.println("numberofPersons="+inputModel.getNumber_of_persons());
+		
 		inputModel.setR_ID(String.valueOf((sessionRealtor.getRealtorId())));
 		inputModel.setR_ID("1");
 		inputModel.setCustomer_priority("1");
 		int newCustomerId = customerHelper.addFBCustomer(inputModel);
 		if(newCustomerId >=0 ){
 			System.out.println("newCustomerId=="+newCustomerId);
-			customerHelper.addFBCustomerReq(inputModel, newCustomerId);
+			int result = customerHelper.addFBCustomerReq(inputModel, newCustomerId);
+			if(result!=-1){
 			mv.addObject("result", "Thank you. Your profile has been created, the Real estate Agent will be in touch with you soon");
 			mv.setViewName("realtor/result");
+			}
+			else{
+				mv.setViewName("realtor/result");
+				mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
+			}
 		}
 		else{
 			mv.setViewName("realtor/result");

@@ -61,7 +61,7 @@
 			</tr>
 			<tr>
 				<td><b><font size="2">Salary Range:</font></b></td>
-				<td><font size="2">Min: <input type="text" name="salary_min_val"/> Max: <input type="text"  name="salary_max_val"/></font></td>
+				<td><font size="2">Min: <input type="text" name="salary_min_val"/><br /> Max: <input type="text"  name="salary_max_val"/></font></td>
 			</tr>
 			<tr>
 				<td><b><font size="2">Appointment </font></b></td>
@@ -79,14 +79,19 @@
 	  				<span class="descriptions">pick a date..</span>
 	  			</td>
 			</tr>
-			
+			<tr>
+				<td><b><font size="2">Describe Your dream home in 2 lines: </font></b></td>
+				<td>
+	  				<textarea  name="homeDescription" cols="40" rows="4"></textarea>
+	  			</td>
+			</tr>
 		</table>
 		</td>
 		<td valign="top">
 			<table>
 				<tr><td><b><font size="2">Help us know you more</font></b></td></tr>
 				<tr><td><b><i><font size="2">Type of House:</font></b></i></td></tr>
-				<tr><td><select id="house_type" name="martial_status"
+				<!-- <tr><td><select id="house_type" name="martial_status"
 					data-inline="true">
 						<option value="any">Any</option>
 						<option value="singleFH">Single Family Home</option>
@@ -95,10 +100,30 @@
 						<option value="co_op">CO OP</option>
 						<option value="apartment">Apt/Condo/Townhome</option>
 						<option value="UNKNOWN"{selected} >Unspecified</option>
-				</select></td></tr>
+				</select></td></tr> -->
 				<tr><td><font size="2"> <input type="checkbox" name="type_house" value="yes"  /> House </font></td></tr>
 				<tr><td><font size="2"> <input type="checkbox" name="type_apartment" value="yes"  />  Apartment </font></td></tr>
 				<tr><td><font size="2"> <input type="checkbox" name="type_studio" value="yes"  />  Studio </font></td></tr>
+				<tr><td><b><font size="2"><i>No of Persons:</i></font></b> 
+				
+				<select id="numberOfPersons" name="numberOfPersons"
+					data-inline="true">
+						<option value="any">Any</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="9">10</option>
+						<option value="UNKNOWN"{selected} >Unspecified</option>
+				</select>
+				
+				</td></tr>
+				
 				<tr><td><b><font size="2"><i>No of Bedrooms:</i></font></b></td></tr>
 				<tr><td><font size="2"><input type="checkbox" name="bedRoomNumber1" value="yes"  />  1  <input type="checkbox" name="bedRoomNumber2" value="yes"  />  2 <input type="checkbox" name="bedRoomNumber3" value="yes"  />  3 </font></td></tr>
 				<tr><td><b><font size="2"><i>No of Baths:</i></font></b></td></tr>
@@ -113,9 +138,7 @@
 				<tr><td><font size="2"> <input type="checkbox" name="range_100k_400k" value="yes"  /> $100,000 - $400,000 </font></td></tr>
 				<tr><td><font size="2"> <input type="checkbox" name="range_gt_400k" value="yes"  />  $400,000 and above</font></td></tr>
 				<tr><td><font size="2"> <input type="checkbox" name="range_any" value="yes"  />  Any </font></td></tr>
-				<tr><td><font size="2"><b><i>Personal Preferences </i></b></font></td></tr>
-				<tr><td><font size="2"><input type="checkbox" name="location" value="downtown"  /> Downtown </font></td></tr>
-				<tr><td><font size="2"> <input type="checkbox" name="location" value="susburb"  /> suburbs </font></td></tr>
+				
 			</table>
 		</td>
 		</tr>

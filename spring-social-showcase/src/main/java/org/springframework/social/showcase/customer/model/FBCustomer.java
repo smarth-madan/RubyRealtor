@@ -14,9 +14,17 @@ public class FBCustomer {
 	String state;	
 	String zipcode;
 	String martial_status;
-	int salary_min_val;
-	int salary_max_val;
+	String salary_min_val;
+	String salary_max_val;
 	String email_ID;
+	public String getNumberOfPersons() {
+		return numberOfPersons;
+	}
+
+	public void setNumberOfPersons(String numberOfPersons) {
+		this.numberOfPersons = numberOfPersons;
+	}
+
 	String phone_number;
 	String R_ID;
 	String CR_ID;
@@ -26,6 +34,32 @@ public class FBCustomer {
 	String type_apartment;
 	String type_studio;	
 	String type_any;
+	String bedRoomNumber1;
+	String bedRoomNumber2;
+	String bedRoomNumber3;
+	String numberOfPersons;
+	String bathNumber1;
+	String bathNumber2;
+	String bathNumber3;
+	String house_city;
+	String house_state;
+	String location_downtown;
+	String location_suburb;
+	String range_lt_100k;
+	String range_100k_400k;
+	String range_gt_400k;
+	String range_any;
+	String homeDescription;
+	
+	
+	public String getHomeDescription() {
+		return homeDescription;
+	}
+
+	public void setHomeDescription(String homeDescription) {
+		this.homeDescription = homeDescription;
+	}
+
 	public String getType_any() {
 		return type_any;
 	}
@@ -43,20 +77,7 @@ public class FBCustomer {
 		this.number_of_persons = number_of_persons;
 	}
 
-	String bedRoomNumber1;
-	String bedRoomNumber2;
-	String bedRoomNumber3;
-	String bathNumber1;
-	String bathNumber2;
-	String bathNumber3;
-	String house_city;
-	String house_state;
-	String location_downtown;
-	String location_suburb;
-	String range_lt_100k;
-	String range_100k_400k;
-	String range_gt_400k;
-	String range_any;
+
 	//Timestamp time;
 	
 	public String getRange_any() {
@@ -313,19 +334,19 @@ public class FBCustomer {
 		return CR_ID;
 	}
 
-	public int getSalary_min_val() {
+	public String getSalary_min_val() {
 		return salary_min_val;
 	}
 
-	public void setSalary_min_val(int salary_min_val) {
+	public void setSalary_min_val(String salary_min_val) {
 		this.salary_min_val = salary_min_val;
 	}
 
-	public int getSalary_max_val() {
+	public String getSalary_max_val() {
 		return salary_max_val;
 	}
 
-	public void setSalary_max_val(int salary_max_val) {
+	public void setSalary_max_val(String salary_max_val) {
 		this.salary_max_val = salary_max_val;
 	}
 
