@@ -1,2 +1,9 @@
 spring-social-showcase/target/*
 spring-social-showcase/target/**/*
+**/target
+**/.classpath
+**/.project
+**/.settings
+**/.springBeans
+**/bin
+.DS_Store
