@@ -19,8 +19,7 @@
 	<colgroup span="2" title="title" />
 	<thead>
 		<tr>
-			<th scope="col">First Name</th>
-			<th scope="col">Last Name</th>
+			<th scope="col">Name</th>
 			<th scope="col">Street</th>
 			<th scope="col">City</th>
 			<th scope="col">State</th>
@@ -36,8 +35,7 @@
 	<tbody>
 		<c:forEach items="${customers}" var="customer">
 		<tr>
-			<td><c:out value="${customer.fName}"/></td>
-			<td><c:out value="${customer.lName}"/></td>
+			<td><c:out value="${customer.name}"/></td>
 			<td><c:out value="${customer.street}"/></td>
 			<td><c:out value="${customer.city}"/></td>
 			<td><c:out value="${customer.state}"/></td>	

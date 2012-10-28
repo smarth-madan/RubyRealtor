@@ -51,8 +51,7 @@ public class CustomerHelper {
 	
 	public int addCustomer(Customer c) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("fName", c.getfName());
-		parameters.put("lName", c.getlName());
+		parameters.put("name", c.getName());
 		parameters.put("street", c.getStreet());
 		parameters.put("city", c.getCity());
 		parameters.put("State", c.getCity());
@@ -80,8 +79,7 @@ public class CustomerHelper {
 	
 	public int addFBCustomer(FBCustomer c) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("fName", c.getfName());
-		parameters.put("lName", c.getlName());
+		parameters.put("name", c.getName());
 		parameters.put("street", c.getStreet());
 		parameters.put("city", c.getCity());
 		parameters.put("State", c.getState());
@@ -247,19 +245,17 @@ public class CustomerHelper {
 	    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
 	        Customer customer = new Customer();
 	        customer.setC_id(rs.getString("C_ID"));
-	        customer.setfName(rs.getString("fName"));
-	        customer.setlName(rs.getString("lName"));
+	        customer.setName(rs.getString("name"));
 	        customer.setStreet(rs.getString("street"));
 	        customer.setCity(rs.getString("city"));
 	        customer.setState(rs.getString("State"));
 	        customer.setZipcode(rs.getString("zipcode"));
 	        customer.setMartial_status(rs.getString("marital_status"));
-	        customer.setSalary_min_val(rs.getInt("salary_min_val"));
-	        customer.setSalary_max_val(rs.getInt("salary_max_val"));
+	        customer.setSalary_min_val(rs.getString("salary_min_val"));
+	        customer.setSalary_max_val(rs.getString("salary_max_val"));
 	        customer.setEmail_ID(rs.getString("email_ID"));
 	        customer.setPhone_number(rs.getString("phone_number"));
 	        customer.setR_ID(rs.getString("R_ID"));
-	        customer.setCR_ID(rs.getString("CR_ID"));
 	        return customer;
 	    }        
 	}
@@ -284,8 +280,7 @@ public class CustomerHelper {
 	public Boolean editCustomer(Customer customer) {		
 		try{
 	    	int i= this.jdbctemplate.update("update customer set " +
-	    									"fName=?," +
-	    									"lName=?," +
+	    									"name=?," +
 	    									"street=?," +
 	    									"city=?," +
 	    									"state=?," +
@@ -296,8 +291,7 @@ public class CustomerHelper {
 	    									"email_ID=?," +
 	    									"phone_number=?" +
 	    									" where c_id = ?", 
-	    									customer.getfName(),
-	    									customer.getlName(),
+	    									customer.getName(),
 	    									customer.getStreet(),
 	    									customer.getCity(),
 	    									customer.getState(),

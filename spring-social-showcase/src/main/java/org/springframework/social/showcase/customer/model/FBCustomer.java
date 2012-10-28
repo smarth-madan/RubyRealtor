@@ -7,8 +7,7 @@ public class FBCustomer {
 	private static final long serialVersionUID = 1L;
 
 	String c_id;	
-	String fName;	
-	String lName;	
+	String name;		
 	String street;	
 	String city;	
 	String state;	
@@ -250,20 +249,12 @@ public class FBCustomer {
 		this.c_id = c_id;
 	}
 
-	public String getfName() {
-		return fName;
+	public String getName() {
+		return name;
 	}
 
-	public void setfName(String fName) {
-		this.fName = fName;
-	}
-
-	public String getlName() {
-		return lName;
-	}
-
-	public void setlName(String lName) {
-		this.lName = lName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getStreet() {

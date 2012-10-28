@@ -15,12 +15,8 @@
 	<tr><td valign="top">
 		<table>
 			<tr>
-				<td><b><font size="2">*First Name: </font></b></td>
-				<td><input type="text" name="fName" /></td>
-			</tr>
-			<tr>
-				<td><b><font size="2">*Last Name: </font></b></td>
-				<td><input type="text" name="lName" /></td>
+				<td><b><font size="2">*Name: </font></b></td>
+				<td><input type="text" name="name" /></td>
 			</tr>
 			<tr>
 				<td><b><font size="2">*Email-Id: </font></b></td>
