@@ -47,7 +47,7 @@
 	<a href="<c:url value="/twitter/friends"/>">Friends</a>
 	<a href="<c:url value="/twitter/followers"/>">Followers</a>
 	<a href="<c:url value="/twitter/messages"/>">Messages</a>
-	<a href="<c:url value="/twitter/trends/daily"/>">Daily Trends</a>
+	<a href="<c:url value="/twitter/trends"/>"> Trends</a>
 </social:connected>
 </div>
 
