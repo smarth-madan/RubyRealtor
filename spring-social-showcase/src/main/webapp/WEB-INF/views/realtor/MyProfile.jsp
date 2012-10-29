@@ -5,11 +5,10 @@
 
 <h3>My Profile</h3>
 <hr />
-<div>
 <form method="post" action="/myProfile/update">
-<table border="0" align="center">
-	<tr >
-		<td align="center"><h3> Personal Info </h3></td><td align="right" ><h4><a href="<c:url value="/myprofile/edit"/>">Edit</a></h4></td>
+<table  style="width:50%;" align="left" class="formatHTML5" >
+	<tr style="background-color:grey;">
+		<th align="left"><h3> Personal Info </h3></th><td align="right" ><h4><a href="<c:url value="/myprofile/edit"/>" style="">Edit</a></h4></td>
 	</tr></td>
 	</tr>
 	<tr>
@@ -78,4 +77,4 @@
 
 </table>
 </form>
-</div>
+

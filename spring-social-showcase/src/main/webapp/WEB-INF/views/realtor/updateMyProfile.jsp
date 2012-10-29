@@ -3,13 +3,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ page session="true" %>
 
-<h3>My Profile</h3>
+<h3>Edit My Profile</h3>
 <hr />
-<div>
 <form method="post" action="update">
-<table border="0" align="center">
-	<tr >
-		<td align="center"><h3> Personal Info </h3></td><!-- <td><h3>Facebook/Twitter Registeration</h3> --></td>
+<table style="width:50%;align:left"  class="formatHTML5">
+	<tr align="left" style="background-color:grey;">
+		<td ><h3>Edit Personal Info </h3></td><td></td>
+	</tr>
+	<tr>
+		<td><b>Realtor ID:</b></td>
+		<td><input name="realtorId" type="text" size="30" disabled value="<c:out value="${myProfile.realtorId}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>First Name:</b></td>
@@ -34,10 +37,6 @@
 	<tr>
 		<td><b>Zipcode:</b></td>
 		<td><input name="zipcode" type="text" size="30" value="<c:out value="${myProfile.zipcode}"/>" /></td>
-	</tr>
-	<tr>
-		<td><b>Realtor ID:</b></td>
-		<td><input name="realtorId" type="text" size="30" value="<c:out value="${myProfile.realtorId}"/>" /></td>
 	</tr>
 	<tr>
 		<td><b>Phone Number:</b></td>
@@ -80,4 +79,4 @@
 
 </table>
 </form>
-</div>
+
