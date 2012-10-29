@@ -13,6 +13,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
+import org.springframework.social.MissingAuthorizationException;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.showcase.mlsListing.helper.MlsListingHelper;
 import org.springframework.social.showcase.mlsListing.model.Property;
@@ -44,6 +45,7 @@ public class FacebookPostPropertyController {
 		List<Property> propertyList = mlsListingHelper.getIndividualPropertyDetails(mlsId);
 
 		ModelAndView mv = new ModelAndView();
+		System.out.println("Image name ="+propertyList.get(0).getImageName());
 		if(propertyList!=null)
 		{
 			mv.addObject("propertyList", propertyList);
@@ -74,18 +76,38 @@ public class FacebookPostPropertyController {
 		String parking = request.getParameter("parking");
 		String bed_bath = request.getParameter("bed_bath");
 		String garage = request.getParameter("garage");
+		String imageName = request.getParameter("imageName");
+		System.out.println("image path= "+imagePath);
 		
-		String caption = description + "Size: " +size +"Address: "+ street +", "+city +", "+state +"-"+zipcode +", Price:"+price+", House type:"+type+", Bed/Bath"+bed_bath+", Parking:"+parking+", Garage:"+garage;
+		String caption = description + ", SIZE: " +size +" ADDRESS: "+ street +", "+city +", "+state +"-"+zipcode +", PRICE: "+price+", HOUSE TYPE:"+type+", BED/BATH:"+bed_bath+", PARKING:"+parking+", GARAGE:"+garage;
+		System.out.println("Caption=="+caption);
 		this.pageId = properties.getProperty("awesomeRealtor.pageId");
-		this.albumId = properties.getProperty("awesomeRealtor.pageId");
-		
-		Resource resource = new FileSystemResource(imagePath);
-		facebook.pageOperations().postPhoto(pageId, albumId, resource, caption);
-		System.out.println(mlsId);
-		
+		this.albumId = properties.getProperty("awesomeRealtor.albumId");
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("realtor/PostPropertyToFB");
+		System.out.println("imageName="+imageName);
+		try{
+		imagePath = "C:\\Ruby-Realtor\\bkup\\images\\"+imageName;
+		//Resource resource = new ClassPathResource("resources\\images\\property1.gif");
+		Resource resource = new FileSystemResource(imagePath);
+		facebook.pageOperations().postPhoto(pageId, albumId, resource, caption);
+		}
+		catch(MissingAuthorizationException e){
+			e.printStackTrace();
+			mv.addObject("result", "Please Login into Facebook first from Manage FB/Twitter connections TAB.");
+			mv.setViewName("realtor/result");
+			return mv;
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			mv.addObject("result", "Error uploading Photo.Try again and if problem persists please contact Website Admin.");
+			mv.setViewName("realtor/result");
+			return mv;
+		}
+			
+		
+		mv.addObject("result", "The photo has been Uploaded to your Facebook page.");
+		mv.setViewName("realtor/result");
 		return mv;
 	}
 

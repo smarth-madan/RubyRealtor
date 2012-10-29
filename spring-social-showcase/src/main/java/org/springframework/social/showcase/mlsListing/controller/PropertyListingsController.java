@@ -33,7 +33,7 @@ public class PropertyListingsController {
 		List<Property> propertyList = mlsListingHelper.getPropertyDetails();
 		
 		ModelAndView mv = new ModelAndView();
-		System.out.println("Image="+propertyList.get(0).getImage());
+		System.out.println("Image="+propertyList.get(0).getImageName());
 		if(propertyList!=null)
 		{
 			mv.addObject("propertyList", propertyList);

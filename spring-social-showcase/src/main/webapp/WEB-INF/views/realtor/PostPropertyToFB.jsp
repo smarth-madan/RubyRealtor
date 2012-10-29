@@ -48,7 +48,10 @@
 					</tr>
 					<tr>
 						<td><b>Garage</b></td>
-						<td><input type="text" name="garage" value="${property.garage}"></td>
+						<td>
+							<input type="text" name="garage" value="${property.garage}">
+							<input type="hidden" name="imageName" value="${property.imageName}">
+						</td>
 					</tr>
 					<tr>
 						<td><b>Description</b></td>

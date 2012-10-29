@@ -70,6 +70,7 @@ public class MlsListingHelper {
 	    public Property mapRow(ResultSet rs, int rowNum) throws SQLException {
 	    	Property property = new Property();
 	    	property.setImage(BASE_URL+"/"+rs.getString("image"));
+	    	property.setImageName(rs.getString("image"));
 	        property.setStreet(rs.getString("street"));
 	        property.setCity(rs.getString("city"));
 	        property.setState(rs.getString("state"));

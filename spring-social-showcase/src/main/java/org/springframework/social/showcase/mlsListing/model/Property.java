@@ -7,7 +7,7 @@ public class Property {
 	private String city;
 	private String state;
 	private String zipcode;
-	//private String rating;
+	private String imageName;
 	private String image;
 	private String bed_bath;
 	private String size;
@@ -17,6 +17,13 @@ public class Property {
 	private String garage;
 	private String tags;
 	private String description;
+	
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
 	
 	public String getBed_bath() {
 		return bed_bath;
