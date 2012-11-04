@@ -7,8 +7,8 @@
 		<title>Social Realtor</title>
 		<script type="text/javascript" src="<c:url value="/resources/dropdowntabs.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
-
-	
+		<script type="text/javascript" src="<c:url value="/resources/js/FusionCharts.js" />"></script>
+			
 
 		<!-- CSS for Drop Down Tabs Menu #3 -->
 		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/ddcolortabs.css" />"  />

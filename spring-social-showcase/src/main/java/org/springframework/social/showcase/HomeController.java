@@ -19,9 +19,12 @@ import java.security.Principal;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
+import javax.sql.DataSource;
 
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.showcase.account.AccountRepository;
+import org.springframework.social.showcase.customer.controller.CustomerHelper;
+import org.springframework.social.showcase.mlsListing.helper.MlsListingHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,21 +35,32 @@ public class HomeController {
 	private final Provider<ConnectionRepository> connectionRepositoryProvider;
 	
 	private final AccountRepository accountRepository;
+	private DataSource mysqldataSource;
+	private static MlsListingHelper mlsListingHelper;
+	private static CustomerHelper customerHelper;
+	
 
 	@Inject
-	public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository) {
+	public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository,DataSource mysqldataSource) {
+		this.mysqldataSource = mysqldataSource;
+		mlsListingHelper = new MlsListingHelper(mysqldataSource);
 		this.connectionRepositoryProvider = connectionRepositoryProvider;
 		this.accountRepository = accountRepository;
+		customerHelper = new CustomerHelper(mysqldataSource);
 	}
 
 	@RequestMapping("/")
 	public String home(Principal currentUser, Model model) {
 		model.addAttribute("connectionsToProviders", getConnectionRepository().findAllConnections());
 		model.addAttribute(accountRepository.findAccountByUsername(currentUser.getName()));
+		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers());
+		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
+		
 		return "home";
 	}
 	
 	private ConnectionRepository getConnectionRepository() {
 		return connectionRepositoryProvider.get();
 	}
+	
 }

@@ -8,7 +8,9 @@ public class Customer {
 
 	String c_id;
 	
-	String name;
+	String fname;
+	
+	String lname;
 	
 	String street;
 	
@@ -71,14 +73,23 @@ public class Customer {
 		this.c_id = c_id;
 	}
 
-	public String getName() {
-		return name;
+
+	public String getFname() {
+		return fname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
-	
+
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
 	public String getStreet() {
 		return street;
 	}

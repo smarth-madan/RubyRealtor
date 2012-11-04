@@ -13,7 +13,7 @@
 <li><a href="<c:url value="/connect"/>"><span>Manage FB/Twitter Connections</span></a></li>
 <li><a href="#"  title="Dropdown options available only when connected" rel="dropmenu1_c"><span>Facebook</span></a></li>
 <li><a href="#"  title="Dropdown options available only when connected" rel="dropmenu2_c"><span>Twitter</span></a></li>
-<li><a href="http://tools.dynamicdrive.com" title="Analytics"><span>Analytics</span></a></li>
+<li><a href="<c:url value="/analytics"/>" title="Analytics"><span>Analytics</span></a></li>
 <li><a href="http://tools.dynamicdrive.com" title="Matching"><span>Matching</span></a></li>
 <li><a href="http://tools.dynamicdrive.com" title="News"><span>News</span></a></li>
 	

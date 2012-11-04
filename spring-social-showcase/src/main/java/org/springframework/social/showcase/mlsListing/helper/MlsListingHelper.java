@@ -51,6 +51,20 @@ public class MlsListingHelper {
 		
 	}
 	
+	public List<Property> getTop5PropertyDetails() {
+	    try{	
+	    		System.out.println("Inside Realtor details ");
+	    	 	//return this.jdbctemplate.query("select * from Realtor where emailId = "+emailId, new RealtorMapper());
+	    	 	return this.jdbctemplate.query("select * from mls_listings LIMIT 5", new PropertyMapper());
+	    	 	
+	    }catch(DataAccessException de){
+	    	de.printStackTrace();
+	    	System.out.println("ERROR :" +  de.getMessage());
+	    	return null;
+	    }
+		
+	}
+	
 	public List<Property> getIndividualPropertyDetails(String mlsId) {
 	    try{	
 	    		System.out.println("Inside Realtor details");

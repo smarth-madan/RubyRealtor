@@ -3,33 +3,52 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ page session="false" %>
 
-<p>Welcome, <c:out value="${account.firstName}"/>!</p>
+<p><h1>Welcome, <c:out value="${account.firstName}"/>!</h1></p>
 
-<table width="100%" border ="0"><tr><td>
-<table border ="0" width="100%">
-	<tr><td>
-		<table style="float:left">
-			<tr ><td><b> News: </b></td></tr>
-			<tr ><td><hr /></td></tr>
-			<tr><td> Breaking news: Latest news on Real estate, Market going Down!!!</td></tr>
+
+<table width="100%">
+	<tr ><td>
+		<b> Your top 5 Customers : </b><hr />
+		<table style="float:left" class="formatHTML5" >
+			<tr style="background-color:grey"><td>C ID</td><td>Name</td><td>Email ID</td></tr>
+			<c:forEach items="${top5CustomersList}" var="customer">
+			<tr >
+				<td style="font-size: 11"><c:out value="${customer.c_id}" /></td>
+				<td style="font-size: 11"><c:out value="${customer.fname}" /> <c:out value="${customer.lname}" /></td>
+				<td style="font-size: 11"><c:out value="${customer.email_ID}" /></td>
+			</tr>
+			</c:forEach>
+		</table>
+		<br />
+		<br />
+		<b>Latest 5 MLS Listings: </b><hr />
+		<table style="float:left" class="formatHTML5" >
+			<tr style="background-color:grey"><td>MLS ID</td><td>Address</td><td>Price</td></tr>
+			<c:forEach items="${top5MlsListingsList}" var="property">
+			<tr >
+				<td style="font-size: 11"><c:out value="${property.MLS_ID}" /></td>
+				<td style="font-size: 11"><c:out value="${property.street}" /> <c:out value="${property.city}" /> <c:out value="${property.state}" /> <c:out value="${property.zipcode}" /></td>
+				<td style="font-size: 11"><c:out value="${property.price}" /></td>
+			</tr>
+			</c:forEach>
 		</table>
 	 </td>
-	 <td>
-	 	<table>
+	 <td align="center">
+	 	<table >
 			<tr><td><b> Analysis: <hr /> </b></td></tr>
-			<tr><td> Graphs coming up ... !!</td></tr>
+			<tr><td> <div id="chartContainer">FusionCharts XT will load here!</div><center><a href="<c:url value="/analytics"/>" > Click here for More Analytics..</a></center></td></tr>
 		</table>
 	 </td>
 	 </tr>
-	 <tr><td>
-		<table style="float:left">
+	 <tr><td >	 
+	     <table style="float:left">
 			<tr ><td><b> Customers: <hr /></b></td></tr>
 			<tr><td> <a href="<c:url value="/customers" />">List Customers</a></td></tr>
 			<tr><td> <a href="<c:url value="/customer" />">View Customers</a></td></tr>
 			<tr><td> <a href="<c:url value="/customer/add" />">Add Customers</a></td></tr>
 			<tr><td> <a href="<c:url value="/customer/edit" />">Edit Customers</a></td></tr>
 			<tr><td> <a href="<c:url value="/contactUs" />">Contact Us</a></td></tr>
-		</table>
+		</table> 
 	 </td>
 	 <td>
 	 	<table>
@@ -39,11 +58,12 @@
 	 </td>
 	 </tr>
 </table>
-<br />
 
-
-</td></tr></table>
-<br />
-
+ <script type="text/javascript"><!--         
+      var myChart = new FusionCharts( "<c:url value="/resources/js/Column3D.swf" />", 
+      "myChartId", "400", "300", "0", "1" );
+      myChart.setXMLUrl("<c:url value="/resources/js/Data.xml" />");
+      myChart.render("chartContainer");
+ </script>
 
 

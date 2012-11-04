@@ -49,9 +49,21 @@ public class CustomerHelper {
 		
 	}
 	
+	public List<Customer> findTop5Customers() {
+	    try{
+	    	return this.jdbctemplate.query( "select * from Customer where customer_priority='1' LIMIT 5", new CustomerMapper());
+	    }catch(DataAccessException de){
+	    	de.printStackTrace();
+	    	System.out.println("ERROR :" +  de.getMessage());
+	    	return null;
+	    }
+		
+	}
+	
 	public int addCustomer(Customer c) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("name", c.getName());
+		parameters.put("fName", c.getFname());
+		parameters.put("lName", c.getLname());
 		parameters.put("street", c.getStreet());
 		parameters.put("city", c.getCity());
 		parameters.put("State", c.getCity());
@@ -245,7 +257,8 @@ public class CustomerHelper {
 	    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
 	        Customer customer = new Customer();
 	        customer.setC_id(rs.getString("C_ID"));
-	        customer.setName(rs.getString("name"));
+	        customer.setFname(rs.getString("fName"));
+	        customer.setLname(rs.getString("lName"));
 	        customer.setStreet(rs.getString("street"));
 	        customer.setCity(rs.getString("city"));
 	        customer.setState(rs.getString("State"));
@@ -280,7 +293,8 @@ public class CustomerHelper {
 	public Boolean editCustomer(Customer customer) {		
 		try{
 	    	int i= this.jdbctemplate.update("update customer set " +
-	    									"name=?," +
+	    									"fName=?," +
+	    									"lName=?," +
 	    									"street=?," +
 	    									"city=?," +
 	    									"state=?," +
@@ -291,7 +305,8 @@ public class CustomerHelper {
 	    									"email_ID=?," +
 	    									"phone_number=?" +
 	    									" where c_id = ?", 
-	    									customer.getName(),
+	    									customer.getFname(),
+	    									customer.getLname(),
 	    									customer.getStreet(),
 	    									customer.getCity(),
 	    									customer.getState(),
