@@ -1,0 +1,5 @@
+LOAD DATA LOCAL INFILE '~/Documents/zipcodes.csv'
+INTO TABLE zip_codes
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r';
