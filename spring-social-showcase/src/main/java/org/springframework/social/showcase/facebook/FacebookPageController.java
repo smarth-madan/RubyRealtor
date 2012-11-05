@@ -13,7 +13,7 @@ import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.FacebookLink;
 import org.springframework.social.facebook.api.Page;
 import org.springframework.social.showcase.SessionRealtor;
-import org.springframework.social.showcase.customer.controller.CustomerHelper;
+import org.springframework.social.showcase.customer.helper.CustomerHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;

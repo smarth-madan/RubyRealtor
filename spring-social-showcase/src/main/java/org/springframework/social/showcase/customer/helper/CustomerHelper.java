@@ -1,4 +1,4 @@
-package org.springframework.social.showcase.customer.controller;
+package org.springframework.social.showcase.customer.helper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +40,7 @@ public class CustomerHelper {
 	
 	public List<Customer> findAllCustomers() {
 	    try{
-	    	return this.jdbctemplate.query( "select * from Customer", new CustomerMapper());
+	    	return this.jdbctemplate.query( "select * from customer", new CustomerMapper());
 	    }catch(DataAccessException de){
 	    	de.printStackTrace();
 	    	System.out.println("ERROR :" +  de.getMessage());
@@ -62,8 +62,7 @@ public class CustomerHelper {
 	
 	public int addCustomer(Customer c) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("fName", c.getFname());
-		parameters.put("lName", c.getLname());
+		parameters.put("name", c.getName());
 		parameters.put("street", c.getStreet());
 		parameters.put("city", c.getCity());
 		parameters.put("State", c.getCity());
@@ -237,7 +236,7 @@ public class CustomerHelper {
 		parameters.put("city", c.getCity());
 		parameters.put("state", c.getState());
 		parameters.put("zipcode", c.getZipcode());
-		parameters.put("range_amount", c.getRangeAmount());
+		//parameters.put("range_amount", c.getRangeAmount());
 		parameters.put("type", c.getType());
 		
 		try{
@@ -252,25 +251,15 @@ public class CustomerHelper {
 		}
 	}
 
-	private static final class CustomerMapper implements RowMapper<Customer> {
-
-	    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
-	        Customer customer = new Customer();
-	        customer.setC_id(rs.getString("C_ID"));
-	        customer.setFname(rs.getString("fName"));
-	        customer.setLname(rs.getString("lName"));
-	        customer.setStreet(rs.getString("street"));
-	        customer.setCity(rs.getString("city"));
-	        customer.setState(rs.getString("State"));
-	        customer.setZipcode(rs.getString("zipcode"));
-	        customer.setMartial_status(rs.getString("marital_status"));
-	        customer.setSalary_min_val(rs.getString("salary_min_val"));
-	        customer.setSalary_max_val(rs.getString("salary_max_val"));
-	        customer.setEmail_ID(rs.getString("email_ID"));
-	        customer.setPhone_number(rs.getString("phone_number"));
-	        customer.setR_ID(rs.getString("R_ID"));
-	        return customer;
-	    }        
+	public List<CRequirements> getCustomerReq(Customer c) {
+		
+		 try{
+		    	return this.jdbctemplate.query("select * from c_requirements where c_id =\"" +c.getC_id()+"\"", new CustomerReqMapper());
+		    }catch(DataAccessException de){
+		    	de.printStackTrace();
+		    	System.out.println("ERROR :" +  de.getMessage());
+		    	return null;
+		    }
 	}
 
 	public Boolean updateCustomer(int customerId, int newCustomerReqId) {		
@@ -293,8 +282,7 @@ public class CustomerHelper {
 	public Boolean editCustomer(Customer customer) {		
 		try{
 	    	int i= this.jdbctemplate.update("update customer set " +
-	    									"fName=?," +
-	    									"lName=?," +
+	    									"name=?," +
 	    									"street=?," +
 	    									"city=?," +
 	    									"state=?," +
@@ -305,8 +293,7 @@ public class CustomerHelper {
 	    									"email_ID=?," +
 	    									"phone_number=?" +
 	    									" where c_id = ?", 
-	    									customer.getFname(),
-	    									customer.getLname(),
+	    									customer.getName(),
 	    									customer.getStreet(),
 	    									customer.getCity(),
 	    									customer.getState(),
@@ -328,5 +315,48 @@ public class CustomerHelper {
 		    	System.out.println("ERROR :" +  de.getMessage());
 		    	return false;
 		 }
+	}
+	
+	private static final class CustomerMapper implements RowMapper<Customer> {
+
+	    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+	        Customer customer = new Customer();
+	        customer.setC_id(rs.getString("C_ID"));
+	        customer.setName(rs.getString("name"));
+	        customer.setStreet(rs.getString("street"));
+	        customer.setCity(rs.getString("city"));
+	        customer.setState(rs.getString("State"));
+	        customer.setZipcode(rs.getString("zipcode"));
+	        customer.setMartial_status(rs.getString("marital_status"));
+	        customer.setSalary_min_val(rs.getString("salary_min_val"));
+	        customer.setSalary_max_val(rs.getString("salary_max_val"));
+	        customer.setEmail_ID(rs.getString("email_ID"));
+	        customer.setPhone_number(rs.getString("phone_number"));
+	        customer.setR_ID(rs.getString("R_ID"));
+	        return customer;
+	    }        
+	}
+	
+	private static final class CustomerReqMapper implements RowMapper<CRequirements> {
+
+	    public CRequirements mapRow(ResultSet rs, int rowNum) throws SQLException {
+	    	CRequirements cRequirements = new CRequirements();
+	    	cRequirements.setCr_ID(rs.getString("CR_ID"));
+	    	cRequirements.setCity(rs.getString("city"));
+	    	cRequirements.setState(rs.getString("state"));
+	    	cRequirements.setZipcode(rs.getString("zipcode"));
+	    	cRequirements.setType(rs.getString("type"));
+	    	cRequirements.setNoOfBedrooms(Integer.parseInt(rs.getString("number_of_bedrooms")));
+	    	cRequirements.setNoOfPersons(Integer.parseInt(rs.getString("number_of_persons")));
+	    	cRequirements.setNumber_of_baths(rs.getString("number_of_baths"));
+	    	cRequirements.setLocation(rs.getString("location"));
+	    	cRequirements.setRange_low(rs.getString("range_low"));
+	    	cRequirements.setRange_high(rs.getString("range_high"));
+	    	cRequirements.setHouse_description(rs.getString("house_description"));
+	    	cRequirements.setC_id(rs.getString("C_ID"));
+	    	
+	    	
+	        return cRequirements;
+	    }        
 	}
 }

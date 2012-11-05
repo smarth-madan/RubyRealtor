@@ -14,7 +14,7 @@
 			<c:forEach items="${top5CustomersList}" var="customer">
 			<tr >
 				<td style="font-size: 11"><c:out value="${customer.c_id}" /></td>
-				<td style="font-size: 11"><c:out value="${customer.fname}" /> <c:out value="${customer.lname}" /></td>
+				<td style="font-size: 11"><c:out value="${customer.name}" /></td>
 				<td style="font-size: 11"><c:out value="${customer.email_ID}" /></td>
 			</tr>
 			</c:forEach>

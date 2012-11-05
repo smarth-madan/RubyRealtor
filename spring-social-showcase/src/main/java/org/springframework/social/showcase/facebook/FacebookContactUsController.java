@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.showcase.SessionRealtor;
-import org.springframework.social.showcase.customer.controller.CustomerHelper;
+import org.springframework.social.showcase.customer.helper.CustomerHelper;
 import org.springframework.social.showcase.customer.model.FBCustomer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

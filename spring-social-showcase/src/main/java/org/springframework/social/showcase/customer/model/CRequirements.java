@@ -7,9 +7,50 @@ public class CRequirements {
 	String city;
 	String state;
 	String zipcode;
-	String rangeAmount;
 	String type;
+	String c_id;
+	String number_of_baths;
+	String location;
+	String range_low;
+	String range_high;
+	String house_description;
 	
+	public String getC_id() {
+		return c_id;
+	}
+	public void setC_id(String c_id) {
+		this.c_id = c_id;
+	}
+	public String getNumber_of_baths() {
+		return number_of_baths;
+	}
+	public void setNumber_of_baths(String number_of_baths) {
+		this.number_of_baths = number_of_baths;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public String getRange_low() {
+		return range_low;
+	}
+	public void setRange_low(String range_low) {
+		this.range_low = range_low;
+	}
+	public String getRange_high() {
+		return range_high;
+	}
+	public void setRange_high(String range_high) {
+		this.range_high = range_high;
+	}
+	public String getHouse_description() {
+		return house_description;
+	}
+	public void setHouse_description(String house_description) {
+		this.house_description = house_description;
+	}
 	public String getCr_ID() {
 		return cr_ID;
 	}
@@ -45,12 +86,6 @@ public class CRequirements {
 	}
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
-	}
-	public String getRangeAmount() {
-		return rangeAmount;
-	}
-	public void setRangeAmount(String rangeAmount) {
-		this.rangeAmount = rangeAmount;
 	}
 	public String getType() {
 		return type;

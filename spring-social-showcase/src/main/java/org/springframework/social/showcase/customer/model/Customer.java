@@ -8,10 +8,8 @@ public class Customer {
 
 	String c_id;
 	
-	String fname;
-	
-	String lname;
-	
+	String name;
+
 	String street;
 	
 	String city;
@@ -71,23 +69,6 @@ public class Customer {
 
 	public void setC_id(String c_id) {
 		this.c_id = c_id;
-	}
-
-
-	public String getFname() {
-		return fname;
-	}
-
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
-		this.lname = lname;
 	}
 
 	public String getStreet() {
@@ -179,7 +160,13 @@ public class Customer {
 	}
 	
 	
-	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	
 }

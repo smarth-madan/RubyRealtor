@@ -20,11 +20,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.social.showcase.customer.model.CRequirements;
 import org.springframework.social.showcase.mlsListing.model.Property;
 
 public class SolrHelper {
 
-	private String url = "http://localhost:8983/solr";
+	private String url = "localhost:8983/solr";
 	private SolrServer server;
 	private DataSource mysqldataSource;
 	private JdbcTemplate jdbctemplate;
@@ -36,6 +37,11 @@ public class SolrHelper {
 		this.simpleJdbcTemplate = new SimpleJdbcTemplate(mysqldataSource);
 	}
 	
+	
+	public List<Property> searchListing(CRequirements creq){
+		
+		return null;
+	}
 	private void getServer(){
 		try {
 			  server = new CommonsHttpSolrServer(url);
@@ -114,6 +120,7 @@ public class SolrHelper {
 	        return rs.getString("name").toLowerCase();
 	    }        
 	}
+	
 	
 	
 	public static void main(String[] args) {

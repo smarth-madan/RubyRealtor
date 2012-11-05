@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.showcase.SessionRealtor;
+import org.springframework.social.showcase.customer.helper.CustomerHelper;
 import org.springframework.social.showcase.customer.model.CRequirements;
 import org.springframework.social.showcase.customer.model.Customer;
 import org.springframework.social.showcase.customer.model.FBCustomer;

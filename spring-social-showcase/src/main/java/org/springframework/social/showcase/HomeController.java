@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.showcase.account.AccountRepository;
-import org.springframework.social.showcase.customer.controller.CustomerHelper;
+import org.springframework.social.showcase.customer.helper.CustomerHelper;
 import org.springframework.social.showcase.mlsListing.helper.MlsListingHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
