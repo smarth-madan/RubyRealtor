@@ -51,7 +51,7 @@ public class CustomerHelper {
 	
 	public List<Customer> findTop5Customers() {
 	    try{
-	    	return this.jdbctemplate.query( "select * from Customer where customer_priority='1' LIMIT 5", new CustomerMapper());
+	    	return this.jdbctemplate.query( "select * from customer where customer_priority='1' LIMIT 5", new CustomerMapper());
 	    }catch(DataAccessException de){
 	    	de.printStackTrace();
 	    	System.out.println("ERROR :" +  de.getMessage());
