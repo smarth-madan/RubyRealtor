@@ -170,7 +170,7 @@ public class CustomerController {
 
 	
 	@RequestMapping(value="/emailPropertyList",  method=RequestMethod.POST)
-	public ModelAndView matchCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("propertyList")List<Property> propertyList, @ModelAttribute("input")Customer customer){
+	public ModelAndView emailCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("propertyList")List<Property> propertyList, @ModelAttribute("input")Customer customer){
 		
 		Customer eCustomer = customerHelper.getCustomer(customer.getC_id());
 		
