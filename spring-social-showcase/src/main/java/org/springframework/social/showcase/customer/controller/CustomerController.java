@@ -163,6 +163,7 @@ public class CustomerController {
 				
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("propertyList", propertyList);
+		mv.addObject("customerId", customer.getC_id());
 		mv.setViewName("customer/matchResult");
 		//mv.setViewName("realtor/PropertyList");
 		return mv;
@@ -170,9 +171,9 @@ public class CustomerController {
 
 	
 	@RequestMapping(value="/emailPropertyList",  method=RequestMethod.POST)
-	public ModelAndView emailCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("propertyList")List<Property> propertyList, @ModelAttribute("input")Customer customer){
+	public ModelAndView emailCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("propertyList")List<Property> propertyList, @ModelAttribute("customerId")String c_id){
 		
-		Customer eCustomer = customerHelper.getCustomer(customer.getC_id());
+		Customer eCustomer = customerHelper.getCustomer(c_id);
 		
 		//List<Property> propertyList = solrHelper.searchListing(cRequirements);
 				
