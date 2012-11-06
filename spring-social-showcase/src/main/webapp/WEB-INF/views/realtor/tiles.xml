@@ -21,9 +21,6 @@
 	<definition name="realtor/updateMyProfile" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/realtor/updateMyProfile.jsp" />
 	</definition>
-	<definition name="realtor/CustomerList" extends="page">
-		<put-attribute name="content" value="/WEB-INF/views/realtor/CustomerList.jsp" />
-	</definition>
 	<definition name="realtor/PropertyList" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/realtor/PropertyList.jsp" />
 	</definition>

@@ -3,6 +3,7 @@ package org.springframework.social.showcase.solr;
 import java.net.MalformedURLException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.CommonsHttpSolrServer;
 import org.apache.solr.client.solrj.impl.XMLResponseParser;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,7 +27,7 @@ import org.springframework.social.showcase.mlsListing.model.Property;
 
 public class SolrHelper {
 
-	private String url = "localhost:8983/solr";
+	private String url = "http://localhost:8983/solr";
 	private SolrServer server;
 	private DataSource mysqldataSource;
 	private JdbcTemplate jdbctemplate;
@@ -39,8 +41,8 @@ public class SolrHelper {
 	
 	
 	public List<Property> searchListing(CRequirements creq){
-		
-		return null;
+		List<Property> propertyList = search(creq.getHouse_description(),creq.getCity());
+		return propertyList;
 	}
 	private void getServer(){
 		try {
@@ -64,12 +66,13 @@ public class SolrHelper {
 		}
 	}
 	
-	public List<Property> search(String description){
+	public List<Property> search(String description, String city){
 		String[] words = description.split("[ .,\"]+");
 		for(int i=0;i<words.length;i++){
 			words[i]=words[i].toLowerCase();
 		}
 		
+		List<Property> propertyList = new ArrayList<Property>();
 		List<String> wordList = Arrays.asList(words);
 		List<String> tags = getTags();
 		
@@ -92,13 +95,31 @@ public class SolrHelper {
 		 try {
 			QueryResponse rsp = server.query( query );
 			SolrDocumentList docs = rsp.getResults();
+			for(SolrDocument doc : docs){
+				Property property = new Property();
+				property.setMLS_ID((String)doc.getFieldValue("MLS_ID"));
+				property.setBed_bath((String)doc.getFieldValue("bed_bath"));
+				property.setCity((String)doc.getFieldValue("city"));
+				property.setGarage((String)doc.getFieldValue("garage"));
+				property.setImage((String)doc.getFieldValue("image"));
+				property.setParking((String)doc.getFieldValue("parking"));
+				property.setPrice((String)doc.getFieldValue("price"));
+				//property.setPrice((String)doc.getFieldValue("price_c"));
+				property.setSize((String)doc.getFieldValue("size"));
+				property.setState((String)doc.getFieldValue("state"));
+				property.setStreet((String)doc.getFieldValue("street"));
+				property.setType((String)doc.getFieldValue("type"));
+				property.setZipcode((String)doc.getFieldValue("zipcode"));
+				property.setTags((String)doc.getFieldValue("tags"));				
+				propertyList.add(property);
+			}
 			
 		} catch (SolrServerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 
-		 return null;
+		 return propertyList;
 	}
 
 	
@@ -132,7 +153,7 @@ public class SolrHelper {
 				"realtor");
 		
 		SolrHelper s= new SolrHelper(factory);
-		s.search("This is a safe. What, do air you \"mean\".");
+		s.search("This is a safe. What, do air you \"mean\".", "San Jose");
 
 	}
 }

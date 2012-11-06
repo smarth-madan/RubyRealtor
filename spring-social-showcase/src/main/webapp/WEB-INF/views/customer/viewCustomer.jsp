@@ -30,6 +30,7 @@
 			<th scope="col">Email Id</th>
 			<th scope="col">Phone Number</th>
 			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -49,6 +50,12 @@
 				<form method="POST" action="<c:url value="/customer/edit" />" >
 				<input type="hidden" name="c_id" value="${customer.c_id}" />
 				<input type="submit" value="Edit" />
+				</form>
+			</td>
+			<td>
+				<form method="POST" action="<c:url value="/customer/match" />" >
+				<input type="hidden" name="c_id" value="${customer.c_id}" />
+				<input type="submit" value="Match Listings" />
 				</form>
 			</td>
 		</tr>

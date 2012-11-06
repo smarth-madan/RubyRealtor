@@ -19,5 +19,9 @@
 		<put-attribute name="content" value="/WEB-INF/views/customer/addCustomerRequirements.jsp" />
 	</definition>
 	
+	<definition name="customer/matchResult" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/customer/matchResult.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>

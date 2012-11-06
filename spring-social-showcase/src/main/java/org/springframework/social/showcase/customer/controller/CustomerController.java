@@ -13,6 +13,8 @@ import org.springframework.social.showcase.customer.helper.CustomerHelper;
 import org.springframework.social.showcase.customer.model.CRequirements;
 import org.springframework.social.showcase.customer.model.Customer;
 import org.springframework.social.showcase.customer.model.FBCustomer;
+import org.springframework.social.showcase.mlsListing.model.Property;
+import org.springframework.social.showcase.solr.SolrHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,12 +23,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-@SessionAttributes({"customerId","customers"})
+@SessionAttributes({"customerId","customers","propertyList"})
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
 
 	private static CustomerHelper customerHelper;
+	private static SolrHelper solrHelper;
 	
 	@Autowired
 	private SessionRealtor sessionRealtor;
@@ -34,6 +37,7 @@ public class CustomerController {
 	@Inject
 	public CustomerController(DataSource mysqldataSource) {
 		customerHelper = new CustomerHelper(mysqldataSource);
+		solrHelper = new SolrHelper(mysqldataSource);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -148,6 +152,35 @@ public class CustomerController {
 			mv.addObject("result", "Customer data updated Successfully.");
 		}
 		return mv;	
+	}
+	
+	@RequestMapping(value="/match",  method=RequestMethod.POST)
+	public ModelAndView matchCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("input")Customer customer){
+		
+		CRequirements cRequirements = customerHelper.getCustomerReq(customer).get(0);
+		
+		List<Property> propertyList = solrHelper.searchListing(cRequirements);
+				
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("propertyList", propertyList);
+		mv.setViewName("customer/matchResult");
+		//mv.setViewName("realtor/PropertyList");
+		return mv;
+	}
+
+	
+	@RequestMapping(value="/emailPropertyList",  method=RequestMethod.POST)
+	public ModelAndView matchCustomer(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("propertyList")List<Property> propertyList, @ModelAttribute("input")Customer customer){
+		
+		Customer eCustomer = customerHelper.getCustomer(customer.getC_id());
+		
+		//List<Property> propertyList = solrHelper.searchListing(cRequirements);
+				
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("propertyList", propertyList);
+		//mv.setViewName("customer/matchResult");
+		mv.setViewName("realtor/PropertyList");
+		return mv;
 	}
 	
 	

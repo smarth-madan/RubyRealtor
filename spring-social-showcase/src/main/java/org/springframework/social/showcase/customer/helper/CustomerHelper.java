@@ -250,6 +250,18 @@ public class CustomerHelper {
 			return -1;
 		}
 	}
+	
+	public Customer getCustomer(String id) {
+		
+		 try{
+			 	Customer customer = this.jdbctemplate.query("select * from customer where c_id =\"" +id +"\"", new CustomerMapper()).get(0);
+		    	return customer;
+		    }catch(DataAccessException de){
+		    	de.printStackTrace();
+		    	System.out.println("ERROR :" +  de.getMessage());
+		    	return null;
+		    }
+	}
 
 	public List<CRequirements> getCustomerReq(Customer c) {
 		
