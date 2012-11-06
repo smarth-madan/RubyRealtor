@@ -23,6 +23,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.social.showcase.customer.model.CRequirements;
+import org.springframework.social.showcase.mlsListing.helper.MlsListingHelper;
 import org.springframework.social.showcase.mlsListing.model.Property;
 
 public class SolrHelper {
@@ -32,11 +33,13 @@ public class SolrHelper {
 	private DataSource mysqldataSource;
 	private JdbcTemplate jdbctemplate;
 	private SimpleJdbcTemplate simpleJdbcTemplate;
+	private MlsListingHelper mlsListingHelper;
 	
 	public SolrHelper(DataSource mysqldataSource) {
 		this.mysqldataSource = mysqldataSource;
 		this.jdbctemplate = new JdbcTemplate(mysqldataSource);
 		this.simpleJdbcTemplate = new SimpleJdbcTemplate(mysqldataSource);
+		this.mlsListingHelper = new MlsListingHelper(mysqldataSource);
 	}
 	
 	
@@ -74,7 +77,7 @@ public class SolrHelper {
 		
 		List<Property> propertyList = new ArrayList<Property>();
 		List<String> wordList = Arrays.asList(words);
-		List<String> tags = getTags();
+		List<String> tags = mlsListingHelper.getTags();
 		
 		tags.retainAll(wordList);
 		
@@ -120,26 +123,6 @@ public class SolrHelper {
 		}
 		 
 		 return propertyList;
-	}
-
-	
-	public List<String> getTags() {
-		List<String> tagList = null;
-	    try{
-	    		tagList = this.jdbctemplate.query( "select name from tags", new TagMapper());
-	    }catch(DataAccessException de){
-	    	de.printStackTrace();
-	    	System.out.println("ERROR :" +  de.getMessage());
-	    	return null;
-	    }	
-    	return tagList;
-	}
-	
-	private static final class TagMapper implements RowMapper<String> {
-
-	    public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-	        return rs.getString("name").toLowerCase();
-	    }        
 	}
 	
 	

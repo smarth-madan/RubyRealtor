@@ -12,7 +12,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.social.showcase.mlsListing.model.Property;
-import org.springframework.social.showcase.myProfile.model.MyProfile;
 
 import com.mysql.jdbc.Connection;
 
@@ -34,7 +33,24 @@ public class MlsListingHelper {
 				
 	}
 	
+	public List<String> getTags() {
+		List<String> tagList = null;
+	    try{
+	    		tagList = this.jdbctemplate.query( "select name from tags", new TagMapper());
+	    }catch(DataAccessException de){
+	    	de.printStackTrace();
+	    	System.out.println("ERROR :" +  de.getMessage());
+	    	return null;
+	    }	
+    	return tagList;
+	}
 	
+	private static final class TagMapper implements RowMapper<String> {
+
+	    public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+	        return rs.getString("name").toLowerCase();
+	    }        
+	}
 	
 	
 	public List<Property> getPropertyDetails() {
