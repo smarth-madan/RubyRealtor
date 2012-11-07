@@ -65,7 +65,12 @@ public class MainConfig {
 		DriverManagerDataSource factory = new DriverManagerDataSource("com.mysql.jdbc.Driver",
 																		"jdbc:mysql://localhost/realtor_social",
 																		"realtor",
-																		"realtor");
+																	"realtor");
+		/*DriverManagerDataSource factory = new DriverManagerDataSource("com.mysql.jdbc.Driver",
+				"jdbc:mysql://ec2-184-169-207-210.us-west-1.compute.amazonaws.com/realtor_social",
+				"realtor",
+			"realtor");*/
+		
 		return factory;
 	}
 	

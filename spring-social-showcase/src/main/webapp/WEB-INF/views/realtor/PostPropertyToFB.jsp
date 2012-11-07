@@ -5,7 +5,7 @@
 
 <h3>Your MLS Feeds</h3>
 
-<table>
+<table class="formatHTML5">
 
 	<c:forEach items="${propertyList}" var="property">
 	<form method="post" action="postPropertyToFaceBook">

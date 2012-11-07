@@ -95,27 +95,48 @@ public class MlsListingHelper {
 		
 	}
 	
-	private static final class PropertyMapper implements RowMapper<Property> {
+	public Boolean addTags(String tags, String mlsId) {
+		
+		try{
+	    	int i= this.jdbctemplate.update("update mls_listings set tags = ? where MLS_ID = ?", 
+	    			tags ,mlsId);
+	    	if(i==1)
+	    		return true;
+	    	else{
+	    		System.out.println("No rows affected!!!!");
+	    		return false;
+	    	}
+		 }catch(DataAccessException de){
+		    	de.printStackTrace();
+		    	System.out.println("ERROR :" +  de.getMessage());
+		    	return false;
+		 }
+	
+			
+}
 
-	    public Property mapRow(ResultSet rs, int rowNum) throws SQLException {
-	    	Property property = new Property();
-	    	property.setImage(BASE_URL+"/"+rs.getString("image"));
-	    	property.setImageName(rs.getString("image"));
-	        property.setStreet(rs.getString("street"));
-	        property.setCity(rs.getString("city"));
-	        property.setState(rs.getString("state"));
-	        property.setZipcode(rs.getString("zipcode"));
-	        property.setBed_bath(rs.getString("bed_bath"));
-	        property.setSize(rs.getString("size"));
-	        property.setMLS_ID(rs.getString("MLS_ID"));
-	        property.setType(rs.getString("type"));
-	        property.setPrice(rs.getString("price"));
-	        property.setParking(rs.getString("parking"));
-	        property.setGarage(rs.getString("garage"));
-	        
-	        return property;
-	    }        
-	}
+private static final class PropertyMapper implements RowMapper<Property> {
+
+    public Property mapRow(ResultSet rs, int rowNum) throws SQLException {
+    	Property property = new Property();
+    	property.setImage(BASE_URL+"/"+rs.getString("image"));
+    	property.setImageName(rs.getString("image"));
+        property.setStreet(rs.getString("street"));
+        property.setCity(rs.getString("city"));
+        property.setState(rs.getString("state"));
+        property.setZipcode(rs.getString("zipcode"));
+        property.setBed_bath(rs.getString("bed_bath"));
+        property.setSize(rs.getString("size"));
+        property.setTags(rs.getString("tags"));
+        property.setMLS_ID(rs.getString("MLS_ID"));
+        property.setType(rs.getString("type"));
+        property.setPrice(rs.getString("price"));
+        property.setParking(rs.getString("parking"));
+        property.setGarage(rs.getString("garage"));
+        
+        return property;
+    }        
+}
 
 
 }

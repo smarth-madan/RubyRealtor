@@ -24,7 +24,10 @@
 	<definition name="realtor/PropertyList" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/realtor/PropertyList.jsp" />
 	</definition>
-		<definition name="realtor/PostPropertyToFB" extends="page">
+	<definition name="realtor/PostPropertyToFB" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/realtor/PostPropertyToFB.jsp" />
+	</definition>
+	<definition name="realtor/addTagsToProperty" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/realtor/addTagsToProperty.jsp" />
 	</definition>
 </tiles-definitions>

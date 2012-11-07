@@ -10,12 +10,12 @@
 	<tr ><td>
 		<b> Your top 5 Customers : </b><hr />
 		<table style="float:left" class="formatHTML5" >
-			<tr style="background-color:grey"><td>C ID</td><td>Name</td><td>Email ID</td></tr>
+			<tr style="background-color:grey"><td><b>C ID</b></td><td><b>Name</b></td><td><b>Email ID</b></td></tr>
 			<c:forEach items="${top5CustomersList}" var="customer">
 			<tr >
-				<td style="font-size: 11"><c:out value="${customer.c_id}" /></td>
-				<td style="font-size: 11"><c:out value="${customer.name}" /></td>
-				<td style="font-size: 11"><c:out value="${customer.email_ID}" /></td>
+				<td ><c:out value="${customer.c_id}" /></td>
+				<td ><c:out value="${customer.name}" /></td>
+				<td ><c:out value="${customer.email_ID}" /></td>
 			</tr>
 			</c:forEach>
 		</table>
@@ -26,9 +26,9 @@
 			<tr style="background-color:grey"><td>MLS ID</td><td>Address</td><td>Price</td></tr>
 			<c:forEach items="${top5MlsListingsList}" var="property">
 			<tr >
-				<td style="font-size: 11"><c:out value="${property.MLS_ID}" /></td>
-				<td style="font-size: 11"><c:out value="${property.street}" /> <c:out value="${property.city}" /> <c:out value="${property.state}" /> <c:out value="${property.zipcode}" /></td>
-				<td style="font-size: 11"><c:out value="${property.price}" /></td>
+				<td><c:out value="${property.MLS_ID}" /></td>
+				<td><c:out value="${property.street}" /> <c:out value="${property.city}" /> <c:out value="${property.state}" /> <c:out value="${property.zipcode}" /></td>
+				<td><c:out value="${property.price}" /></td>
 			</tr>
 			</c:forEach>
 		</table>

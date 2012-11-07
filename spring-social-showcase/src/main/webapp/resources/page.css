@@ -169,7 +169,7 @@ div.accountConnection h4 img {
             background-color: White;
             vertical-align:middle;
             padding: 0.4em;
-            font-size:0.8em;
+            font-size:0.5em;
         }
  
         /*** table's thead section, coulmns header style ***/
@@ -231,8 +231,9 @@ div.accountConnection h4 img {
  
         /*** table's td element, all section ***/
         table.formatHTML5 td {
-           vertical-align:middle;
-           padding: 0.5em;
+           vertical-align:top;
+           padding: 0.1em;
+          
         }
  
         /*** table's tfoot section ***/

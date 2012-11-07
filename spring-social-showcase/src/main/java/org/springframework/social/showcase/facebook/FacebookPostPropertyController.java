@@ -45,7 +45,7 @@ public class FacebookPostPropertyController {
 		List<Property> propertyList = mlsListingHelper.getIndividualPropertyDetails(mlsId);
 
 		ModelAndView mv = new ModelAndView();
-		System.out.println("Image name ="+propertyList.get(0).getImageName());
+		System.out.println("mlsId ="+mlsId);
 		if(propertyList!=null)
 		{
 			mv.addObject("propertyList", propertyList);
