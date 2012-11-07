@@ -69,7 +69,7 @@
 						<td><b><i>Edit Existing Tags:</i></b></td>
 					</tr>
 					<tr>
-						<td><textarea cols="40" rows="4" name="editTags">
+						<td><textarea cols="40" rows="12" name="editTags">
 								<c:out value="${property.tags}" />
 							</textarea>
 					</tr>
