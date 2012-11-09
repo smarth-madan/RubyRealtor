@@ -176,14 +176,40 @@ public class CustomerController {
 		Customer eCustomer = customerHelper.getCustomer(c_id);
 		
 		//List<Property> propertyList = solrHelper.searchListing(cRequirements);
-				
+		Property property = new Property();
+		property.setMLS_ID("1");
+		property.setCity("San Jose");
+		property.setStreet("148, E. William Street");
+		property.setState("CA");
+		property.setZipcode("95112");
+		propertyList.add(property);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("propertyList", propertyList);
+		//mv.addObject("htmlContent", buildHtmlEmailContent(propertyList).toString());
+		mv.addObject("propertyList",propertyList);
+		mv.addObject("subject","Awesome Realtors: Suggested properties for you");
+		mv.addObject("customerEmailId", eCustomer.getEmail_ID());
 		//mv.setViewName("customer/matchResult");
-		mv.setViewName("realtor/PropertyList");
+		mv.setViewName("customer/emailCustomer");
 		return mv;
 	}
 	
 	
-	
+	public StringBuffer buildHtmlEmailContent(List<Property> propertyList){
+		StringBuffer htmlContent = new StringBuffer();
+		htmlContent.append("<table border='1'>");
+		for(Property property: propertyList){
+			
+			htmlContent.append("<tr>");
+			htmlContent.append("<td>MLS ID</td><td>");
+			htmlContent.append(property.getMLS_ID());
+			htmlContent.append("</td></tr>");
+			
+			htmlContent.append("<tr>");
+			htmlContent.append("<td>Address</td><td>");
+			htmlContent.append(property.getStreet()+" ,"+property.getCity()+" '"+property.getState()+" ,"+property.getZipcode());
+			htmlContent.append("</td></tr></table>");
+		}
+		return htmlContent;
+		
+	}
 }

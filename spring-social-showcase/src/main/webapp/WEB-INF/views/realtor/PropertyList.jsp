@@ -52,7 +52,7 @@
 				<td scope="col" width="18%">
 					<table width="100%">
 						<tr>
-							<td><img height="125" width="180" src="${property.image}"></td>
+							<td><img height="125" width="180" src="${property.image}" alt="No Image Available"></td>
 						</tr>
 						<tr>
 							<td valign="top"> <input type="hidden" name="mls_id" value="${property.MLS_ID}">

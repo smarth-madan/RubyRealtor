@@ -22,6 +22,8 @@
 	<definition name="customer/matchResult" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/customer/matchResult.jsp" />
 	</definition>
-	
+	<definition name="customer/emailCustomer" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/customer/emailCustomer.jsp" />
+	</definition>
 	
 </tiles-definitions>

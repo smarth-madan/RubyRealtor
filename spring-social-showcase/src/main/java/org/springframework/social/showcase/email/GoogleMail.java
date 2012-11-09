@@ -16,8 +16,7 @@ import javax.mail.internet.MimeMessage;
  * @author doraemon
  */
 public class GoogleMail {
-    private GoogleMail() {
-    }
+    
 
     /**
      * Send email using GMail SMTP server.
