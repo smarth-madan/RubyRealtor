@@ -17,7 +17,9 @@ import javax.mail.internet.MimeMessage;
  */
 public class GoogleMail {
     
-
+	private GoogleMail(){
+		
+	}
     /**
      * Send email using GMail SMTP server.
      *

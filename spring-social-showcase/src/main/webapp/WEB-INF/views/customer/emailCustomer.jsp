@@ -10,7 +10,7 @@
 		them as CC as comma separated addresses</i></font>
 <br />
 <br />
-<form method="post" action="/sendEmail">
+<form method="post" action="sendEmail">
 	<table style="width: 100%;" align="center" class="formatHTML5" border="0">
 		<tr style="background-color: grey">
 			<th align="left">Email details:</th>
@@ -34,12 +34,13 @@
 			<td><textarea name="message" style="width:95%" cols="100" rows="3"></textarea></td>
 		</tr>
 		<tr>
-			<td><b>Contents:</b></td>
+			<td><b>Contents:</b><input type="hidden" name="propertyList" value="${propertyList}"></td>
 			<td>
 				
 						<table class="" border="0">	
 								<c:forEach items="${propertyList}" var="property">
 								<tr>
+									<td>
 									<table>
 										<tr style='background-color: #0099CC;'>
 											<td style="font-size: 11"><b>MLS_ID</b></td>
@@ -78,6 +79,7 @@
 											<td style="font-size: 11"><c:out value="${property.garage}" /></td>
 										</tr>
 									</table>	
+									</td>
 								</tr>
 								</c:forEach>
 					</table>
