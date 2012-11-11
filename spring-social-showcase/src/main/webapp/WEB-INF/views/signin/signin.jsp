@@ -5,6 +5,8 @@
 <%@ taglib uri="http://www.springframework.org/spring-social/facebook/tags" prefix="facebook" %>
 <%@ page session="false" %>
 
+<%-- <div class="modal hide fade in" id="login-modal" style="display: block;">
+<a class="close" data-dismiss="modal">&times;</a>
 <form id="signin" action="<c:url value="/signin/authenticate" />" method="post">
 	<div class="formInfo">
   		<c:if test="${param.error eq 'bad_credentials'}">
@@ -48,9 +50,10 @@
         <input type="hidden" name="scope" value="publish_stream,user_photos,offline_access" />
 		<button type="submit"><img src="<c:url value="/resources/social/facebook/sign-in-with-facebook.png"/>" /></button>
 	</form>
+</div>
 
 	<!-- LINKEDIN SIGNIN
 	<form name="li_signin" id="li_signin" action="<c:url value="/signin/linkedin"/>" method="POST">
 		<button type="submit">Sign In with LinkedIn</button>
 	</form>
-	 -->
+	 --> --%>

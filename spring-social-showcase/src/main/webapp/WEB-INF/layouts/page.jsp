@@ -254,7 +254,7 @@
 	</head>
 	<body>
 	
-			<tiles:insertTemplate template="menu.jsp" />
+	<tiles:insertTemplate template="menu.jsp" />
 		
 		 <!-- Carousel
     ================================================== -->
@@ -295,7 +295,7 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
 		
-		<div id="content" class="container">
+		<div class="container">
 			<tiles:insertAttribute name="content" />
 		</div>	
 
