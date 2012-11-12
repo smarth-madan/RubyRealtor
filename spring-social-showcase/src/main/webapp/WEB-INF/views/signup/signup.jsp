@@ -26,7 +26,7 @@
 		<form:input path="firstName" />
 		<form:label path="lastName">Last Name <form:errors path="lastName" cssClass="error" /></form:label>
 		<form:input path="lastName" />
-		<form:label path="username">Username <form:errors path="username" cssClass="error" /></form:label>
+		<form:label path="username">Email ID <form:errors path="username" cssClass="error" /></form:label>
 		<form:input path="username" />		
 		<form:label path="password">Password (at least 6 characters) <form:errors path="password" cssClass="error" /></form:label>
 		<form:password path="password" />

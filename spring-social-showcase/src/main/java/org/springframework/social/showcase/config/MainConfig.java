@@ -84,12 +84,12 @@ public class MainConfig {
 	
 	@Bean
 	public PlatformTransactionManager transactionManager() {
-		return new DataSourceTransactionManager(dataSource());
+		return new DataSourceTransactionManager(mysqldataSource());
 	}
 	
 	@Bean
 	public JdbcTemplate jdbcTemplate() {
-		return new JdbcTemplate(dataSource());
+		return new JdbcTemplate(mysqldataSource());
 	}
 
 	// internal helpers
@@ -97,8 +97,8 @@ public class MainConfig {
 	private DatabasePopulator databasePopulator() {
 		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
 		populator.addScript(new ClassPathResource("JdbcUsersConnectionRepository.sql", JdbcUsersConnectionRepository.class));
-		populator.addScript(new ClassPathResource("Account.sql", JdbcAccountRepository.class));
-		populator.addScript(new ClassPathResource("data.sql", JdbcAccountRepository.class));
+		//populator.addScript(new ClassPathResource("Account.sql", JdbcAccountRepository.class));
+		//populator.addScript(new ClassPathResource("data.sql", JdbcAccountRepository.class));
 		return populator;
 	}
 }

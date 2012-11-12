@@ -59,7 +59,7 @@ public class SocialConfig {
 	private Environment environment;
 
 	@Inject
-	private DataSource dataSource;
+	private DataSource mysqldataSource;
 
 	@Bean
 	@Scope(value="singleton", proxyMode=ScopedProxyMode.INTERFACES) 
@@ -77,7 +77,7 @@ public class SocialConfig {
 	@Bean
 	@Scope(value="singleton", proxyMode=ScopedProxyMode.INTERFACES) 
 	public UsersConnectionRepository usersConnectionRepository() {
-		return new JdbcUsersConnectionRepository(dataSource, connectionFactoryLocator(), Encryptors.noOpText());
+		return new JdbcUsersConnectionRepository(mysqldataSource, connectionFactoryLocator(), Encryptors.noOpText());
 	}
 
 	@Bean

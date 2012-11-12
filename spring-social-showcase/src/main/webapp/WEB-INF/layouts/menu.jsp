@@ -253,7 +253,7 @@
  	 	</c:if>
 	</div>
 	<fieldset>
-		<label for="login">Username</label>
+		<label for="login">Email ID</label>
 		<input id="login" name="j_username" type="text" size="25" <c:if test="${not empty signinErrorMessage}">value="${SPRING_SECURITY_LAST_USERNAME}"</c:if> />
 		<label for="password">Password</label>
 		<input id="password" name="j_password" type="password" size="25" />	
