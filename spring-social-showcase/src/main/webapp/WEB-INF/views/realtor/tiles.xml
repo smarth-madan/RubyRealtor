@@ -30,4 +30,7 @@
 	<definition name="realtor/addTagsToProperty" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/realtor/addTagsToProperty.jsp" />
 	</definition>
+	<definition name="realtor/gmailAccountSettings" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/realtor/gmailAccountSettings.jsp" />
+	</definition>
 </tiles-definitions>

@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.social.showcase.customer.model.CRequirements;
 import org.springframework.social.showcase.customer.model.Customer;
+import org.springframework.social.showcase.myProfile.model.GmailAccount;
 import org.springframework.social.showcase.myProfile.model.MyProfile;
 
 import com.mysql.jdbc.Connection;
@@ -71,7 +72,9 @@ public class MyProfileHelper {
 	        myProfile.setZipcode(rs.getString("zipcode"));
 	        myProfile.setEmailId(rs.getString("email_Id"));
 	        myProfile.setRealtorId(rs.getString("R_ID"));
-	        myProfile.setPhoneNumber(rs.getString("phone_Number"));	        
+	        myProfile.setPhoneNumber(rs.getString("phone_Number"));	    
+	        myProfile.setGmailId(rs.getString("gmail_ID"));
+	        myProfile.setPassword(rs.getString("gmailPassword"));	
 	        
 	        return myProfile;
 	    }        
@@ -82,6 +85,24 @@ public class MyProfileHelper {
 		try{
 	    	int i= this.jdbctemplate.update("update realtor set fName = ? , lName = ?, street = ? , city = ?, state = ? , zipCode = ?,  email_Id = ?, phone_Number = ? where R_ID = ?", 
 	    			myProfile.getFname() , myProfile.getLname(), myProfile.getStreet() ,myProfile.getCity() ,myProfile.getState(), myProfile.getZipcode(), myProfile.getEmailId(), myProfile.getphoneNumber(),1);
+	    	if(i==1)
+	    		return true;
+	    	else{
+	    		System.out.println("No rows affected!!!!");
+	    		return false;
+	    	}
+		 }catch(DataAccessException de){
+		    	de.printStackTrace();
+		    	System.out.println("ERROR :" +  de.getMessage());
+		    	return false;
+		 }
+		
+	}
+	
+	public Boolean updateGmailAccount(GmailAccount gmailAccount) {
+		
+		try{
+	    	int i= this.jdbctemplate.update("update realtor set gmail_Id = ?, gmailPassword = ? where R_ID = ?", gmailAccount.getEmailId(),gmailAccount.getPassword(),1);
 	    	if(i==1)
 	    		return true;
 	    	else{

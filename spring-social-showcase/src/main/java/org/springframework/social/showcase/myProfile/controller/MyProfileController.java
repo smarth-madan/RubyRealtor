@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.social.showcase.customer.model.Customer;
 import org.springframework.social.showcase.myProfile.helper.MyProfileHelper;
+import org.springframework.social.showcase.myProfile.model.GmailAccount;
 import org.springframework.social.showcase.myProfile.model.MyProfile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,8 @@ public class MyProfileController {
 		if(myProfileList!=null)
 		{
 			System.out.println("myprofile list not null");
+			System.out.println("Gmail id:"+myProfileList.get(0).getGmailId());
+			System.out.println("Gmail password:"+myProfileList.get(0).getPassword());
 			mv.addObject("myProfile", myProfileList.get(0));
 		}
 		System.out.println("myprofile list IS NULL....");
@@ -64,6 +67,40 @@ public class MyProfileController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("realtor/SocialProfiles");
+		return mv;
+	}
+	
+	@RequestMapping(value="/setUpGmailAccount",  method=RequestMethod.GET)
+	public ModelAndView setUpGmailAccount(HttpServletRequest request, HttpServletResponse response){
+	ModelAndView mv = new ModelAndView();
+		GmailAccount gmailAccount = new GmailAccount();
+		gmailAccount.setEmailId(request.getParameter("gmailId"));
+		gmailAccount.setPassword(request.getParameter("password"));
+		mv.addObject("gmailAccount", gmailAccount);
+		mv.setViewName("realtor/gmailAccountSettings");
+		return mv;
+	}
+	
+	@RequestMapping(value="/updateGmailAccount",  method=RequestMethod.POST)
+	public ModelAndView updateGmailAccount(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mv = new ModelAndView();
+		String gmailId = request.getParameter("gmailId");
+		String gmailPassword = request.getParameter("gmailPassword");
+		GmailAccount gmailAccount = new GmailAccount();
+		gmailAccount.setEmailId(gmailId);
+		gmailAccount.setPassword(gmailPassword);
+		boolean result = false;
+		if(gmailId!=null && gmailPassword!=null && !"".equals(gmailId) && !"".equals(gmailPassword))
+		{
+		 result = myProfileHelper.updateGmailAccount(gmailAccount);
+		}
+		if(result){
+			mv.addObject("result", "Your gmail Id and Password have been updated.");
+		}
+		else{
+			mv.addObject("result", "Unable to update Gmail Id and password. Please check if you are not entering Id && password as blank. If not check back later.");
+		}
+		mv.setViewName("realtor/result");
 		return mv;
 	}
 	

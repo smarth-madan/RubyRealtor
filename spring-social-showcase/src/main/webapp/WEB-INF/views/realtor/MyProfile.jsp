@@ -5,13 +5,13 @@
 
 <h3>My Profile</h3>
 <hr />
-<table style="width: 100%;" border="0"  class="formatHTML5" style="width:100%;align:center;valign:top">
+<table style="width: 70%;" class="formatHTML5" align="center">
 	<tr>
 		<td style="width: 50%;">
 			<form method="post" action="/myProfile/update">
 				<table style="width: 100%;"  align="left" class="formatHTML5">
 					<tr style="background-color: grey;">
-						<th align="left"><h3>Personal Info</h3></th>
+						<th align="left"><h4>Personal Info</h4></th>
 						<td align="right"><h4>
 								<a href="<c:url value="/myprofile/edit"/>" style="">Edit</a>
 							</h4></td>
@@ -55,15 +55,22 @@
 				</table>
 				</form>
 		</td>
+		</tr>
+		</table>
+		<br />
+		<br />
+		<table style="width: 70%;" class="formatHTML5" align="center">
+		<tr>
 		<td style="width: 50%; valign:top" >
-			<form action="/registerFaceBook">
+		<form method="get" action="myprofile/setUpGmailAccount">
 			<table  class="formatHTML5" style="width:100%;align:center;valign:top">
 				<tr style="background-color: grey;">
-					<td align="left">
-						Gmail Account Settings						
+					<td align="left"><h4>
+						Gmail Account Settings
+						</h4>						
 					</td>
-					<td align="right">
-					<h4><a href="<c:url value="/myprofile/edit"/>" style="">Setup/Edit</a></h4>
+					<td align="right" valign="middle">
+					<input type="submit" value="Set/Update">
 					</td>
 				</tr>
 				<tr>
@@ -71,7 +78,8 @@
 						User name:
 					</td>
 					<td>
-						<c:out value="${myProfile.emailId}" />
+						<input type="hidden" name="gmailId" value="${myProfile.gmailId}">
+						<c:out value="${myProfile.gmailId}" />
 					</td>
 				</tr>
 				<tr>
@@ -79,9 +87,11 @@
 						Password:
 					</td>
 					<td>
-						<c:out value="${myProfile.emailId}" />
+						<input type="hidden" name="password" value="${myProfile.password}">
+						<c:out value="${myProfile.password}" />
 					</td>
 				</tr>
+				
 			</table>
 			</form>
 		</td>

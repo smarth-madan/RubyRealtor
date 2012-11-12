@@ -12,6 +12,25 @@ public class MyProfile {
 	private String phoneNumber;
 	private String socialId;
 	private String realtorId;
+	private String gmailId;
+	private String password;
+	
+	public String getGmailId() {
+		return gmailId;
+	}
+	public void setGmailId(String gmailId) {
+		this.gmailId = gmailId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	
 	
 	public String getFname() {
 		return fname;
