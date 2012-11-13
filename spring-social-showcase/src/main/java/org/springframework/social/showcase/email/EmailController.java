@@ -16,7 +16,7 @@ public class EmailController {
 	
 	@Inject
 	public EmailController(DataSource mysqldataSource) {
-		googleMail = new GoogleMail();
+		
 	}
 	
 	@RequestMapping("/emailCustomer")
