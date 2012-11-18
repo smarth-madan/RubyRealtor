@@ -24,12 +24,19 @@ public class Account {
 	private final String firstName;
 
 	private final String lastName;
+	
+	private final String R_ID;
 
-	public Account(String username, String password, String firstName, String lastName) {
+	public String getR_ID() {
+		return R_ID;
+	}
+
+	public Account(String username, String password, String firstName, String lastName, String R_ID) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.R_ID = R_ID;
 	}
 
 	public String getUsername() {

@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="<c:url value="/resources/page.css" />" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<c:url value="/resources/form.css" />" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<c:url value="/resources/messages/messages.css" />" type="text/css" media="screen" />
-		<link rel="stylesheet" href="<c:url value="/resources/bootstrap.min.css"/>"  media="screen">
+		<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"  media="screen">
 		 <style>
 
     /* GLOBAL STYLES
@@ -265,7 +265,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Social Realtor</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p class="lead">Reach out to more people. Use the power of Social media and let your business grow to new heights.</p>
               <a class="btn btn-large btn-primary" href="<c:url value="/signup"/>">Sign up today</a>
             </div>
           </div>
@@ -295,7 +295,7 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
 		
-		<div class="container">
+		<div class="container-fluid">
 			<tiles:insertAttribute name="content" />
 		</div>	
 

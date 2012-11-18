@@ -16,12 +16,18 @@
 package org.springframework.social.showcase;
 
 import java.security.Principal;
+import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
+import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.showcase.account.Account;
 import org.springframework.social.showcase.account.AccountRepository;
 import org.springframework.social.showcase.customer.helper.CustomerHelper;
 import org.springframework.social.showcase.mlsListing.helper.MlsListingHelper;
@@ -33,12 +39,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	
 	private final Provider<ConnectionRepository> connectionRepositoryProvider;
-	
 	private final AccountRepository accountRepository;
 	private DataSource mysqldataSource;
 	private static MlsListingHelper mlsListingHelper;
 	private static CustomerHelper customerHelper;
 	
+	@Autowired
+	private SessionRealtor sessionRealtor;
 
 	@Inject
 	public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository,DataSource mysqldataSource) {
@@ -50,13 +57,27 @@ public class HomeController {
 	}
 
 	@RequestMapping("/")
-	public String home(Principal currentUser, Model model) {
-		model.addAttribute("connectionsToProviders", getConnectionRepository().findAllConnections());
-		model.addAttribute(accountRepository.findAccountByUsername(currentUser.getName()));
-		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers());
+	public String home(HttpServletRequest request, Principal currentUser, Model model) {
+		Account account = accountRepository.findAccountByUsername(currentUser.getName());
+		
+		model.addAttribute(account);
+		sessionRealtor.setRealtorId(account.getR_ID());
+		Map<String, List<Connection<?>>> connections = getConnectionRepository().findAllConnections();
+		model.addAttribute("connectionsToProviders", connections);
+		try{
+			model.addAttribute("image", getConnectionRepository().findAllConnections().getFirst("facebook"));
+		}catch(Exception e){
+			
+		}
+		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers(account.getR_ID()));
 		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
 		
-		return "home";
+		//return "home";
+		if(connections.get("facebook").isEmpty())
+			return "forward:/connect/facebook";
+		else
+			return "home";
+		
 	}
 	
 	private ConnectionRepository getConnectionRepository() {

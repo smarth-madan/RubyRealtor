@@ -3,8 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ page session="false" %>
 
-<p><h1>Welcome, <c:out value="${account.firstName}"/>!</h1></p>
-
+<div class="row">
+  <div class="span6"><h1>Welcome, <c:out value="${account.firstName}"/>!</h1></div>
+  <div class="span6"><c:if test="${not empty image.imageUrl}"> <img src="${image.imageUrl}" height="100" width="100"> </c:if> </div>
+</div>
 
 <table width="100%">
 	<tr ><td>
@@ -37,22 +39,6 @@
 	 	<table >
 			<tr><td><b> Analysis: <hr /> </b></td></tr>
 			<tr><td> <div id="chartContainer">FusionCharts XT will load here!</div><center><a href="<c:url value="/analytics"/>" > Click here for More Analytics..</a></center></td></tr>
-		</table>
-	 </td>
-	 </tr>
-	 <tr><td >	 
-	     <table style="float:left">
-			<tr ><td><b> Customers: <hr /></b></td></tr>
-			<tr><td> <a href="<c:url value="/customer" />">View Customers</a></td></tr>
-			<tr><td> <a href="<c:url value="/customer/add" />">Add Customers</a></td></tr>
-			<tr><td> <a href="<c:url value="/customer/edit" />">Edit Customers</a></td></tr>
-			<tr><td> <a href="<c:url value="/contactUs" />">Contact Us</a></td></tr>
-		</table> 
-	 </td>
-	 <td>
-	 	<table>
-			<tr><td><b> Property Listings (MLS Data) <hr /></b></td></tr>
-			<tr><td> <a href="<c:url value="/properties" />">List Properties</a></td></tr>
 		</table>
 	 </td>
 	 </tr>

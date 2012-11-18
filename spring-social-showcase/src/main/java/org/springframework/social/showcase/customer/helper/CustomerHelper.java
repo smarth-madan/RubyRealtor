@@ -38,9 +38,9 @@ public class CustomerHelper {
 	}
 	
 	
-	public List<Customer> findAllCustomers() {
+	public List<Customer> findAllCustomers(String R_ID) {
 	    try{
-	    	return this.jdbctemplate.query( "select * from customer", new CustomerMapper());
+	    	return this.jdbctemplate.query( "select * from customer where R_ID="+R_ID, new CustomerMapper());
 	    }catch(DataAccessException de){
 	    	de.printStackTrace();
 	    	System.out.println("ERROR :" +  de.getMessage());
@@ -49,9 +49,9 @@ public class CustomerHelper {
 		
 	}
 	
-	public List<Customer> findTop5Customers() {
+	public List<Customer> findTop5Customers(String R_ID) {
 	    try{
-	    	return this.jdbctemplate.query( "select * from customer where customer_priority='1' LIMIT 5", new CustomerMapper());
+	    	return this.jdbctemplate.query( "select * from customer where customer_priority='1' and R_ID="+R_ID+" LIMIT 5", new CustomerMapper());
 	    }catch(DataAccessException de){
 	    	de.printStackTrace();
 	    	System.out.println("ERROR :" +  de.getMessage());

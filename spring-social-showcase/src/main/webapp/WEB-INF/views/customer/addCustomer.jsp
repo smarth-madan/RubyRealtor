@@ -72,7 +72,7 @@
 			<tr>
 				<td><b><font size="2">Tentative Date/Time: </font></b></td>
 				<td>
-	  				<input type="Text" name="time" id="demo1" maxlength="25" size="25"><a href="javascript:NewCal('demo1','ddmmmyyyy',true,24)"><img src="resources/images/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a>
+	  				<input type="Text" name="time" id="demo1" maxlength="25" size="25"><a href="javascript:NewCal('demo1','ddmmmyyyy',true,24)"><img src="<c:url value="/resources/images/cal.gif"/>" width="16" height="16" border="0" alt="Pick a date"></a>
 	  				<span class="descriptions">pick a date..</span>
 	  			</td>
 			</tr>

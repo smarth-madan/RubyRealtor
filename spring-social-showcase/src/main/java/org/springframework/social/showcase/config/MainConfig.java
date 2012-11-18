@@ -78,7 +78,7 @@ public class MainConfig {
 	@Bean
 	@Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 	public SessionRealtor sessionRealtor() {
-		return new SessionRealtor(1);
+		return new SessionRealtor("1");
 	}
 	
 	

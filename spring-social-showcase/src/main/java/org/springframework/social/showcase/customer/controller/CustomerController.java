@@ -46,7 +46,7 @@ public class CustomerController {
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView viewCustomer(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mv = new ModelAndView();
-		List<Customer> customers = customerHelper.findAllCustomers();
+		List<Customer> customers = customerHelper.findAllCustomers(sessionRealtor.getRealtorId());
 		mv.addObject("customers",customers);
 		mv.setViewName("customer/viewCustomer");
 		return mv;

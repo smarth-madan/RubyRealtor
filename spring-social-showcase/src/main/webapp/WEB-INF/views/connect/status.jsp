@@ -7,6 +7,11 @@
 <h3>Your Connections</h3>
 
 <c:forEach var="providerId" items="${providerIds}">
+<c:choose>
+<c:when test="${fn:containsIgnoreCase(providerId,'linkedin')}">
+</c:when>
+<c:otherwise>
+
 	<c:set var="connections" value="${connectionMap[providerId]}" />
 	<s:message code="${providerId}.displayName" var="providerDisplayName" />
 	<div class="accountConnection">
@@ -23,4 +28,6 @@
 		Click <a href="<c:url value="/connect/${providerId}" />">here</a> to manage your ${providerDisplayName} connection.
 		</p>
 	</div>
+</c:otherwise>
+</c:choose>
 </c:forEach>

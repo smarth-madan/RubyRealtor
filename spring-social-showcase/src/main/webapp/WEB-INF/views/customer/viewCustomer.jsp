@@ -13,7 +13,8 @@
 <body>
 <h1>View Customer</h1>
 
-<table class ="formatHTML5">
+<!-- <table class ="formatHTML5">  -->
+<table class="table table-striped table-hover table-condensed">
 <caption> Customers </caption>
 	<colgroup />
 	<colgroup span="2" title="title" />

@@ -11,7 +11,7 @@
 			Click the button if you wish to disconnect.
 		</p>		
 	</div>
-	<button type="submit">Disconnect</button>	
+	<button class = "btn btn-danger" type="submit">Disconnect</button>	
 	<input type="hidden" name="_method" value="delete" />
 </form>
 

@@ -1,13 +1,20 @@
 package org.springframework.social.showcase;
 
+import java.io.Serializable;
+
 
 //@Component
 //@Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class SessionRealtor {
+public class SessionRealtor implements Serializable{
 
-	private int realtorId;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
-	public SessionRealtor(int realtorId){
+	private String realtorId;
+	
+	public SessionRealtor(String realtorId){
 		this.realtorId = realtorId;
 	}
 	
@@ -15,11 +22,11 @@ public class SessionRealtor {
 	}
 	
 
-	public int getRealtorId() {
+	public String getRealtorId() {
 		return realtorId;
 	}
 
-	public void setRealtorId(int realtorId) {
+	public void setRealtorId(String realtorId) {
 		this.realtorId = realtorId;
 	}
 	

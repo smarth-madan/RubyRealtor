@@ -83,7 +83,7 @@ public class SignupController {
 	private Account createAccount(SignupForm form, BindingResult formBinding) {
 		try {
 			Account account = new Account(form.getUsername(),
-					form.getPassword(), form.getFirstName(), form.getLastName());
+					form.getPassword(), form.getFirstName(), form.getLastName(),null);
 			accountRepository.createAccount(account);
 			return account;
 		} catch (UsernameAlreadyInUseException e) {

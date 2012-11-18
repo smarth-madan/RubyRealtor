@@ -150,9 +150,9 @@
           <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
           <div class="nav-collapse collapse">
 			<ul class="nav " >
-				<li><a href="<c:url value="/"/>"><span style="width:50;text-align:center"><i class="icon-home"></i> Home </span></a></li>
+				<li><a href="<c:url value="/"/>"><i class="icon-home icon-white"></i> Home </a></li>
 				<li class="dropdown">
-				<a href="<c:url value="/myprofile"/>"  title="My Profile" class="dropdown-toggle" data-toggle="dropdown"><span>My Profile</span><b class="caret"></b></a>
+				<a href="<c:url value="/myprofile"/>"  title="My Profile" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-white"></i><span>My Profile</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="<c:url value="/myprofile"/>">Personal Info</a></li>
 						<li><a href="<c:url value="/myprofile/socialProfiles"/>">Social Profiles</a></li>
@@ -166,29 +166,29 @@
 						<li><a href="<c:url value="/customer/add"/>">Add Customer</a></li>
 					</ul>
 				</li>
-				<li><a href="<c:url value="/properties"/>"><span>Property Listings</span></a></li>
+				<li><a href="<c:url value="/properties"/>"><i class="icon-book icon-white"></i><span>Property Listings</span></a></li>
 				<li>
-				<a href="<c:url value="/connect"/>" ><span>Manage Social Connections</span></a></li>
+				<a href="<c:url value="/connect"/>" ><i class="icon-wrench icon-white"></i><span>Manage Social Connections</span></a></li>
+				<social:connected provider="facebook">
 				<li><a href="#"  title="Dropdown options available only when connected" class="dropdown-toggle" data-toggle="dropdown"><span>Facebook</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<social:connected provider="facebook">
 						<li><a href="<c:url value="/facebook/page"/>">Page</a></li>
 						<li><a href="<c:url value="/facebook/pageEvent"/>">PageEvent</a></li>
-						</social:connected>
 					</ul>
 				</li>
+				</social:connected>
+				<social:connected provider="twitter">
 				<li><a href="#"  title="Dropdown options available only when connected" class="dropdown-toggle"><span>Twitter</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<social:connected provider="twitter">
 						<li><a href="<c:url value="/twitter"/>">User Profile</a></li>
 						<li><a href="<c:url value="/twitter/timeline"/>">Timeline</a></li>
 						<li><a href="<c:url value="/twitter/friends"/>">Friends</a></li>
 						<li><a href="<c:url value="/twitter/followers"/>">Followers</a></li>
 						<li><a href="<c:url value="/twitter/messages"/>">Messages</a></li>
 						<li><a href="<c:url value="/twitter/trends"/>"> Trends</a></li>
-						</social:connected>
 					</ul>
 				</li>
+				</social:connected>
 				<li><a href="<c:url value="/analytics"/>" title="Analytics"><span>Analytics</span></a></li>
 				<li><a href="http://tools.dynamicdrive.com" title="Matching"><span>Matching</span></a></li>
 				<li><a href="http://tools.dynamicdrive.com" title="News"><span>News</span></a></li>
