@@ -198,30 +198,27 @@ public class CustomerHelper {
 		
 		String rangeLow = "";
 		String rangeHigh = "";
-		if("yes".equalsIgnoreCase(c.getRange_any())){
-			rangeLow="0";
-			rangeHigh="1000000000000";
+		
+		int range = Integer.parseInt(c.getRange());
+		
+		switch(range){
+		case 1:	rangeLow="100";
+				rangeHigh="100000";
+			break;
+		case 2:	rangeLow="100000";
+				rangeHigh="400000";
+			break;
+		case 3: rangeLow="400000";
+				rangeHigh="1000000000000";
+			break;
+		case 4:	rangeLow="100";
+				rangeHigh="1000000000000";
+			break;
+		default : 	rangeLow="100";
+					rangeHigh="1000000000000";
+				break;
 		}
-		else if(c.getRange_any()==null && "yes".equalsIgnoreCase(c.getRange_lt_100k()) && c.getRange_100k_400k() == null && c.getRange_gt_400k()==null){
-			rangeLow="0";
-			rangeHigh="100000";
-		}
-		else if(c.getRange_any()==null && "yes".equalsIgnoreCase(c.getRange_100k_400k()) && c.getRange_lt_100k() == null && c.getRange_gt_400k()==null){
-			rangeLow="100000";
-			rangeHigh="400000";
-		}
-		else if(c.getRange_any()==null && "yes".equalsIgnoreCase(c.getRange_gt_400k()) && c.getRange_lt_100k() == null && c.getRange_100k_400k()==null){
-			rangeLow="400000";
-			rangeHigh="1000000000000";
-		}
-		else if(c.getRange_any()==null && "yes".equalsIgnoreCase(c.getRange_lt_100k()) && "yes".equalsIgnoreCase(c.getRange_100k_400k()) && c.getRange_gt_400k()==null){
-			rangeLow="400000";
-			rangeHigh="1000000000000";
-		}
-		else if(c.getRange_any()==null && "yes".equalsIgnoreCase(c.getRange_100k_400k()) && "yes".equalsIgnoreCase(c.getRange_gt_400k()) && c.getRange_lt_100k()==null){
-			rangeLow="100000";
-			rangeHigh="1000000000000";
-		}
+
 
 		List<String> rangeList = new ArrayList<String>();
 		rangeList.add(rangeLow);

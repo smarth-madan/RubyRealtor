@@ -11,11 +11,11 @@
 <title>View Customer</title>
 </head>
 <body>
-<h1>View Customer</h1>
+<h1 style="text-align:center;">List of all Customers</h1>
 
 <!-- <table class ="formatHTML5">  -->
 <table class="table table-striped table-hover table-condensed">
-<caption> Customers </caption>
+<caption>  </caption>
 	<colgroup />
 	<colgroup span="2" title="title" />
 	<thead>
@@ -50,13 +50,13 @@
 			<td>
 				<form method="POST" action="<c:url value="/customer/edit" />" >
 				<input type="hidden" name="c_id" value="${customer.c_id}" />
-				<input type="submit" value="Edit" />
+				<button class = "btn" type="submit">Edit</button>	
 				</form>
 			</td>
 			<td>
 				<form method="POST" action="<c:url value="/customer/match" />" >
 				<input type="hidden" name="c_id" value="${customer.c_id}" />
-				<input type="submit" value="Match Listings" />
+				<button class = "btn btn-primary" type="submit">Match Listings</button>
 				</form>
 			</td>
 		</tr>

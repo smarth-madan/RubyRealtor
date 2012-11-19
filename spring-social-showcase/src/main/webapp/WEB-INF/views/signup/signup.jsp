@@ -3,6 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
+
+<div class="row">
+<div class="span4"></div>
+<div class="span7">
 <h3>Sign Up</h3>
 
 <c:if test="${not empty message}">
@@ -33,3 +37,5 @@
 	</fieldset>
 	<p><button type="submit">Sign Up</button></p>
 </form:form>
+</div>
+</div>

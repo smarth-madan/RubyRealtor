@@ -94,6 +94,27 @@ public class HomeController {
 		
 	}
 	
+	
+	@RequestMapping("/home")
+	public String homeInside(HttpServletRequest request, Principal currentUser, Model model) {
+		Account account = accountRepository.findAccountByUsername(currentUser.getName());
+		
+		model.addAttribute(account);
+		sessionRealtor.setRealtorId(account.getR_ID());
+		Map<String, List<Connection<?>>> connections = getConnectionRepository().findAllConnections();
+		model.addAttribute("connectionsToProviders", connections);
+		try{
+			model.addAttribute("image", getConnectionRepository().findAllConnections().getFirst("facebook"));
+		}catch(Exception e){
+			
+		}
+		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers(account.getR_ID()));
+		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
+		
+		return "home";
+		
+	}
+	
 	private ConnectionRepository getConnectionRepository() {
 		return connectionRepositoryProvider.get();
 	}

@@ -17,7 +17,7 @@
 <input type="hidden" name ="c_id" value=<c:out value="${customer.c_id}"/> />
 <input type="hidden" name ="CR_ID" value=<c:out value="${customer.CR_ID}"/> />
 <%-- <input type="hidden" name ="R_ID" value=<c:out value="${customer.R_ID}"/> /> --%>
-Name*<input type="text" name ="name" value=<c:out value="${customer.name}"/> />
+Name*<input type="text" name ="name" value="<c:out value="${customer.name}"/>" />
 Email ID<input type="text" name ="email_ID" value=<c:out value="${customer.email_ID}"/>/>
 Phone Number<input type="text" name ="phone_number" value=<c:out value="${customer.phone_number}"/> />
 Street<input type="text" name ="street" value=<c:out value="${customer.street}"/> />

@@ -4,11 +4,14 @@
 <%@ page session="false" %>
 
 <div class="row">
+<!-- <div class="span12"></div> -->
+<div class="span12" style="width:100%">
+<div class="row">
   <div class="span6"><h1>Welcome, <c:out value="${account.firstName}"/>!</h1></div>
   <div class="span6"><c:if test="${not empty image.imageUrl}"> <img src="${image.imageUrl}" height="100" width="100"> </c:if> </div>
 </div>
 
-<table width="100%">
+<table style="width:100%">
 	<tr ><td>
 		<b> Your top 5 Customers : </b><hr />
 		<table style="float:left" class="formatHTML5" >
@@ -43,6 +46,9 @@
 	 </td>
 	 </tr>
 </table>
+</div>
+<!-- <div class="span2"></div> -->
+</div>
 
  <script type="text/javascript"><!--         
       var myChart = new FusionCharts( "<c:url value="/resources/js/Column3D.swf" />", 

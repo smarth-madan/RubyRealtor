@@ -150,7 +150,7 @@
           <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
           <div class="nav-collapse collapse">
 			<ul class="nav " >
-				<li><a href="<c:url value="/"/>"><i class="icon-home icon-white"></i> Home </a></li>
+				<li><a href="<c:url value="/home"/>"><i class="icon-home icon-white"></i> Home </a></li>
 				<li class="dropdown">
 				<a href="<c:url value="/myprofile"/>"  title="My Profile" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-white"></i><span>My Profile</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -170,7 +170,7 @@
 				<li>
 				<a href="<c:url value="/connect"/>" ><i class="icon-wrench icon-white"></i><span>Manage Social Connections</span></a></li>
 				<social:connected provider="facebook">
-				<li><a href="#"  title="Dropdown options available only when connected" class="dropdown-toggle" data-toggle="dropdown"><span>Facebook</span><b class="caret"></b></a>
+				<li><a href="#"  title="Dropdown options available only when connected" class="dropdown-toggle" data-toggle="dropdown"><img src="<c:url value="/resources/social/facebook/f_logo.jpg" />" style="width:15px;height:15px"/><span>Facebook</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="<c:url value="/facebook/page"/>">Page</a></li>
 						<li><a href="<c:url value="/facebook/pageEvent"/>">PageEvent</a></li>

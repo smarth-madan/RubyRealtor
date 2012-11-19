@@ -48,6 +48,15 @@ public class FBCustomer {
 	String range_100k_400k;
 	String range_gt_400k;
 	String range_any;
+	String range;
+	public String getRange() {
+		return range;
+	}
+
+	public void setRange(String range) {
+		this.range = range;
+	}
+
 	String homeDescription;
 	
 	

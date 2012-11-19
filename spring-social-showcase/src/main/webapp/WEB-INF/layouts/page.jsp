@@ -3,13 +3,11 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ page session="false" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 	<head>
 		<title>Social Realtor</title>
-		<script type="text/javascript" src="<c:url value="/resources/dropdowntabs.js" />"></script>
-		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
+		
 		<script type="text/javascript" src="<c:url value="/resources/js/FusionCharts.js" />"></script>
-			
 
 		<!-- CSS for Drop Down Tabs Menu #3 -->
 		<!--  <link rel="stylesheet" type="text/css" href="<c:url value="/resources/ddcolortabs.css" />"  /> -->
@@ -308,5 +306,7 @@
 		
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
    		<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
+
 	</body>
 </html>
