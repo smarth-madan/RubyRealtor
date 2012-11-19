@@ -47,8 +47,12 @@
  <script type="text/javascript"><!--         
       var myChart = new FusionCharts( "<c:url value="/resources/js/Column3D.swf" />", 
       "myChartId", "400", "300", "0", "1" );
-      myChart.setXMLUrl("<c:url value="/resources/js/Data.xml" />");
-      myChart.render("chartContainer");
+ 	  var jsonString = "<c:out value="${graphJsonData}" />";
+      var jsonStringModified = jsonString.replace(/&#039;/g,'"');
+      myChart.setJSONData (jsonStringModified);
+	  myChart.render("chartContainer");
+	
+	  
  </script>
 
 

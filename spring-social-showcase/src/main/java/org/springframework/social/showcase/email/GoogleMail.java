@@ -121,7 +121,7 @@ public class GoogleMail {
 			//GoogleMail.Send("shaunakkhedkar", "TIGERrules17", "rakesh.ranjan@sjsu.edu", "shaunakkhedkar@gmail.com,madan.smarth@gmail.com", "Cmpe 295B Email setup from APP working: Properties for you from Awesome Realtors", htmlMessage.toString());
     		//GoogleMail.Send("shaunakkhedkar", "TIGERrules17", "shaunakkhedkar@gmail.com", "shweta.dhamapurkar@gmail.com,priyankbhawsar@gmail.com,siddharthsavant@gmail.com,vrphanse@gmail.com,adityakoparkar@gmail.com,sagaranilbhosale@gmail.com,tarun.pepira@gmail.com,nakul.natu@gmail.com,preeteshdixit@gmail.com,ruchamjoshi@gmail.com,js.vartak@gmail.com", "NEW ... Vacation Planning from my WEB-APP", getHtmlMessage());
     		//GoogleMail.Send("shaunakkhedkar", "TIGERrules17", "shaunakkhedkar@gmail.com", "", "Vacation Planning from my WEB-APP... YOYO ", htmlMessage+getHtmlMessage());
-    		GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", "awesomerealtor007@gmail.com", "madan.smarth@gmail.com", "Awesome Realtors:Property Suggestions for you(TEMPLATE)","<html>"+getHtmlHead().toString()+getBody(propertyList).toString()+"</html>");
+    		GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", "awesomerealtor007@gmail.com", "vrphanse@gmail.com", "Awesome Realtors:Property Suggestions for you(TEMPLATE)","<html>"+getHtmlHead().toString()+getBody(propertyList).toString()+"</html>");
 			System.out.println("Message sent.");
 		} catch (AddressException e) {
 			e.printStackTrace();
@@ -268,61 +268,6 @@ public class GoogleMail {
 		return htmlContent;
 
 	}
-    
-  /*  public static StringBuffer buildHtmlEmailContent(List<Property> propertyList){
-		StringBuffer htmlContent = new StringBuffer();
+  
 
-		for(Property property: propertyList){
-			htmlContent.append("<table border='0'><tr><td>");
-
-			htmlContent.append("<table border='0' width='50%'>");
-			htmlContent.append("<tr><td><b>Property:</b></td><td></td></tr>");
-			htmlContent.append("<tr style='background-color: #F0F0F0;'>");
-			htmlContent.append("<td>MLS ID</td><td>");
-			htmlContent.append(property.getMLS_ID());
-			htmlContent.append("</td></tr>");
-
-			htmlContent.append("<tr style='background-color:#F8F8F8;'>");
-			htmlContent.append("<td>Size</td><td>");
-			htmlContent.append(property.getSize());
-			htmlContent.append("</td></tr>");
-
-			htmlContent.append("<tr style='background-color: #F0F0F0 ;'>");
-			htmlContent.append("<td>Address</td><td>");
-			htmlContent.append(property.getStreet()+" ,"+property.getCity()+" '"+property.getState()+" ,"+property.getZipcode());
-			htmlContent.append("</td></tr>");
-
-			htmlContent.append("<tr style='background-color:#F8F8F8;'>");
-			htmlContent.append("<td>Price</td><td>");
-			htmlContent.append(property.getPrice());
-			htmlContent.append("</td></tr>");
-
-			htmlContent.append("<tr style='background-color: #F0F0F0 ;'>");
-			htmlContent.append("<td>Type</td><td>");
-			htmlContent.append(property.getType());
-			htmlContent.append("</td></tr>");
-
-			htmlContent.append("<tr style='background-color:#F8F8F8;'>");
-			htmlContent.append("<td>Bed/Bath</td><td>");
-			htmlContent.append(property.getBed_bath());
-			htmlContent.append("</td></tr>");
-
-			htmlContent.append("<tr style='background-color: #F0F0F0 ;'>");
-			htmlContent.append("<td>Garage</td><td>");
-			htmlContent.append(property.getGarage());
-			htmlContent.append("</td></tr>");
-
-
-
-			htmlContent.append("<tr style='background-color:#F8F8F8;>");
-			htmlContent.append("<td>Parking</td><td>");
-			htmlContent.append(property.getParking());
-			htmlContent.append("</td></tr></table>");
-
-			htmlContent.append("</td><td valign='top'><table width='50%'><tr><td><i><font style='valign:top'><b>Pic: </b></font></i><br /></td></tr>");
-			htmlContent.append("<tr><td><img height='125' width='150' src='http://localhost:8080/spring-social-showcase/resources/images//property1.gif' alt='No Image Available' /></td></tr></table></td></tr></table>");
-		}
-		return htmlContent;
-
-	}*/
 }

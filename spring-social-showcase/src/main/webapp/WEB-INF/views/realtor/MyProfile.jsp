@@ -4,15 +4,13 @@
 <%@ page session="true"%>
 
 <h3>My Profile</h3>
-<hr />
-<table style="width: 70%;" class="formatHTML5" align="center">
-	<tr>
-		<td style="width: 50%;">
+
+
 			<form method="post" action="/myProfile/update">
-				<table style="width: 100%;"  align="left" class="formatHTML5">
-					<tr style="background-color: grey;">
+				<table style="width: 70%;align:center"    class="table table-striped table-hover table-condensed">
+					<tr style="">
 						<th align="left"><h4>Personal Info</h4></th>
-						<td align="right"><h4>
+						<td style="text-align:right"><h4>
 								<a href="<c:url value="/myprofile/edit"/>" style="">Edit</a>
 							</h4></td>
 					</tr>
@@ -54,24 +52,28 @@
 					</tr>
 				</table>
 				</form>
-		</td>
+		<!-- </td>
 		</tr>
-		</table>
+		</table> -->
 		<br />
 		<br />
-		<table style="width: 70%;" class="formatHTML5" align="center">
+		<!-- <table style="width: 70%;"  class="table table-striped table-hover table-condensed" align="center">
 		<tr>
-		<td style="width: 50%; valign:top" >
-		<form method="get" action="myprofile/setUpGmailAccount">
-			<table  class="formatHTML5" style="width:100%;align:center;valign:top">
-				<tr style="background-color: grey;">
-					<td align="left"><h4>
+		<td style="width: 50%; valign:top" > -->
+		<br/>
+		<form id="form1" method="get" action="myprofile/setUpGmailAccount"> 
+			<table   class="table table-striped table-hover table-condensed" style="width:70%;align:center;valign:top">
+				<tr>
+					<th align="left"><h4>
 						Gmail Account Settings
 						</h4>						
-					</td>
-					<td align="right" valign="middle">
-					<input type="submit" value="Set/Update">
-					</td>
+					</th>
+					<th style="text-align:right" valign="middle">
+					<h4>
+						<a href="<c:url value="#"/>" onclick="document.getElementById('form1').submit();">Edit</a> 
+					</h4>
+					
+					</th>
 				</tr>
 				<tr>
 					<td>
@@ -93,10 +95,10 @@
 				</tr>
 				
 			</table>
-			</form>
-		</td>
+			</form> 
+		<!-- </td>
 	</tr>
-</table>
+</table> -->
 
 
 

@@ -74,6 +74,8 @@ public class MyProfileController {
 	public ModelAndView setUpGmailAccount(HttpServletRequest request, HttpServletResponse response){
 	ModelAndView mv = new ModelAndView();
 		GmailAccount gmailAccount = new GmailAccount();
+		System.out.println("Id:   "+request.getParameter("gmailId"));
+		System.out.println("password:   "+request.getParameter("password"));
 		gmailAccount.setEmailId(request.getParameter("gmailId"));
 		gmailAccount.setPassword(request.getParameter("password"));
 		mv.addObject("gmailAccount", gmailAccount);
