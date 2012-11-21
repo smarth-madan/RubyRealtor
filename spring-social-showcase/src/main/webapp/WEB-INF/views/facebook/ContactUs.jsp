@@ -25,37 +25,37 @@
 	<div class="row">
 		<div class="row">
 			<div class="span5 offset5">
-			<table>
-				<tr>
-					<td><b><font size="2">*Name: </font></b></td>
-					<td><input type="text" name="name" /></td>
-				</tr>
-					<td><b><font size="2">*Email-Id: </font></b></td>
-					<td><input type="text" name="email_ID" /></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">*Phone Number: </font></b></td>
-					<td><input type="text" name="phone_number" /></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">Street: </font></b></td>
-					<td><input type="text" name="street" /></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">City: </font></b></td>
-					<td><input type="text" name="city" /></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">State: </font></b></td>
-					<td><input type="text" name="state" /></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">Zipcode: </font></b></td>
-					<td><input type="text" name="zipcode" /></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">Marital Status: </font></b></td>
-					<td><select id="maritalStatus" name="martial_status"
+				<div class="row">
+					<div class="span2"><b><font size="2">*Name: </font></b></div>
+					<div class="span3"><input type="text" name="name" /></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">*Email-Id: </font></b></div>
+					<div class="span3"><input type="text" name="email_ID" /></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">*Phone Number: </font></b></div>
+					<div class="span3"><input type="text" name="phone_number" /></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">Street: </font></b></div>
+					<div class="span3"><input type="text" name="street" /></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">City: </font></b></div>
+					<div class="span3"><input type="text" name="city" /></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">State: </font></b></div>
+					<div class="span3"><input type="text" name="state" /></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">Zipcode: </font></b></div>
+					<div class="span3"><input type="text" name="zipcode" /></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">Marital Status: </font></b></div>
+					<div class="span3"><select id="maritalStatus" name="martial_status"
 						data-inline="true">
 							<option value="SINGLE">Single</option>
 							<option value="ANNULLED">Annulled</option>
@@ -64,35 +64,34 @@
 							<option value="SEPARATED">Separated</option>
 							<option value="WIDOWED">Widowed</option>
 							<option value="UNKNOWN"{selected} >Unknown</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">Salary Range:</font></b></td>
-					<td><font size="2">Min: <input type="text" name="salary_min_val"/><br /> Max: <input type="text"  name="salary_max_val"/></font></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">Appointment </font></b></td>
-					<td><select id="appointment" name="appointment"
+					</select></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">Salary Range:</font></b></div>
+					<div class="span3">
+						<p><input type="radio" name=salary_range value="1"> below $50,000</p> 
+						<p><input type="radio" name=salary_range value="2"> $50,000 - $100,000</p> 
+						<p><input type="radio" name=salary_range value="3"> $100,000 - $200,000</p>
+						<p><input type="radio" name=salary_range value="4"> $200,000 - $500,000</p>
+						<p><input type="radio" name=salary_range value="5"> above $500,000</p> 
+					</div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">Appointment </font></b></div>
+					<div class="span3"><select id="appointment" name="appointment"
 						data-inline="true">
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 							
-					</select></td>
-				</tr>
-				<tr>
-					<td><b><font size="2">Tentative Date/Time: </font></b></td>
-					<td>
+					</select></div>
+				</div>
+				<div class="row">
+					<div class="span2"><b><font size="2">Tentative Date/Time: </font></b></div>
+					<div class="span3">
 		  				<input type="Text" name="time" id="demo1" maxlength="25" size="25"><a href="javascript:NewCal('demo1','ddmmmyyyy',true,24)"><img src="<c:url value="/resources/images/cal.gif"/>" width="16" height="16" border="0" alt="Pick a date"></a>
 		  				<span class="descriptions">pick a date..</span>
-		  			</td>
-				</tr>
-				<tr>
-					<td><b><font size="2">Describe Your dream home in 2 lines: </font></b></td>
-					<td>
-		  				<textarea  name="homeDescription" cols="40" rows="4"></textarea>
-		  			</td>
-				</tr>
-			</table>
+		  			</div>
+				</div>
 			</div>
 			<div class="span2"></div>
 			<div class="span5">
@@ -133,12 +132,18 @@
 						<div class="row"><font size="2"><input type="checkbox" name="location_downtown" value="yes"  /> Downtown </font></div>
 						<div class="row"><font size="2"> <input type="checkbox" name="location_suburb" value="yes"  /> suburbs </font></div>
 						<div class="row"><font size="2"><b><i>Range :</i></b></font></div>
-						<div class="row"><input type="radio" name=range value="1"  /> <font size="2">Under $100,000 </font></div>
+						<div class="row"><input type="radio" name=range value="1"  /> <font size="2"> Under $100,000 </font></div>
 						<div class="row"><font size="2"> <input type="radio" name=range value="2"  /> $100,000 - $400,000 </font></div>
 						<div class="row"><font size="2"> <input type="radio" name=range value="3" />  $400,000 and above</font></div>
 						<div class="row"><font size="2"> <input type="radio" name=range value="4"   />  Any </font></div>
 	
 			</div>
+		</div>
+			<div class="row">
+					<div class="span3 offset5"><b><font size="2">Describe Your dream home in 2 lines: </font></b></div>
+					<div class="span5">
+		  				<textarea  name="homeDescription" cols="60" rows="4"></textarea>
+		  			</div>
 		</div>
 		<div class="row">
 			<div class="span4"></div>
@@ -147,14 +152,5 @@
 			</div>
 		</div>
 	</div>
+
 </form> 
-	
-	
-<hr /></div>
-
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-   		<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
-
-	</body>
-</html>

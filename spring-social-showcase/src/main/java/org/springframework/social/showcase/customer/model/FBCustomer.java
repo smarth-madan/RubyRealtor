@@ -44,11 +44,21 @@ public class FBCustomer {
 	String house_state;
 	String location_downtown;
 	String location_suburb;
-	String range_lt_100k;
-	String range_100k_400k;
-	String range_gt_400k;
-	String range_any;
+//	String range_lt_100k;
+//	String range_100k_400k;
+//	String range_gt_400k;
+//	String range_any;
 	String range;
+	String salary_range;
+	
+	public String getSalary_range() {
+		return salary_range;
+	}
+
+	public void setSalary_range(String salary_range) {
+		this.salary_range = salary_range;
+	}
+
 	public String getRange() {
 		return range;
 	}
@@ -88,13 +98,13 @@ public class FBCustomer {
 
 	//Timestamp time;
 	
-	public String getRange_any() {
-		return range_any;
-	}
-
-	public void setRange_any(String range_any) {
-		this.range_any = range_any;
-	}
+//	public String getRange_any() {
+//		return range_any;
+//	}
+//
+//	public void setRange_any(String range_any) {
+//		this.range_any = range_any;
+//	}
 
 	public String getBedRoomNumber1() {
 		return bedRoomNumber1;
@@ -176,29 +186,29 @@ public class FBCustomer {
 		this.location_suburb = location_suburb;
 	}
 
-	public String getRange_lt_100k() {
-		return range_lt_100k;
-	}
-
-	public void setRange_lt_100k(String range_lt_100k) {
-		this.range_lt_100k = range_lt_100k;
-	}
-
-	public String getRange_100k_400k() {
-		return range_100k_400k;
-	}
-
-	public void setRange_100k_400k(String range_100k_400k) {
-		this.range_100k_400k = range_100k_400k;
-	}
-
-	public String getRange_gt_400k() {
-		return range_gt_400k;
-	}
-
-	public void setRange_gt_400k(String range_gt_400k) {
-		this.range_gt_400k = range_gt_400k;
-	}
+//	public String getRange_lt_100k() {
+//		return range_lt_100k;
+//	}
+//
+//	public void setRange_lt_100k(String range_lt_100k) {
+//		this.range_lt_100k = range_lt_100k;
+//	}
+//
+//	public String getRange_100k_400k() {
+//		return range_100k_400k;
+//	}
+//
+//	public void setRange_100k_400k(String range_100k_400k) {
+//		this.range_100k_400k = range_100k_400k;
+//	}
+//
+//	public String getRange_gt_400k() {
+//		return range_gt_400k;
+//	}
+//
+//	public void setRange_gt_400k(String range_gt_400k) {
+//		this.range_gt_400k = range_gt_400k;
+//	}
 
 	public String getType_house() {
 		return type_house;

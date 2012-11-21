@@ -96,8 +96,9 @@ public class CustomerHelper {
 		parameters.put("State", c.getState());
 		parameters.put("zipcode", c.getZipcode());
 		parameters.put("marital_status", c.getMartial_status());
-		parameters.put("salary_min_val", c.getSalary_min_val());
-		parameters.put("salary_max_val", c.getSalary_max_val());
+		List<String> rangeList = getSalaryRange(c.getSalary_range());
+		parameters.put("salary_min_val", rangeList.get(0));
+		parameters.put("salary_max_val", rangeList.get(1));
 		parameters.put("email_ID", c.getEmail_ID());
 		parameters.put("R_ID" , c.getR_ID());
 		parameters.put("phone_number", c.getPhone_number());
@@ -116,9 +117,39 @@ public class CustomerHelper {
 		
 	}
 	
+	private List<String> getSalaryRange(String salary_range){
+		String rangeLow = "";
+		String rangeHigh = "";
+		
+		int range = Integer.parseInt(salary_range);
+		
+		switch(range){
+		case 1:	rangeLow="0";
+				rangeHigh="50000";
+			break;
+		case 2:	rangeLow="500000";
+				rangeHigh="100000";
+			break;
+		case 3: rangeLow="100000";
+				rangeHigh="200000";
+			break;
+		case 4:	rangeLow="200000";
+				rangeHigh="500000";
+			break;
+		default : 	rangeLow="500000";
+					rangeHigh="1000000000000";
+				break;
+		}
+
+
+		List<String> rangeList = new ArrayList<String>();
+		rangeList.add(rangeLow);
+		rangeList.add(rangeHigh);
+		return rangeList;
+	}
+	
 	public int addFBCustomerReq(FBCustomer c, int c_id) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("number_of_persons", c.getNumber_of_persons());
 		System.out.println("Inside Add FB CSTMR REQ");
 		String number_of_bedrooms = "";
 		String number_of_baths = "";
@@ -142,7 +173,7 @@ public class CustomerHelper {
 			number_of_baths = "1";
 		}
 		
-		parameters.put("number_of_persons", c.getNumber_of_persons());
+		parameters.put("number_of_persons", c.getNumberOfPersons());
 		parameters.put("house_description", c.getHomeDescription());
 		parameters.put("number_of_bedrooms", number_of_bedrooms);
 		parameters.put("C_ID", c_id);
@@ -155,6 +186,7 @@ public class CustomerHelper {
 		parameters.put("range_low", rangeList.get(0));
 		parameters.put("range_high", rangeList.get(1));
 		parameters.put("type", getHouseType(c));
+		parameters.put("location", getLocation(c));
 
 		try{
 			Number newId = jdbcInsertCustomerReq.executeAndReturnKey(parameters);
@@ -190,6 +222,23 @@ public class CustomerHelper {
 		}
 		else if(c.getType_any()==null && "yes".equalsIgnoreCase(c.getType_house()) && "yes".equalsIgnoreCase(c.getType_apartment()) && c.getType_studio()==null){
 			type = "house/apartment";
+		}
+		return type;
+	}
+	
+	private String getLocation(FBCustomer c){
+		String type = "";
+		if(c.getLocation_downtown()==null && "yes".equalsIgnoreCase(c.getLocation_suburb())){
+			type = "suburb";
+		}
+		else if(c.getLocation_suburb()==null && "yes".equalsIgnoreCase(c.getLocation_downtown())){
+			type = "downtown";
+		}
+		else if("yes".equalsIgnoreCase(c.getLocation_suburb()) && "yes".equalsIgnoreCase(c.getLocation_downtown())){
+			type = "any";
+		}
+		else{
+			type="any";
 		}
 		return type;
 	}

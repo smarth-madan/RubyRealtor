@@ -5,17 +5,23 @@
 <!DOCTYPE html>
 <html lang="en" >
 	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Social Realtor</title>
 		
 		<script type="text/javascript" src="<c:url value="/resources/js/FusionCharts.js" />"></script>
-
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+   		<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
+		
 		<!-- CSS for Drop Down Tabs Menu #3 -->
 		<!--  <link rel="stylesheet" type="text/css" href="<c:url value="/resources/ddcolortabs.css" />"  /> -->
 		<link rel="stylesheet" href="<c:url value="/resources/page.css" />" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<c:url value="/resources/form.css" />" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<c:url value="/resources/messages/messages.css" />" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"  media="screen">
-		 <style>
+		<style>
+		
+
 
     /* GLOBAL STYLES
     -------------------------------------------------- */
@@ -303,10 +309,6 @@
         <p class="muted credit">&copy; Smarth Madan and Shaunak Khedkar. Masters Project for <a href="http://www.sjsu.edu/computereng">SJSU CmpE Department</a></p>
        </div>
       </div>
-		
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-   		<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
 
 	</body>
 </html>
