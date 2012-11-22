@@ -26,8 +26,7 @@
 			<th scope="col">State</th>
 			<th scope="col">Zipcode</th>
 			<th scope="col">Marital Status</th>
-			<th scope="col">Min Salary Value</th>
-			<th scope="col">Max Salary Value</th>
+			<th scope="col">Salary Range</th>
 			<th scope="col">Email Id</th>
 			<th scope="col">Phone Number</th>
 			<th></th>
@@ -43,8 +42,7 @@
 			<td><c:out value="${customer.state}"/></td>	
 			<td><c:out value="${customer.zipcode}"/></td>
 			<td><c:out value="${customer.martial_status}"/></td>
-			<td><c:out value="${customer.salary_min_val}"/></td>
-			<td><c:out value="${customer.salary_max_val}"/></td>
+			<td><c:out value="$ ${customer.salary_min_val} - ${customer.salary_max_val}"/></td>
 			<td><c:out value="${customer.email_ID}"/></td>
 			<td><c:out value="${customer.phone_number}"/></td>
 			<td>

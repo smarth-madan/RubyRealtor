@@ -127,7 +127,7 @@
 			</div>
 		</div>
 			<div class="row">
-					<div class="span3 offset5"><b><font size="2">Describe Your dream home in 2 lines: </font></b></div>
+					<div class="span3 offset5"><b><font size="2">Home Description: </font></b></div>
 					<div class="span5">
 		  				<textarea  name="homeDescription" cols="60" rows="4"></textarea>
 		  			</div>

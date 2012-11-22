@@ -154,3 +154,25 @@
 	</div>
 
 </form> 
+
+<div class="modal hide fade" id="result-modal" style="display: block;">
+ <div class="modal-header">
+<a class="close" data-dismiss="modal">&times;</a>
+<h3>Result</h3>
+</div>
+<div class="modal-body">
+	<p><c:out value="${result}" /></p>
+</div>
+
+<div class="modal-footer">
+    <a class="btn close" data-dismiss="modal">Ok</a>
+</div>
+</div>
+
+<script language="Javascript">
+var result= "<c:out value="${result}" />";
+if(result.length>0){
+	$('#result-modal').modal('show');
+}
+
+</script>

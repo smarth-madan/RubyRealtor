@@ -57,18 +57,15 @@ private static CustomerHelper customerHelper;
 			int result = customerHelper.addFBCustomerReq(inputModel, newCustomerId);
 			if(result!=-1){
 			mv.addObject("result", "Thank you. Your profile has been created, the Real estate Agent will be in touch with you soon");
-			mv.setViewName("realtor/result");
 			}
 			else{
-				mv.setViewName("realtor/result");
-				mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
+				mv.addObject("result", "Sorry, We could not create your profile due to internal error!!!");
 			}
 		}
 		else{
-			mv.setViewName("realtor/result");
-			mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
+			mv.addObject("result", "Sorry, We could not create your profile due to internal error!!!");
 		}
-		mv.setViewName("realtor/result");
+		mv.setViewName("/facebook/ContactUs");
 		return mv;
 	}
 

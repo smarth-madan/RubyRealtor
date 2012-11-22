@@ -29,6 +29,7 @@ public class FBCustomer {
 	String CR_ID;
 	String customer_priority;
 	String appointment;
+	String time;
 	String type_house;
 	String type_apartment;
 	String type_studio;	
@@ -362,6 +363,14 @@ public class FBCustomer {
 
 	public void setCR_ID(String cR_ID) {
 		CR_ID = cR_ID;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 

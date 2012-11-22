@@ -36,6 +36,8 @@ public class Customer {
 	
 	String appointment;
 	
+	String time;
+	
 	//Timestamp time;
 	
 	public String getAppointment() {
@@ -47,13 +49,13 @@ public class Customer {
 	}
 
 
-	/*public Timestamp getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Timestamp time) {
+	public void setTime(String time) {
 		this.time = time;
-	}*/
+	}
 
 	public String getCustomer_priority() {
 		return customer_priority;

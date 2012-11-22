@@ -178,20 +178,20 @@
 				</li>
 				</social:connected>
 				<social:connected provider="twitter">
-				<li><a href="#"  title="Dropdown options available only when connected" class="dropdown-toggle"><span>Twitter</span><b class="caret"></b></a>
+				<li><a href="#"  title="Dropdown options available only when connected" class="dropdown-toggle" data-toggle="dropdown"><span>Twitter</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="<c:url value="/twitter"/>">User Profile</a></li>
+						<%-- <li><a href="<c:url value="/twitter"/>">User Profile</a></li> --%>
 						<li><a href="<c:url value="/twitter/timeline"/>">Timeline</a></li>
-						<li><a href="<c:url value="/twitter/friends"/>">Friends</a></li>
+						<%-- <li><a href="<c:url value="/twitter/friends"/>">Friends</a></li>
 						<li><a href="<c:url value="/twitter/followers"/>">Followers</a></li>
 						<li><a href="<c:url value="/twitter/messages"/>">Messages</a></li>
-						<li><a href="<c:url value="/twitter/trends"/>"> Trends</a></li>
+						<li><a href="<c:url value="/twitter/trends"/>"> Trends</a></li> --%>
 					</ul>
 				</li>
 				</social:connected>
 				<li><a href="<c:url value="/analytics"/>" title="Analytics"><span>Analytics</span></a></li>
-				<li><a href="http://tools.dynamicdrive.com" title="Matching"><span>Matching</span></a></li>
-				<li><a href="http://tools.dynamicdrive.com" title="News"><span>News</span></a></li>
+				<li><a href="<c:url value="/customer/getAppt"/>" title="Appointments"><span>Appointments</span></a></li>
+				<li><a href="http://www.realtor.org/news-releases" title="News"><span>News</span></a></li>
 	
 				<li><a style="float:right" href="<c:url value="/signout"/>" title="Matching"><span>Signout</span></a></li>	
 			</ul>

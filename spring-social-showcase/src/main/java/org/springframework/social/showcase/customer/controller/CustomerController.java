@@ -1,5 +1,6 @@
 package org.springframework.social.showcase.customer.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -60,6 +61,15 @@ public class CustomerController {
 		return mv;
 	}
 
+	@RequestMapping(value="/getAppt",  method=RequestMethod.GET)
+	public ModelAndView getApptCustomer(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mv = new ModelAndView();
+		List<Customer> customers = customerHelper.findCustomerAppt(sessionRealtor.getRealtorId());
+		mv.addObject("customers",customers);
+		mv.setViewName("customer/appointments");
+		return mv;
+	}
+	
 	@RequestMapping(value="/registerFromFB", method=RequestMethod.POST)
 	public ModelAndView registerFromFB(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("input") FBCustomer inputModel) {
 		ModelAndView mv = new ModelAndView();
@@ -77,11 +87,11 @@ public class CustomerController {
 				mv.addObject("result", "Thank you. Your profile has been created, the Real estate Agent will be in touch with you soon");
 			}
 			else{
-				mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
+				mv.addObject("result", "Sorry, We could not create your profile due to internal error!!!");
 			}
 		}
 		else{
-			mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
+			mv.addObject("result", "Sorry, We could not create your profile due to internal error!!!");
 		}
 		mv.setViewName("customer/addCustomer");
 		return mv;
@@ -89,20 +99,29 @@ public class CustomerController {
 
 
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public ModelAndView addCustomerSubmit(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("input") Customer inputModel){
+	public ModelAndView addCustomerSubmit(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("input") FBCustomer inputModel){
 		ModelAndView mv = new ModelAndView();
-		inputModel.setR_ID(String.valueOf((sessionRealtor.getRealtorId())));
-		int newCustomerId = customerHelper.addCustomer(inputModel);
 
+		System.out.println("numberofPersons="+inputModel.getNumber_of_persons());
+
+		inputModel.setR_ID(String.valueOf((sessionRealtor.getRealtorId())));
+		inputModel.setR_ID("1");
+		inputModel.setCustomer_priority("1");
+		int newCustomerId = customerHelper.addFBCustomer(inputModel);
 		if(newCustomerId >=0 ){
-			mv.addObject("customerId", newCustomerId);
-			mv.setViewName("customer/addCustomerRequirements");
+			System.out.println("newCustomerId=="+newCustomerId);
+			int result = customerHelper.addFBCustomerReq(inputModel, newCustomerId);
+			if(result!=-1){
+				mv.addObject("result", "Customer added successfully!!!");
+			}
+			else{
+				mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
+			}
 		}
 		else{
-			mv.setViewName("error/error");
-			mv.addObject("error", "Sorry, Customer could not be added due to internal error!!!");
+			mv.addObject("result", "Sorry, Customer could not be added due to internal error!!!");
 		}
-
+		mv.setViewName("customer/addCustomer");
 		return mv;
 	}
 
@@ -194,8 +213,12 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/emailCustomer")
-	public ModelAndView emailCustomer() {
+	public ModelAndView emailCustomer(String c_id) {
 		ModelAndView mv = new ModelAndView();
+		Customer eCustomer = customerHelper.getCustomer(c_id);
+		mv.addObject("subject","Awesome Realtors: <subject>");
+		mv.addObject("customerEmailId", eCustomer.getEmail_ID());
+		mv.addObject("propertyList",new ArrayList<Property>());
 		mv.setViewName("customer/emailCustomer");
 		return mv;
 	}
@@ -210,7 +233,7 @@ public class CustomerController {
 		String defaultMessage = "Properties selected for you:";
 		ModelAndView mv = new ModelAndView();
 		if(propertyList!=null && propertyList.size()>0){
-			System.out.println("Got ittttt..."+propertyList.size());
+			//System.out.println("Got ittttt..."+propertyList.size());
 			try {
 				if(message==null || "".equals(message)){
 					GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", "awesomerealtor007@gmail.com", cc, subject, defaultMessage+"<br /><br />"+buildHtmlEmailContent(propertyList).toString());
@@ -222,6 +245,17 @@ public class CustomerController {
 				mv.addObject("result", "Incorrect Email Ids. You tried sending email to "+to+" from your email Id awesomerealtor007@gmail.com. Please check on all email Ids");
 			} catch (MessagingException e) {
 				mv.addObject("result", "Problem with the message being sent .");
+			}
+		}else if(StringUtils.hasText(message)){
+			try {
+				GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17",to, cc, subject, message);
+				mv.addObject("result", "An email has been sent to "+to+" .");
+			} catch (AddressException e) {
+				mv.addObject("result", "Incorrect Email Ids. You tried sending email to "+to+" from your email Id awesomerealtor007@gmail.com. Please check on all email Ids");
+				e.printStackTrace();
+			} catch (MessagingException e) {
+				mv.addObject("result", "Problem with the message being sent .");
+				e.printStackTrace();
 			}
 		}
 

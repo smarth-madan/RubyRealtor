@@ -60,34 +60,6 @@ public class CustomerHelper {
 		
 	}
 	
-	public int addCustomer(Customer c) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("name", c.getName());
-		parameters.put("street", c.getStreet());
-		parameters.put("city", c.getCity());
-		parameters.put("State", c.getCity());
-		parameters.put("zipcode", c.getZipcode());
-		parameters.put("marital_status", c.getMartial_status());
-		parameters.put("salary_min_val", c.getSalary_min_val());
-		parameters.put("salary_max_val", c.getSalary_max_val());
-		parameters.put("email_ID", c.getEmail_ID());
-		parameters.put("R_ID" , c.getR_ID());
-		parameters.put("phone_number", c.getPhone_number());
-		parameters.put("customer_priority", c.getCustomer_priority());
-		
-		try{
-		Number newId = jdbcInsertCustomer.executeAndReturnKey(parameters);
-		int id =  newId.intValue();
-		return id;
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-			System.out.println("ERROR :" +  e.getMessage());
-			return -1;
-		}
-		
-	}
-	
 	public int addFBCustomer(FBCustomer c) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("name", c.getName());
@@ -103,6 +75,8 @@ public class CustomerHelper {
 		parameters.put("R_ID" , c.getR_ID());
 		parameters.put("phone_number", c.getPhone_number());
 		parameters.put("customer_priority", c.getCustomer_priority());
+		parameters.put("appointment", c.getAppointment().equalsIgnoreCase("yes"));
+		parameters.put("time", c.getTime());
 		
 		try{
 		Number newId = jdbcInsertCustomer.executeAndReturnKey(parameters);
@@ -337,6 +311,16 @@ public class CustomerHelper {
 		 }
 	}
 	
+	public List<Customer> findCustomerAppt(String R_ID){
+		  try{
+		    	return this.jdbctemplate.query( "select * from customer where appointment=1 and R_ID="+R_ID, new CustomerMapper());
+		    }catch(DataAccessException de){
+		    	de.printStackTrace();
+		    	System.out.println("ERROR :" +  de.getMessage());
+		    	return null;
+		    }
+	}
+	
 	public Boolean editCustomer(Customer customer) {		
 		try{
 	    	int i= this.jdbctemplate.update("update customer set " +
@@ -391,6 +375,8 @@ public class CustomerHelper {
 	        customer.setEmail_ID(rs.getString("email_ID"));
 	        customer.setPhone_number(rs.getString("phone_number"));
 	        customer.setR_ID(rs.getString("R_ID"));
+	        customer.setAppointment(rs.getString("appointment"));
+	        customer.setTime(rs.getString("time"));
 	        return customer;
 	    }        
 	}

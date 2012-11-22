@@ -299,7 +299,7 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
 		
-		<div class="container-fluid">
+		<div class="container">
 			<tiles:insertAttribute name="content" />
 		</div>	
 

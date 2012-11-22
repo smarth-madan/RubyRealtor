@@ -25,5 +25,8 @@
 	<definition name="customer/emailCustomer" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/customer/emailCustomer.jsp" />
 	</definition>
+	<definition name="customer/appointments" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/customer/appointments.jsp" />
+	</definition>
 	
 </tiles-definitions>

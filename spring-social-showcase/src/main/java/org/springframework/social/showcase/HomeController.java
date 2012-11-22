@@ -111,6 +111,19 @@ public class HomeController {
 		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers(account.getR_ID()));
 		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
 		
+		StringBuffer graphJsonData = new StringBuffer();
+	    graphJsonData.append("{ \"chart\": { \"caption\" : \"Weekly Sales Summary\" , ");
+		graphJsonData.append("\"xAxisName\" : \"Week\", \"yAxisName\" : \"Sales\", \"numberPrefix\" : \"$\" }, ");
+		graphJsonData.append("\"data\" : [ { \"label\" : \"Week 1\", \"value\" : \"14400\" },  ");
+		graphJsonData.append("{ \"label\" : \"Week 2\", \"value\" : \"19600\" },  ");
+		graphJsonData.append("{ \"label\" : \"Week 3\", \"value\" : \"24000\" }, ");
+		graphJsonData.append("{ \"label\" : \"Week 4\", \"value\" : \"15700\" } ] } ");
+		//String temp = "{ \"chart\": { \"caption\" : \"Weekly Sales Summary\" , \"xAxisName\" : \"Week\", \"yAxisName\" : \"Sales\", \"numberPrefix\" : \"$\" },\"data\" : [ { \"label\" : \"Week 1\", \"value\" : \"14400\" },{ \"label\" : \"Week 2\", \"value\" : \"19600\" },{ \"label\" : \"Week 3\", \"value\" : \"24000\" },{ \"label\" : \"Week 4\", \"value\" : \"15700\" } ]    } ";
+		String temp = "{ 'chart': { 'caption' : 'Weekly Sales Summary' , 'xAxisName' : 'Week', 'yAxisName' : 'Sales', 'numberPrefix' : '$' },'data' : [ { 'label' : 'Week 1', 'value' : '14400' },{ 'label' : 'Week 2', 'value' : '19600' },{ 'label' : 'Week 3', 'value' : '24000' },{ 'label' : 'Week 4', 'value' : '15700' } ]    }";
+		System.out.println(graphJsonData.toString());
+		System.out.println(temp);
+		model.addAttribute("graphJsonData", temp);
+		
 		return "home";
 		
 	}
