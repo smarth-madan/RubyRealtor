@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.social.showcase.customer.model.CRequirements;
 import org.springframework.social.showcase.customer.model.Customer;
 import org.springframework.social.showcase.customer.model.FBCustomer;
+import org.springframework.util.StringUtils;
 
 import com.mysql.jdbc.Connection;
 
@@ -221,27 +222,27 @@ public class CustomerHelper {
 		
 		String rangeLow = "";
 		String rangeHigh = "";
+		if(StringUtils.hasText(c.getRange())){
+			int range = Integer.parseInt(c.getRange());
 		
-		int range = Integer.parseInt(c.getRange());
-		
-		switch(range){
-		case 1:	rangeLow="100";
-				rangeHigh="100000";
-			break;
-		case 2:	rangeLow="100000";
-				rangeHigh="400000";
-			break;
-		case 3: rangeLow="400000";
-				rangeHigh="1000000000000";
-			break;
-		case 4:	rangeLow="100";
-				rangeHigh="1000000000000";
-			break;
-		default : 	rangeLow="100";
+			switch(range){
+			case 1:	rangeLow="100";
+					rangeHigh="100000";
+				break;
+			case 2:	rangeLow="100000";
+					rangeHigh="400000";
+				break;
+			case 3: rangeLow="400000";
 					rangeHigh="1000000000000";
 				break;
+			case 4:	rangeLow="100";
+					rangeHigh="1000000000000";
+				break;
+			default : 	rangeLow="100";
+						rangeHigh="1000000000000";
+					break;
+			}
 		}
-
 
 		List<String> rangeList = new ArrayList<String>();
 		rangeList.add(rangeLow);

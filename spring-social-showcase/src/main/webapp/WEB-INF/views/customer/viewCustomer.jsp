@@ -36,15 +36,15 @@
 	<tbody>
 		<c:forEach items="${customers}" var="customer">
 		<tr>
-			<td><c:out value="${customer.name}"/></td>
-			<td><c:out value="${customer.street}"/></td>
-			<td><c:out value="${customer.city}"/></td>
-			<td><c:out value="${customer.state}"/></td>	
-			<td><c:out value="${customer.zipcode}"/></td>
-			<td><c:out value="${customer.martial_status}"/></td>
-			<td><c:out value="$ ${customer.salary_min_val} - ${customer.salary_max_val}"/></td>
-			<td><c:out value="${customer.email_ID}"/></td>
-			<td><c:out value="${customer.phone_number}"/></td>
+			<td style="font-size:small"><c:out value="${customer.name}"/></td>
+			<td style="font-size:small" ><c:out value="${customer.street}"/></td>
+			<td style="font-size:small"><c:out value="${customer.city}"/></td>
+			<td style="font-size:small"><c:out value="${customer.state}"/></td>	
+			<td style="font-size:small"><c:out value="${customer.zipcode}"/></td>
+			<td style="font-size:small"><c:out value="${customer.martial_status}"/></td>
+			<td style="font-size:small"><c:out value="$ ${customer.salary_min_val} - ${customer.salary_max_val}"/></td>
+			<td style="font-size:small"><c:out value="${customer.email_ID}"/></td>
+			<td style="font-size:small"><c:out value="${customer.phone_number}"/></td>
 			<td>
 				<form method="POST" action="<c:url value="/customer/edit" />" >
 				<input type="hidden" name="c_id" value="${customer.c_id}" />
@@ -54,7 +54,7 @@
 			<td>
 				<form method="POST" action="<c:url value="/customer/match" />" >
 				<input type="hidden" name="c_id" value="${customer.c_id}" />
-				<button class = "btn btn-primary" type="submit">Match Listings</button>
+				<button class = "btn btn-primary" type="submit">Match</button>
 				</form>
 			</td>
 		</tr>

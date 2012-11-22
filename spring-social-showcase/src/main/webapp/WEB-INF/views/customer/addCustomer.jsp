@@ -11,7 +11,7 @@
 <form action="registerFromFB" method="post"> 
 	<div class="row">
 		<div class="row">
-			<div class="span5 offset5">
+			<div class="span5">
 				<div class="row">
 					<div class="span2"><b><font size="2">*Name: </font></b></div>
 					<div class="span3"><input type="text" name="name" /></div>
@@ -68,7 +68,7 @@
 					<div class="span3"><select id="appointment" name="appointment"
 						data-inline="true">
 							<option value="yes">Yes</option>
-							<option value="no">No</option>
+							<option value="no" selected>No</option>
 							
 					</select></div>
 				</div>
@@ -93,7 +93,7 @@
 					
 					<select id="numberOfPersons" name="numberOfPersons" class="help-inline"
 						data-inline="true">
-							<option value="any">Any</option>
+							<option value="-1" {selected} >any</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -104,7 +104,6 @@
 							<option value="8">8</option>
 							<option value="9">9</option>
 							<option value="9">10</option>
-							<option value="UNKNOWN"{selected} >Unspecified</option>
 					</select></br>
 					</div>
 					
@@ -127,7 +126,7 @@
 			</div>
 		</div>
 			<div class="row">
-					<div class="span3 offset5"><b><font size="2">Home Description: </font></b></div>
+					<div class="span3"><b><font size="2">Home Description: </font></b></div>
 					<div class="span5">
 		  				<textarea  name="homeDescription" cols="60" rows="4"></textarea>
 		  			</div>

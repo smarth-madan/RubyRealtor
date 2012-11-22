@@ -11,6 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.FacebookLink;
+import org.springframework.social.facebook.api.Insights;
 import org.springframework.social.facebook.api.Page;
 import org.springframework.social.showcase.SessionRealtor;
 import org.springframework.social.showcase.customer.helper.CustomerHelper;
@@ -88,7 +89,8 @@ private static CustomerHelper customerHelper;
 	
 	@RequestMapping(value="/facebook/pageInsights", method=RequestMethod.GET)
 	public String getPageInsights() {
-		facebook.pageOperations();
+		Insights i = facebook.insightsOperations().pageViews(this.pageId);
+		i.getValuesList();
 		return "facebook/pageEvent";
 	}
 	
