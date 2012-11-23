@@ -8,7 +8,7 @@
 <div class="span12" style="width:100%">
 <div class="row">
   <div class="span6"><h1>Welcome, <c:out value="${account.firstName}"/>!</h1></div>
-  <div class="span6"><c:if test="${not empty image.imageUrl}"> <img src="${image.imageUrl}" height="100" width="100"> </c:if> </div>
+  <div class="span6"><c:if test="${not empty image.imageUrl}"> <img src="${image.imageUrl}" height="100" width="100" style="float:right"> </c:if> </div>
 </div>
 
 <table style="width:100%">

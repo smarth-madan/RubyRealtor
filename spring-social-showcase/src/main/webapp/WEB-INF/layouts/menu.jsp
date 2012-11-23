@@ -258,7 +258,7 @@
 		<label for="password">Password</label>
 		<input id="password" name="j_password" type="password" size="25" />	
 	</fieldset>
-	<button type="submit">Sign In</button>
+	<button class="btn btn-primary" type="submit">Sign In</button>
 	
 	<!--<p>Some test user/password pairs you may use are:</p>
 	<ul>
