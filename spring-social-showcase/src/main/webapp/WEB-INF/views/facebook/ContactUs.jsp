@@ -10,6 +10,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"  media="screen">
+<script language="JavaScript" src="<c:url value="/resources/js/gen_validatorv4.js"/>"
+    		type="text/javascript" xml:space="preserve"></script>
 <title>Contact Us</title>
 </head>
 
@@ -26,16 +28,23 @@
 		<div class="row">
 			<div class="span5 offset5">
 				<div class="row">
-					<div class="span2"><b><font size="2">*Name: </font></b></div>
-					<div class="span3"><input type="text" name="name" /></div>
+					<div class="span2">
+					<b><font size="2">*Name: </font></b></div>
+					<div class="span3"><input type="text" name="name" />
+					<div id="myform_name_errorloc" class="error_strings" style="color:red"></div></div>
 				</div>
 				<div class="row">
-					<div class="span2"><b><font size="2">*Email-Id: </font></b></div>
-					<div class="span3"><input type="text" name="email_ID" /></div>
+					<div class="span2">
+					<b><font size="2">*Email-Id: </font></b></div>
+					<div class="span3"><input type="text" name="email_ID" />
+						<div id="myform_email_ID_errorloc" class="error_strings" style="color:red"></div>
+					</div>
 				</div>
 				<div class="row">
-					<div class="span2"><b><font size="2">*Phone Number: </font></b></div>
-					<div class="span3"><input type="text" name="phone_number" /></div>
+					<div class="span2">
+					<b><font size="2">*Phone Number: </font></b></div>
+					<div class="span3"><input type="text" name="phone_number" />
+					<div id='myform_phone_number_errorloc' class="error_strings" style="color:red"></div></div>
 				</div>
 				<div class="row">
 					<div class="span2"><b><font size="2">Street: </font></b></div>
@@ -174,5 +183,24 @@ var result= "<c:out value="${result}" />";
 if(result.length>0){
 	$('#result-modal').modal('show');
 }
+
+
+//You should create the validator only after the definition of the HTML form
+var frmvalidator  = new Validator("myform");
+frmvalidator.EnableOnPageErrorDisplay();
+frmvalidator.EnableMsgsTogether();
+
+frmvalidator.addValidation("name","req","Please enter your Name");
+frmvalidator.addValidation("name","maxlen=30",	"Max length for FirstName is 30");
+
+
+frmvalidator.addValidation("email_ID","maxlen=50");
+frmvalidator.addValidation("email_ID","req");
+frmvalidator.addValidation("email_ID","email");
+
+frmvalidator.addValidation("phone_number","maxlen=50");
+frmvalidator.addValidation("phone_number","req");
+frmvalidator.addValidation("phone_number","numeric");
+
 
 </script>

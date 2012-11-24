@@ -63,21 +63,41 @@ public class CustomerHelper {
 	
 	public int addFBCustomer(FBCustomer c) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("name", c.getName());
-		parameters.put("street", c.getStreet());
-		parameters.put("city", c.getCity());
-		parameters.put("State", c.getState());
-		parameters.put("zipcode", c.getZipcode());
-		parameters.put("marital_status", c.getMartial_status());
+		if(StringUtils.hasText(c.getName())){
+			parameters.put("name", c.getName());
+		}
+		if(StringUtils.hasText(c.getStreet())){
+			parameters.put("street", c.getStreet());
+		}
+		if(StringUtils.hasText(c.getCity())){
+			parameters.put("city", c.getCity());
+		}
+		if(StringUtils.hasText(c.getState())){
+			parameters.put("State", c.getState());		
+		}
+		if(StringUtils.hasText(c.getZipcode())){
+			parameters.put("zipcode", c.getZipcode());
+		}
+		if(StringUtils.hasText(c.getMartial_status())){
+			parameters.put("marital_status", c.getMartial_status());
+		}
+		
 		List<String> rangeList = getSalaryRange(c.getSalary_range());
 		parameters.put("salary_min_val", rangeList.get(0));
 		parameters.put("salary_max_val", rangeList.get(1));
-		parameters.put("email_ID", c.getEmail_ID());
+		if(StringUtils.hasText(c.getEmail_ID())){
+			parameters.put("email_ID", c.getEmail_ID());
+		}
 		parameters.put("R_ID" , c.getR_ID());
-		parameters.put("phone_number", c.getPhone_number());
+		if(StringUtils.hasText(c.getPhone_number())){
+			parameters.put("phone_number", c.getPhone_number());
+		}
+		
 		parameters.put("customer_priority", c.getCustomer_priority());
 		parameters.put("appointment", c.getAppointment().equalsIgnoreCase("yes"));
-		parameters.put("time", c.getTime());
+		if(c.getAppointment().equalsIgnoreCase("yes")){
+			parameters.put("time", c.getTime());
+		}
 		
 		try{
 		Number newId = jdbcInsertCustomer.executeAndReturnKey(parameters);
@@ -96,7 +116,7 @@ public class CustomerHelper {
 		String rangeLow = "";
 		String rangeHigh = "";
 		
-		int range = Integer.parseInt(salary_range);
+		int range = StringUtils.hasText(salary_range)?Integer.parseInt(salary_range):0;
 		
 		switch(range){
 		case 1:	rangeLow="0";
@@ -137,7 +157,10 @@ public class CustomerHelper {
 		}
 		else if("yes".equalsIgnoreCase(c.getBedRoomNumber1())){
 			number_of_bedrooms = "1";
+		}else{
+			number_of_bedrooms = "3";
 		}
+		
 		if("yes".equalsIgnoreCase(c.getBathNumber3())){
 			number_of_baths = "3";
 		}
@@ -146,17 +169,25 @@ public class CustomerHelper {
 		}
 		else if("yes".equalsIgnoreCase(c.getBathNumber1())){
 			number_of_baths = "1";
+		}else{
+			number_of_baths = "2";
 		}
 		
 		parameters.put("number_of_persons", c.getNumberOfPersons());
-		parameters.put("house_description", c.getHomeDescription());
+		if(StringUtils.hasText(c.getHomeDescription())){
+			parameters.put("house_description", c.getHomeDescription());
+		}
 		parameters.put("number_of_bedrooms", number_of_bedrooms);
 		parameters.put("C_ID", c_id);
 		parameters.put("number_of_baths", number_of_baths);
-		parameters.put("city", c.getHouse_city());
+		if(StringUtils.hasText(c.getHouse_city())){
+			parameters.put("city", c.getHouse_city());
+		}
 		System.out.println("state ===" +c.getHouse_state());
-		parameters.put("state", c.getHouse_state());
-		parameters.put("zipcode", c.getZipcode());
+		if(StringUtils.hasText(c.getState())){
+			parameters.put("state", c.getHouse_state());
+		}
+		
 		List<String> rangeList = getRange(c);
 		parameters.put("range_low", rangeList.get(0));
 		parameters.put("range_high", rangeList.get(1));
@@ -197,6 +228,8 @@ public class CustomerHelper {
 		}
 		else if(c.getType_any()==null && "yes".equalsIgnoreCase(c.getType_house()) && "yes".equalsIgnoreCase(c.getType_apartment()) && c.getType_studio()==null){
 			type = "house/apartment";
+		}else{
+			type="any";
 		}
 		return type;
 	}
@@ -256,7 +289,6 @@ public class CustomerHelper {
 		parameters.put("number_of_bedrooms", c.getNoOfBedrooms());
 		parameters.put("city", c.getCity());
 		parameters.put("state", c.getState());
-		parameters.put("zipcode", c.getZipcode());
 		//parameters.put("range_amount", c.getRangeAmount());
 		parameters.put("type", c.getType());
 		
@@ -389,10 +421,9 @@ public class CustomerHelper {
 	    	cRequirements.setCr_ID(rs.getString("CR_ID"));
 	    	cRequirements.setCity(rs.getString("city"));
 	    	cRequirements.setState(rs.getString("state"));
-	    	cRequirements.setZipcode(rs.getString("zipcode"));
 	    	cRequirements.setType(rs.getString("type"));
-	    	cRequirements.setNoOfBedrooms(Integer.parseInt(rs.getString("number_of_bedrooms")));
-	    	cRequirements.setNoOfPersons(Integer.parseInt(rs.getString("number_of_persons")));
+	    	cRequirements.setNoOfBedrooms(StringUtils.hasText(rs.getString("number_of_bedrooms"))?Integer.parseInt(rs.getString("number_of_bedrooms")):0);
+	    	cRequirements.setNoOfPersons(StringUtils.hasText(rs.getString("number_of_persons"))?Integer.parseInt(rs.getString("number_of_persons")):0);
 	    	cRequirements.setNumber_of_baths(rs.getString("number_of_baths"));
 	    	cRequirements.setLocation(rs.getString("location"));
 	    	cRequirements.setRange_low(rs.getString("range_low"));

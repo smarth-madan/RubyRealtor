@@ -6,7 +6,6 @@ public class CRequirements {
 	Integer noOfBedrooms;
 	String city;
 	String state;
-	String zipcode;
 	String type;
 	String c_id;
 	String number_of_baths;
@@ -80,12 +79,6 @@ public class CRequirements {
 	}
 	public void setState(String state) {
 		this.state = state;
-	}
-	public String getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
 	}
 	public String getType() {
 		return type;

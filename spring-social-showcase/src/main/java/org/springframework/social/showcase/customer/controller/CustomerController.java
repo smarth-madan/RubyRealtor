@@ -167,7 +167,7 @@ public class CustomerController {
 		ModelAndView mv = new ModelAndView();
 		Boolean success = customerHelper.editCustomer(customer);
 		if(success){
-			mv.setViewName("realtor/result");
+			mv.setViewName("customer/editCustomer");
 			mv.addObject("result", "Customer data updated Successfully.");
 		}
 		return mv;	

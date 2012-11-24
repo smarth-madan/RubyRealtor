@@ -12,6 +12,8 @@
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
    		<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 		<script type="text/javascript" src="<c:url value="/resources/datetimepicker.js" />"></script>
+		<script language="JavaScript" src="<c:url value="/resources/js/gen_validatorv4.js"/>"
+    		type="text/javascript" xml:space="preserve"></script>
 		
 		<!-- CSS for Drop Down Tabs Menu #3 -->
 		<!--  <link rel="stylesheet" type="text/css" href="<c:url value="/resources/ddcolortabs.css" />"  /> -->

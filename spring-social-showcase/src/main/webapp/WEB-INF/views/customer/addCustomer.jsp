@@ -8,21 +8,28 @@
 
 
 
-<form action="registerFromFB" method="post"> 
+<form action="registerFromFB" method="post" name="myform" id="myform"> 
 	<div class="row">
 		<div class="row">
 			<div class="span5">
 				<div class="row">
-					<div class="span2"><b><font size="2">*Name: </font></b></div>
-					<div class="span3"><input type="text" name="name" /></div>
+					<div class="span2">
+					<b><font size="2">*Name: </font></b></div>
+					<div class="span3"><input type="text" name="name" />
+					<div id="myform_name_errorloc" class="error_strings" style="color:red"></div></div>
 				</div>
 				<div class="row">
-					<div class="span2"><b><font size="2">*Email-Id: </font></b></div>
-					<div class="span3"><input type="text" name="email_ID" /></div>
+					<div class="span2">
+					<b><font size="2">*Email-Id: </font></b></div>
+					<div class="span3"><input type="text" name="email_ID" />
+						<div id="myform_email_ID_errorloc" class="error_strings" style="color:red"></div>
+					</div>
 				</div>
 				<div class="row">
-					<div class="span2"><b><font size="2">*Phone Number: </font></b></div>
-					<div class="span3"><input type="text" name="phone_number" /></div>
+					<div class="span2">
+					<b><font size="2">*Phone Number: </font></b></div>
+					<div class="span3"><input type="text" name="phone_number" />
+					<div id='myform_phone_number_errorloc' class="error_strings" style="color:red"></div></div>
 				</div>
 				<div class="row">
 					<div class="span2"><b><font size="2">Street: </font></b></div>
@@ -84,7 +91,7 @@
 			<div class="span5">
 
 					<div class="row"><b><font size="2">Help us know you more</font></b></div>
-					<div class="row"><b><i><font size="2">Type of House:</font></b></i></div>
+					<div class="row"><i><b><font size="2">Type of House:</font></b></i></div>
 
 					<div class="row"><font size="2"> <input type="checkbox" name="type_house" value="yes"  /> House </font></div>
 					<div class="row"><font size="2"> <input type="checkbox" name="type_apartment" value="yes"  />  Apartment </font></div>
@@ -161,5 +168,23 @@ var result= "<c:out value="${result}" />";
 if(result.length>0){
 	$('#result-modal').modal('show');
 }
+
+
+//You should create the validator only after the definition of the HTML form
+  var frmvalidator  = new Validator("myform");
+  frmvalidator.EnableOnPageErrorDisplay();
+  frmvalidator.EnableMsgsTogether();
+
+  frmvalidator.addValidation("name","req","Please enter your Name");
+  frmvalidator.addValidation("name","maxlen=30",	"Max length for FirstName is 30");
+
+  
+  frmvalidator.addValidation("email_ID","maxlen=50");
+  frmvalidator.addValidation("email_ID","req");
+  frmvalidator.addValidation("email_ID","email");
+  
+  frmvalidator.addValidation("phone_number","maxlen=50");
+  frmvalidator.addValidation("phone_number","req");
+  frmvalidator.addValidation("phone_number","numeric");
 
 </script>
