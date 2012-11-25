@@ -47,7 +47,7 @@
 					</tr>
 				</table>
 			</td>
-			<td valign="top" scope="col" style="float: left"><img height="125" width="150" src="${property.image}"></td>
+			<td valign="top" scope="col" style="float: left"><img height="125" width="150" src="../resources/images/${property.image}"></td>
 			<td valign="top" scope="col" style="float: left"><input type="hidden" name="mls_id" value="${property.MLS_ID}">			
 			</td>
 		</tr>

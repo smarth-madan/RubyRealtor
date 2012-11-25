@@ -98,25 +98,37 @@ public class SolrHelper {
 	}
 	
 	private String tagsAndCity(List<String> tags, String city){
-		String solrQuery = "tags:(";
-		for(String tag : tags){
-			solrQuery = solrQuery + "*" + tag+ "*" +" OR ";
+		String solrQuery ="";
+		if(!tags.isEmpty()){
+			solrQuery = "!tags:(";
+			for(String tag : tags){
+				solrQuery = solrQuery + "*" + tag+ "*" +" OR ";
+			}
+			solrQuery = solrQuery.substring(0, solrQuery.length()-4);
+			solrQuery = solrQuery + ") ";
+			solrQuery = solrQuery + "AND "; 
 		}
-		solrQuery = solrQuery.substring(0, solrQuery.length()-4);
-		solrQuery = solrQuery + ") AND city:("+city+")";
+		
+		solrQuery = solrQuery + "city:("+city+")";
 		
 		return solrQuery;
 		
 	}
 	
 	private String noTagsAndCity(List<String> tags, String city){
-		String solrQuery = "!tags:(";
-		for(String tag : tags){
-			solrQuery = solrQuery + "*" + tag+ "*" +" OR ";
+		String solrQuery ="";
+		if(!tags.isEmpty()){
+			solrQuery = "!tags:(";
+			for(String tag : tags){
+				solrQuery = solrQuery + "*" + tag+ "*" +" OR ";
+			}
+			solrQuery = solrQuery.substring(0, solrQuery.length()-4);
+			solrQuery = solrQuery + ") ";
+			solrQuery = solrQuery + "AND "; 
 		}
-		solrQuery = solrQuery.substring(0, solrQuery.length()-4);
-		solrQuery = solrQuery + ") AND city:("+city+")";
 		
+		solrQuery = solrQuery + "city:("+city+")";
+
 		return solrQuery;
 		
 	}
