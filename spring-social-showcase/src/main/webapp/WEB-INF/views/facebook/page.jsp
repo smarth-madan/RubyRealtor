@@ -30,9 +30,11 @@
 					<c:if test="${not empty post.likeCount}">
 		 				<c:out value="${post.likeCount}" default="0"/><img src="<c:url value="/resources/social/facebook/facebook-like-logo.jpg" />" height=10 width=20/>
 					</c:if>
+					<span style="float:right">
 					<c:if test="${not empty post.commentCount}">
 		 				<c:out value="${post.commentCount}" default="0"/> comments
 					</c:if>
+					</span>
 				</div>
 		</div>
 		</div>
