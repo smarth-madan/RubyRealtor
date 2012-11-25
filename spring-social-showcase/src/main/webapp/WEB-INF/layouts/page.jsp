@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <!DOCTYPE html>
 <html lang="en" >
@@ -261,7 +262,7 @@
 	<body>
 	
 	<tiles:insertTemplate template="menu.jsp" />
-		
+
 		 <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" style="vallign:top">
@@ -271,8 +272,16 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Social Realtor</h1>
-              <p class="lead">Reach out to more people. Use the power of Social media and let your business grow to new heights.</p>
-              <a class="btn btn-large btn-primary" href="<c:url value="/signup"/>">Sign up today</a>
+              <p class="lead">Reach out to everyone on social networks. Use the power of Social media and let your business grow to new heights.</p>
+				<sec:authorize var="loggedIn" access="isAuthenticated()" />
+				<c:choose>
+ 				<c:when test="${loggedIn}">
+ 					<a></a>
+              	</c:when>
+              	<c:otherwise>
+              		<a class="btn btn-large btn-primary" href="<c:url value="/signup"/>">Sign up today</a>
+              	</c:otherwise>
+              	</c:choose>
             </div>
           </div>
         </div>
@@ -281,8 +290,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Manage Customers and Property Listings</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+              <p class="lead">Manage your customer database. Go through latest MLS listing and match them with customer requirements automatically.</p>
             </div>
           </div>
         </div>
@@ -291,8 +299,8 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Manage Social Content.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+              <p class="lead">manage Social content from this tool. Post feed to Facebook and twitter at one go. Also create events on Facebook for open house.</p>
+              <a></a>
             </div>
           </div>
         </div>

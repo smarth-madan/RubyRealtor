@@ -7,4 +7,7 @@
 		<put-attribute name="content" value="/WEB-INF/views/home/home.jsp" />
 	</definition>
 
+	<definition name="news" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/home/news.jsp" />
+	</definition>
 </tiles-definitions>

@@ -152,7 +152,7 @@
 			<ul class="nav " >
 				<li><a href="<c:url value="/home"/>"><i class="icon-home icon-white"></i> Home </a></li>
 				<li class="dropdown">
-				<a href="<c:url value="/myprofile"/>"  title="My Profile" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-white"></i><span>My Profile</span><b class="caret"></b></a>
+				<a href="<c:url value="/myprofile"/>"  title="My Profile" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-white"></i><span>Profile</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="<c:url value="/myprofile"/>">Personal Info</a></li>
 						<li><a href="<c:url value="/myprofile/socialProfiles"/>">Social Profiles</a></li>
@@ -166,9 +166,9 @@
 						<li><a href="<c:url value="/customer/add"/>">Add Customer</a></li>
 					</ul>
 				</li>
-				<li><a href="<c:url value="/properties"/>"><i class="icon-book icon-white"></i><span>Property Listings</span></a></li>
+				<li><a href="<c:url value="/properties"/>"><i class="icon-book icon-white"></i><span>MLS Listings</span></a></li>
 				<li>
-				<a href="<c:url value="/connect"/>" ><i class="icon-wrench icon-white"></i><span>Manage Social Connections</span></a></li>
+				<a href="<c:url value="/connect"/>" ><i class="icon-wrench icon-white"></i><span>Social Connections</span></a></li>
 				<social:connected provider="facebook">
 				<li><a href="#"  title="Dropdown options available only when connected" class="dropdown-toggle" data-toggle="dropdown"><img src="<c:url value="/resources/social/facebook/f_logo.jpg" />" style="width:15px;height:15px"/><span>Facebook</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -191,7 +191,7 @@
 				</social:connected>
 				<li><a href="<c:url value="/analytics"/>" title="Analytics"><span>Analytics</span></a></li>
 				<li><a href="<c:url value="/customer/getAppt"/>" title="Appointments"><span>Appointments</span></a></li>
-				<li><a href="http://www.realtor.org/news-releases" title="News"><span>News</span></a></li>
+				<li><a href="<c:url value="/news"/>" title="News"><span>News</span></a></li>
 	
 				<li><a style="float:right" href="<c:url value="/signout"/>" title="Matching"><span>Signout</span></a></li>	
 			</ul>

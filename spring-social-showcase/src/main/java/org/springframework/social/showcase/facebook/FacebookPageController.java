@@ -1,6 +1,7 @@
 package org.springframework.social.showcase.facebook;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -13,6 +14,7 @@ import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.FacebookLink;
 import org.springframework.social.facebook.api.Insights;
 import org.springframework.social.facebook.api.Page;
+import org.springframework.social.facebook.api.Post;
 import org.springframework.social.showcase.SessionRealtor;
 import org.springframework.social.showcase.customer.helper.CustomerHelper;
 import org.springframework.stereotype.Controller;
@@ -52,7 +54,9 @@ private static CustomerHelper customerHelper;
 		
 	    this.pageId = properties.getProperty("awesomeRealtor.pageId");
 		Page page = facebook.pageOperations().getPage(pageId);
-		model.addAttribute("feed", facebook.feedOperations().getFeed(pageId));
+		model.addAttribute("page",page);
+		List<Post> posts = facebook.feedOperations().getFeed(pageId);
+		model.addAttribute("feed", posts);
 		return "facebook/page";
 	}
 	

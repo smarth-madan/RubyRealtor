@@ -128,6 +128,11 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping("/news")
+	public String news(HttpServletRequest request) {
+		return "news";
+		
+	}
 	private ConnectionRepository getConnectionRepository() {
 		return connectionRepositoryProvider.get();
 	}

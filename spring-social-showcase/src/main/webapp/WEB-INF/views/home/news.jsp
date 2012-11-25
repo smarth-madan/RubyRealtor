@@ -1,0 +1,2 @@
+<!-- <script id="feed-135381497306692" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Ffeeds.feedburner.com%2Fdailyrealestatenews&showtitle=false&type=js&id=135381497306692"></script> -->
+<script id="feed-1353815229348942" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Ffeeds2.feedburner.com%2FPresidentsReport&showtitle=false&type=js&id=1353815229348942"></script>
