@@ -50,14 +50,14 @@ import com.mysql.jdbc.Driver;
 @EnableTransactionManagement
 public class MainConfig {
 
-	@Bean(destroyMethod = "shutdown")
-	public DataSource dataSource() {
-		EmbeddedDatabaseFactory factory = new EmbeddedDatabaseFactory();
-		factory.setDatabaseName("spring-social-showcase");
-		factory.setDatabaseType(EmbeddedDatabaseType.H2);
-		factory.setDatabasePopulator(databasePopulator());
-		return factory.getDatabase();
-	}
+//	@Bean(destroyMethod = "shutdown")
+//	public DataSource dataSource() {
+//		EmbeddedDatabaseFactory factory = new EmbeddedDatabaseFactory();
+//		factory.setDatabaseName("spring-social-showcase");
+//		factory.setDatabaseType(EmbeddedDatabaseType.H2);
+//		factory.setDatabasePopulator(databasePopulator());
+//		return factory.getDatabase();
+//	}
 	
 	@Bean
 	public DriverManagerDataSource mysqldataSource() {
@@ -65,12 +65,11 @@ public class MainConfig {
 		DriverManagerDataSource factory = new DriverManagerDataSource("com.mysql.jdbc.Driver",
 																		"jdbc:mysql://localhost/realtor_social",
 																		"realtor",
-																	"realtor");
+																	    "realtor");
 		/*DriverManagerDataSource factory = new DriverManagerDataSource("com.mysql.jdbc.Driver",
 				"jdbc:mysql://ec2-184-169-207-210.us-west-1.compute.amazonaws.com/realtor_social",
 				"realtor",
 			"realtor");*/
-		
 		return factory;
 	}
 	

@@ -77,7 +77,9 @@ public class HomeController {
 		}
 		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers(account.getR_ID()));
 		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
-
+		if(connections.get("facebook").isEmpty())
+			return "forward:/connect/facebook";
+		
 		System.out.println("Without Login.................................");
 		String createdJsonSTring = facebookHelper.getPageInsights("https://graph.facebook.com/277500075678192/insights/page_admin_num_posts/week?since=1350951649&until=1351210849","Time","Number of Posts");
 		System.out.println("createdJsonSTring ============= " +createdJsonSTring);

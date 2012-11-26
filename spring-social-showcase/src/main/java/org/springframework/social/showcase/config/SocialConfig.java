@@ -23,6 +23,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.encrypt.Encryptors;
@@ -59,7 +60,7 @@ public class SocialConfig {
 	private Environment environment;
 
 	@Inject
-	private DataSource mysqldataSource;
+	private DriverManagerDataSource mysqldataSource;
 
 	@Bean
 	@Scope(value="singleton", proxyMode=ScopedProxyMode.INTERFACES) 
@@ -67,8 +68,7 @@ public class SocialConfig {
 		ConnectionFactoryRegistry registry = new ConnectionFactoryRegistry();
 		registry.addConnectionFactory(new TwitterConnectionFactory(environment.getProperty("twitter.consumerKey"),
 				environment.getProperty("twitter.consumerSecret")));
-		registry.addConnectionFactory(new FacebookConnectionFactory(environment.getProperty("facebook.clientId"),
-				environment.getProperty("facebook.clientSecret")));
+		registry.addConnectionFactory(new FacebookConnectionFactory("349748648445657","ebb75941f20396e69aae76b441fca746"));
 		registry.addConnectionFactory(new LinkedInConnectionFactory(environment.getProperty("linkedin.consumerKey"),
 				environment.getProperty("linkedin.consumerSecret")));
 		return registry;
