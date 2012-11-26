@@ -5,12 +5,12 @@
 
 <h3>Your MLS Feeds</h3>
 
-<table class="formatHTML5">
+<table  class="table table-striped table-hover table-condensed">
 
 	<c:forEach items="${propertyList}" var="property">
 	<form method="post" action="postPropertyToFaceBook">
 		<tr>		
-			<td width="50%">
+			<td style="50%">
 				<table>
 					<tr>
 						<td><b>MLS_ID</b></td>
@@ -64,10 +64,8 @@
 				</table>
 			</td>
 
-			<td valign="top" scope="col" style="float:right"><img height="125" width="150" src="${property.image}"><br><br> <font size="2"><b>Image src</b> = "<c:out value="${property.image}" />"</font></td>
+			<td style="align:left"><img height="150" width="180" src="${property.image}"></td>
 			
-			
-			</td>
 		</tr>
 		</form>
 	</c:forEach>

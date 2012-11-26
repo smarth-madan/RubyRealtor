@@ -27,9 +27,11 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.showcase.account.Account;
 import org.springframework.social.showcase.account.AccountRepository;
 import org.springframework.social.showcase.customer.helper.CustomerHelper;
+import org.springframework.social.showcase.facebook.FacebookHelper;
 import org.springframework.social.showcase.mlsListing.helper.MlsListingHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,17 +45,21 @@ public class HomeController {
 	private DataSource mysqldataSource;
 	private static MlsListingHelper mlsListingHelper;
 	private static CustomerHelper customerHelper;
+	private static FacebookHelper facebookHelper;
+	private final Facebook facebook;
 	
 	@Autowired
 	private SessionRealtor sessionRealtor;
 
 	@Inject
-	public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository,DataSource mysqldataSource) {
+	public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository,DataSource mysqldataSource,Facebook facebook) {
+		this.facebook = facebook;
 		this.mysqldataSource = mysqldataSource;
 		mlsListingHelper = new MlsListingHelper(mysqldataSource);
 		this.connectionRepositoryProvider = connectionRepositoryProvider;
 		this.accountRepository = accountRepository;
 		customerHelper = new CustomerHelper(mysqldataSource);
+		facebookHelper = new FacebookHelper(facebook);
 	}
 
 	@RequestMapping("/")
@@ -72,18 +78,20 @@ public class HomeController {
 		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers(account.getR_ID()));
 		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
 
-		StringBuffer graphJsonData = new StringBuffer();
-	    graphJsonData.append("{ \"chart\": { \"caption\" : \"Weekly Sales Summary\" , ");
-		graphJsonData.append("\"xAxisName\" : \"Week\", \"yAxisName\" : \"Sales\", \"numberPrefix\" : \"$\" }, ");
-		graphJsonData.append("\"data\" : [ { \"label\" : \"Week 1\", \"value\" : \"14400\" },  ");
-		graphJsonData.append("{ \"label\" : \"Week 2\", \"value\" : \"19600\" },  ");
-		graphJsonData.append("{ \"label\" : \"Week 3\", \"value\" : \"24000\" }, ");
-		graphJsonData.append("{ \"label\" : \"Week 4\", \"value\" : \"15700\" } ] } ");
-		//String temp = "{ \"chart\": { \"caption\" : \"Weekly Sales Summary\" , \"xAxisName\" : \"Week\", \"yAxisName\" : \"Sales\", \"numberPrefix\" : \"$\" },\"data\" : [ { \"label\" : \"Week 1\", \"value\" : \"14400\" },{ \"label\" : \"Week 2\", \"value\" : \"19600\" },{ \"label\" : \"Week 3\", \"value\" : \"24000\" },{ \"label\" : \"Week 4\", \"value\" : \"15700\" } ]    } ";
+		System.out.println("Without Login.................................");
+		String createdJsonSTring = facebookHelper.getPageInsights("https://graph.facebook.com/277500075678192/insights/page_admin_num_posts/week?since=1350951649&until=1351210849","Time","Number of Posts");
+		System.out.println("createdJsonSTring ============= " +createdJsonSTring);
+		
+		/*StringBuffer graphJsonData = new StringBuffer();
+	    graphJsonData.append("{ 'chart': { 'caption' : 'Weekly Sales Summary' , ");
+		graphJsonData.append("'xAxisName' : 'Week', 'yAxisName' : 'Sales', 'numberPrefix' : '$' }, ");
+		graphJsonData.append("'data' : [ { 'label' : 'Week 1', 'value' : '14400' },  ");
+		graphJsonData.append("{ 'label' : 'Week 2', 'value' : '19600' },  ");
+		graphJsonData.append("{ 'label' : 'Week 3', 'value' : '24000\' }, ");
+		graphJsonData.append("{ 'label' : 'Week 4', 'value' : '15700' } ] } ");*/
 		String temp = "{ 'chart': { 'caption' : 'Weekly Sales Summary' , 'xAxisName' : 'Week', 'yAxisName' : 'Sales', 'numberPrefix' : '$' },'data' : [ { 'label' : 'Week 1', 'value' : '14400' },{ 'label' : 'Week 2', 'value' : '19600' },{ 'label' : 'Week 3', 'value' : '24000' },{ 'label' : 'Week 4', 'value' : '15700' } ]    }";
-		System.out.println(graphJsonData.toString());
-		System.out.println(temp);
-		model.addAttribute("graphJsonData", temp);
+		System.out.println("temppJsonSTring ============= "+temp);
+		model.addAttribute("graphJsonData", createdJsonSTring);
 
 		
 		//return "home";
@@ -111,18 +119,20 @@ public class HomeController {
 		model.addAttribute("top5CustomersList", customerHelper.findTop5Customers(account.getR_ID()));
 		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
 		
-		StringBuffer graphJsonData = new StringBuffer();
-	    graphJsonData.append("{ \"chart\": { \"caption\" : \"Weekly Sales Summary\" , ");
-		graphJsonData.append("\"xAxisName\" : \"Week\", \"yAxisName\" : \"Sales\", \"numberPrefix\" : \"$\" }, ");
-		graphJsonData.append("\"data\" : [ { \"label\" : \"Week 1\", \"value\" : \"14400\" },  ");
-		graphJsonData.append("{ \"label\" : \"Week 2\", \"value\" : \"19600\" },  ");
-		graphJsonData.append("{ \"label\" : \"Week 3\", \"value\" : \"24000\" }, ");
-		graphJsonData.append("{ \"label\" : \"Week 4\", \"value\" : \"15700\" } ] } ");
-		//String temp = "{ \"chart\": { \"caption\" : \"Weekly Sales Summary\" , \"xAxisName\" : \"Week\", \"yAxisName\" : \"Sales\", \"numberPrefix\" : \"$\" },\"data\" : [ { \"label\" : \"Week 1\", \"value\" : \"14400\" },{ \"label\" : \"Week 2\", \"value\" : \"19600\" },{ \"label\" : \"Week 3\", \"value\" : \"24000\" },{ \"label\" : \"Week 4\", \"value\" : \"15700\" } ]    } ";
+		System.out.println("With Login.................................");
+		String createdJsonSTring = facebookHelper.getPageInsights("https://graph.facebook.com/277500075678192/insights/page_admin_num_posts/week?since=1350951649&until=1351210849","Time","Number of Posts");
+		System.out.println("createdJsonSTring ============= " +createdJsonSTring);
+		
+		/*StringBuffer graphJsonData = new StringBuffer();
+	    graphJsonData.append("{ 'chart': { 'caption' : 'Weekly Sales Summary' , ");
+		graphJsonData.append("'xAxisName' : 'Week', 'yAxisName' : 'Sales', 'numberPrefix' : '$' }, ");
+		graphJsonData.append("'data' : [ { 'label' : 'Week 1', 'value' : '14400' },  ");
+		graphJsonData.append("{ 'label' : 'Week 2', 'value' : '19600' },  ");
+		graphJsonData.append("{ 'label' : 'Week 3', 'value' : '24000\' }, ");
+		graphJsonData.append("{ 'label' : 'Week 4', 'value' : '15700' } ] } ");*/
 		String temp = "{ 'chart': { 'caption' : 'Weekly Sales Summary' , 'xAxisName' : 'Week', 'yAxisName' : 'Sales', 'numberPrefix' : '$' },'data' : [ { 'label' : 'Week 1', 'value' : '14400' },{ 'label' : 'Week 2', 'value' : '19600' },{ 'label' : 'Week 3', 'value' : '24000' },{ 'label' : 'Week 4', 'value' : '15700' } ]    }";
-		System.out.println(graphJsonData.toString());
-		System.out.println(temp);
-		model.addAttribute("graphJsonData", temp);
+		System.out.println("temppJsonSTring ============= "+temp);
+		model.addAttribute("graphJsonData", createdJsonSTring);
 		
 		return "home";
 		

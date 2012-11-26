@@ -155,8 +155,8 @@
 				<a href="<c:url value="/myprofile"/>"  title="My Profile" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-white"></i><span>Profile</span><b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="<c:url value="/myprofile"/>">Personal Info</a></li>
-						<li><a href="<c:url value="/myprofile/socialProfiles"/>">Social Profiles</a></li>
-						<li><a href="<c:url value="/myprofile/settings"/>">Settings</a></li>
+						<li><a href="<c:url value="/myprofile/socialProfiles"/>">FB Page Registration</a></li>
+						<%-- <li><a href="<c:url value="/myprofile/settings"/>">Settings</a></li> --%>
 					</ul>
 				</li>
 				<li class="dropdown">
