@@ -7,11 +7,11 @@
 
 <font size="2" color="red"><b><i><c:out value="${result}" /></i></b></font>
 
-<table class="formatHTML5" border="0">
+<table class="table table-striped table-hover table-condensed border="0">
 
 	<c:forEach items="${propertyList}" var="property">
 		<tr>
-			<td width="40%">
+			<td width="35%">
 				<table width="100%">
 					<tr style="background-color: grey">
 						<td><b>MLS_ID</b></td>
@@ -57,7 +57,7 @@
 				</table>
 			</td>
 			<td width="30%">
-				<table>
+				<table width="100%">
 					<form method="post" action="editTags">
 					<tr style="background-color: grey">
 						<td><b><i>Existing Tags:</i></b></td>
@@ -80,7 +80,7 @@
 				</table>
 			</td>
 
-			<td>
+			<td width="35%">
 				<form method="post" action="addTag">
 					<table width="100%">
 

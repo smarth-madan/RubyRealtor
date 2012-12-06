@@ -55,6 +55,8 @@ public class GoogleMail {
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 
+        System.out.println("Inside SENDDDDD...............................");
+        System.out.println("username = "+username+" password = "+password+" recipientEmail ="+recipientEmail);
         // Get a Properties object
         Properties props = System.getProperties();
         props.setProperty("mail.smtps.host", "smtp.gmail.com");
@@ -121,7 +123,7 @@ public class GoogleMail {
 			//GoogleMail.Send("shaunakkhedkar", "TIGERrules17", "rakesh.ranjan@sjsu.edu", "shaunakkhedkar@gmail.com,madan.smarth@gmail.com", "Cmpe 295B Email setup from APP working: Properties for you from Awesome Realtors", htmlMessage.toString());
     		//GoogleMail.Send("shaunakkhedkar", "TIGERrules17", "shaunakkhedkar@gmail.com", "shweta.dhamapurkar@gmail.com,priyankbhawsar@gmail.com,siddharthsavant@gmail.com,vrphanse@gmail.com,adityakoparkar@gmail.com,sagaranilbhosale@gmail.com,tarun.pepira@gmail.com,nakul.natu@gmail.com,preeteshdixit@gmail.com,ruchamjoshi@gmail.com,js.vartak@gmail.com", "NEW ... Vacation Planning from my WEB-APP", getHtmlMessage());
     		//GoogleMail.Send("shaunakkhedkar", "TIGERrules17", "shaunakkhedkar@gmail.com", "", "Vacation Planning from my WEB-APP... YOYO ", htmlMessage+getHtmlMessage());
-    		GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", "awesomerealtor007@gmail.com", "vrphanse@gmail.com", "Awesome Realtors:Property Suggestions for you(TEMPLATE)","<html>"+getHtmlHead().toString()+getBody(propertyList).toString()+"</html>");
+    		GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", "awesomerealtor007@gmail.com", "", "Awesome Realtors:Property Suggestions for you(TEMPLATE)","<html>"+getHtmlHead().toString()+getBody(propertyList).toString()+"</html>");
 			System.out.println("Message sent.");
 		} catch (AddressException e) {
 			e.printStackTrace();
@@ -188,6 +190,46 @@ public class GoogleMail {
     	htmlContent.append("<br /><br />"+buildHtmlEmailContent(propertyList)+"<br />");
     	htmlContent.append("</div></td></tr></table></td></tr></table></td></tr><tr><td valign='top'><table border='0' cellpadding='0' cellspacing='0' width='400'><tr><td valign='top' width='180' class='leftColumnContent'>");
     	htmlContent.append("<table border='0' cellpadding='20' cellspacing='0' width='100%'><tr mc:repeatable><td valign='top'><img src='http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_160.gif' style='max-width:160px; margin-bottom:10px;' mc:label='image' mc:edit='tiwc200_image01' />");
+    	htmlContent.append("<div mc:edit='tiwc200_content01'><h4 class='h4'>Thinking of buying a home?</h4><i>-Has years of extensive experience in residential real estate<br/><br/>-Has an outstanding reputation with a record of excellence in negotiation and sales<br/><br/>-Is technologically savvy and understands the latest technological trends<br/><br/>-Is an expert in the complex and ever-changing process of buying/selling a home<br/></i>");
+    	htmlContent.append("</div></td></tr></table></td><td valign='top' width='180' class='rightColumnContent'><table border='0' cellpadding='20' cellspacing='0' width='100%'><tr mc:repeatable>");
+    	htmlContent.append("<td valign='top'><img src='http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_160.gif' style='max-width:160px; margin-bottom:10px;' mc:label='image' mc:edit='tiwc200_image02' />");
+    	htmlContent.append("<div mc:edit='tiwc200_content02'><h4 class='h4'>Thinking of Selling a home ?</h4><i>-Top Notch marketing strategies with leading edge technologies<br/><br/>-Large network of services that will get your home maximum exposure<br/><br/>-Skilled and trained negotiator <br/><br/>-Contact me for a free, no pressure consultation and market analysis of your home</i>");
+    	htmlContent.append("</div></td></tr></table></td></tr></table></td></tr></table></td><td valign='top' width='200' id='templateSidebar'><table border='0' cellpadding='0' cellspacing='0' width='200'>");
+    	htmlContent.append("<tr><td valign='top' class='sidebarContent'><table border='0' cellpadding='0' cellspacing='0' width='100%'><tr><td valign='top' style='padding-top:10px; padding-right:20px; padding-left:20px;'><table border='0' cellpadding='0' cellspacing='4'>");
+    	htmlContent.append("<tr mc:hideable><td align='left' valign='middle' width='16'><img src='http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/sfs_icon_facebook.png' style='margin:0 !important;' /></td>");
+    	htmlContent.append("<td align='left' valign='top'><div mc:edit='sbwi_link_one'><a href='*|FACEBOOK:PROFILEURL|*'>Friend on Facebook</a></div></td></tr><tr mc:hideable><td align='left' valign='middle' width='16'>");
+    	htmlContent.append("<img src='http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/sfs_icon_twitter.png' style='margin:0 !important;' /></td><td align='left' valign='top'><div mc:edit='sbwi_link_two'>");
+    	htmlContent.append("<a href='*|TWITTER:PROFILEURL|*'>Follow on Twitter</a></div></td></tr><tr mc:hideable><td align='left' valign='middle' width='16'><img src='http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/sfs_icon_forward.png' style='margin:0 !important;' />");
+    	htmlContent.append("</td><td align='left' valign='top'><div mc:edit='sbwi_link_three'><a href='*|FORWARD|*'>Forward to a Friend</a></div></td></tr></table></td></tr></table> <table border='0' cellpadding='20' cellspacing='0' width='100%'>");
+    	htmlContent.append("<tr mc:repeatable><td valign='top'><img src='http://localhost:8080/spring-social-showcase/resources/images//agent2.jpg' style='max-width:160px; margin-bottom:10px;' mc:edit='tiwc200_image00' />");
+    	htmlContent.append("<div mc:edit='tiwc200_content00'><h4 class='h4'>About me:</h4><strong> Frances Navarro - <br />Fremont CA Real estate agent.<br /> Direct:   (720)648-6010 <br /> Office:   (408)477-5008 <br /> Cell:   (408)666-3236 <br /> Fax: (408)477-5008 <br /> awesomerealtor007@gmail.com <br/> <a href='#'>www.fnavaroo4homes.com</a>");
+    	htmlContent.append("<div mc:edit='tiwc200_content00'></div></td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td align='center' valign='top'>");
+    	htmlContent.append("<table border='0' cellpadding='10' cellspacing='0' width='600' id='templateFooter'><tr><td valign='top' class='footerContent'><table border='0' cellpadding='10' cellspacing='0' width='100%'>");
+    	htmlContent.append("<tr><td colspan='2' valign='middle' id='social'><div mc:edit='std_social'>&nbsp;<a href='*|TWITTER:PROFILEURL|*'>follow on Twitter</a> | <a href='*|FACEBOOK:PROFILEURL|*'>friend on Facebook</a> | <a href='*|FORWARD|*'>forward to a friend</a>&nbsp;");
+    	htmlContent.append("</div></td></tr><tr><td valign='top' width='350'><div mc:edit='std_footer'><em>Copyright &copy; 2012 <br /> Smarth Madan and Shaunak Khedkar,<br /> <a href='http://www.sjsu.edu/computereng/'>SJSU CmpE Department</a>, All rights reserved.</em><br />");
+    	htmlContent.append("<br /><strong>Our mailing address is:</strong><br />One Washington Square, San Jose CA-95112</div></td>");
+    	htmlContent.append("<td valign='top' width='190' id='monkeyRewards'><div mc:edit='monkeyrewards'>REWARDS <br/> <I>Best Real Estate Agent, 2011</I></div></td></tr><tr>");
+    	htmlContent.append("<td colspan='2' valign='middle' id='utility'><div mc:edit='std_utility'>&nbsp;<a href='*|UNSUB|*'>unsubscribe from this list</a> | <a href='*|UPDATE_PROFILE|*'>update subscription preferences</a>&nbsp;");
+    	htmlContent.append("</div></td></tr></table></td></tr></table></td></tr></table><br /></td></tr></table></center></body>");
+    	return htmlContent;
+    }
+    
+    
+    public static StringBuffer getBodyForAppointments(String message){
+    	StringBuffer htmlContent = new StringBuffer();
+    	htmlContent.append("<body leftmargin='0' marginwidth='0' topmargin='0' marginheight='0' offset='0'><center><table border='0' cellpadding='0' cellspacing='0' height='100%' width='100%' id='backgroundTable'>");
+    	htmlContent.append("<tr><td align='center' valign='top'><table border='0' cellpadding='10' cellspacing='0' width='600' id='templatePreheader'> <tr><td valign='top' class='preheaderContent'>");
+    	htmlContent.append("<table border='0' cellpadding='10' cellspacing='0' width='100%'><tr><td valign='top'><div mc:edit='std_preheader_content'> Some Properties/Homes chosen exclusively for you by Awesome Realtors.");
+    	htmlContent.append("</div></td><td valign='top' width='190'><div mc:edit='std_preheader_links'><i><b>AWESOME REALTORS</b></i>.");
+    	htmlContent.append("</div></td></tr></table></td></tr></table><table border='0' cellpadding='0' cellspacing='0' width='600' id='templateContainer'><tr><td align='center' valign='top'><img src='http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_160.gif' style='max-width:160px; margin-bottom:10px;' mc:label='image' mc:edit='tiwc200_image01' />");
+    	htmlContent.append("<table border='0' cellpadding='0' cellspacing='0' width='600' id='templateHeader'><tr><td class='headerContent'><img src='http://localhost:8080/spring-social-showcase/resources/images/slide-01.jpg' style='max-width:600px;' id='headerImage campaign-icon' mc:label='header_image' mc:edit='header_image' mc:allowdesigner mc:allowtext />");
+    	htmlContent.append("</td></tr></table></td></tr><tr><td align='center' valign='top'><table border='0' cellpadding='0' cellspacing='0' width='600' id='templateBody'><tr><td valign='top' width='400'>");
+    	htmlContent.append("<table border='0' cellpadding='0' cellspacing='0' width='400'><tr><td valign='top'><table border='0' cellpadding='0' cellspacing='0' width='400'>");
+    	htmlContent.append("<tr><td valign='top' class='bodyContent'><table border='0' cellpadding='20' cellspacing='0' width='100%'><tr><td valign='top'><div mc:edit='std_content00'><h2 class='h2'>Looking for a new House?</h2>");
+    	htmlContent.append("<B>Appointment details/Info update:</B>");
+    	htmlContent.append("<br /><br /><b>MESSAGE: </b><br/><b><i>"+message+"</i></b><br />");
+    	htmlContent.append("</div></td></tr></table></td></tr></table></td></tr><tr><td valign='top'><table border='0' cellpadding='0' cellspacing='0' width='400'><tr><td valign='top' width='180' class='leftColumnContent'>");
+    	htmlContent.append("<table border='0' cellpadding='20' cellspacing='0' width='100%'><tr mc:repeatable><td valign='top'>");
     	htmlContent.append("<div mc:edit='tiwc200_content01'><h4 class='h4'>Thinking of buying a home?</h4><i>-Has years of extensive experience in residential real estate<br/><br/>-Has an outstanding reputation with a record of excellence in negotiation and sales<br/><br/>-Is technologically savvy and understands the latest technological trends<br/><br/>-Is an expert in the complex and ever-changing process of buying/selling a home<br/></i>");
     	htmlContent.append("</div></td></tr></table></td><td valign='top' width='180' class='rightColumnContent'><table border='0' cellpadding='20' cellspacing='0' width='100%'><tr mc:repeatable>");
     	htmlContent.append("<td valign='top'><img src='http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_160.gif' style='max-width:160px; margin-bottom:10px;' mc:label='image' mc:edit='tiwc200_image02' />");

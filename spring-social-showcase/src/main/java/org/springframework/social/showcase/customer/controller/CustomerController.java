@@ -63,6 +63,7 @@ public class CustomerController {
 
 	@RequestMapping(value="/getAppt",  method=RequestMethod.GET)
 	public ModelAndView getApptCustomer(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("Inside Get Appt ..............................................");
 		ModelAndView mv = new ModelAndView();
 		List<Customer> customers = customerHelper.findCustomerAppt(sessionRealtor.getRealtorId());
 		mv.addObject("customers",customers);
@@ -214,6 +215,8 @@ public class CustomerController {
 
 	@RequestMapping("/emailCustomer")
 	public ModelAndView emailCustomer(String c_id) {
+		System.out.println("Inside emailCustomer ..............................................");
+
 		ModelAndView mv = new ModelAndView();
 		Customer eCustomer = customerHelper.getCustomer(c_id);
 		mv.addObject("subject","Awesome Realtors: <subject>");
@@ -233,12 +236,12 @@ public class CustomerController {
 		String defaultMessage = "Properties selected for you:";
 		ModelAndView mv = new ModelAndView();
 		if(propertyList!=null && propertyList.size()>0){
-			//System.out.println("Got ittttt..."+propertyList.size());
+			
 			try {
 				if(message==null || "".equals(message)){
-					GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", "awesomerealtor007@gmail.com", cc, subject, defaultMessage+"<br /><br />"+buildHtmlEmailContent(propertyList).toString());
+					GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", to, cc, subject, "<html>"+GoogleMail.getHtmlHead().toString()+GoogleMail.getBody(propertyList).toString()+"</html>");
 				}else{
-					GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", "awesomerealtor007@gmail.com", cc, subject, message+"<br /><br />"+buildHtmlEmailContent(propertyList).toString());
+					GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17", to, cc, subject, "<html>"+GoogleMail.getHtmlHead().toString()+GoogleMail.getBody(propertyList).toString()+"</html>");
 				}
 				mv.addObject("result", "An email listing the matched properties have been sent to "+to+" .");
 			} catch (AddressException e) {
@@ -248,7 +251,8 @@ public class CustomerController {
 			}
 		}else if(StringUtils.hasText(message)){
 			try {
-				GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17",to, cc, subject, message);
+				
+				GoogleMail.Send("awesomerealtor007", "AwesomeRealtor17",to, cc, subject, "<html>"+GoogleMail.getHtmlHead().toString()+GoogleMail.getBodyForAppointments(message).toString()+"</html>");
 				mv.addObject("result", "An email has been sent to "+to+" .");
 			} catch (AddressException e) {
 				mv.addObject("result", "Incorrect Email Ids. You tried sending email to "+to+" from your email Id awesomerealtor007@gmail.com. Please check on all email Ids");
