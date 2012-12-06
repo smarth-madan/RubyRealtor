@@ -26,7 +26,7 @@
 <form action="registerFromFB" method="post"> 
 	<div class="row">
 		<div class="row">
-			<div class="span5 offset5">
+			<div class="span5 offset1">
 				<div class="row">
 					<div class="span2">
 					<b><font size="2">*Name: </font></b></div>
@@ -102,8 +102,7 @@
 		  			</div>
 				</div>
 			</div>
-			<div class="span2"></div>
-			<div class="span5">
+			<div class="span5 offset2">
 
 					<div class="row"><b><font size="2">Help us know you more</font></b></div>
 					<div class="row"><b><i><font size="2">Type of House:</font></b></i></div>
@@ -149,7 +148,7 @@
 			</div>
 		</div>
 			<div class="row">
-					<div class="span3 offset5"><b><font size="2">Describe Your dream home in 2 lines: </font></b></div>
+					<div class="span3 offset1"><b><font size="2">Describe Your dream home in 2 lines: </font></b></div>
 					<div class="span5">
 		  				<textarea  name="homeDescription" cols="60" rows="4"></textarea>
 		  			</div>

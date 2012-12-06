@@ -122,16 +122,16 @@ public class HomeController {
 		model.addAttribute("top5MlsListingsList", mlsListingHelper.getTop5PropertyDetails());
 		
 		System.out.println("With Login.................................");
-		String createdJsonSTring = facebookHelper.getPageInsights("https://graph.facebook.com/277500075678192/insights/page_admin_num_posts/week?since=1350951649&until=1351210849","Time","Number of Posts");
+		String createdJsonSTring = "";
+		
+		try{
+			createdJsonSTring = facebookHelper.getPageInsights("https://graph.facebook.com/277500075678192/insights/page_admin_num_posts/week?since=1350951649&until=1351210849","Time","Number of Posts");
+		}catch(Exception e){
+			
+		}
+		
 		System.out.println("createdJsonSTring ============= " +createdJsonSTring);
 		
-		/*StringBuffer graphJsonData = new StringBuffer();
-	    graphJsonData.append("{ 'chart': { 'caption' : 'Weekly Sales Summary' , ");
-		graphJsonData.append("'xAxisName' : 'Week', 'yAxisName' : 'Sales', 'numberPrefix' : '$' }, ");
-		graphJsonData.append("'data' : [ { 'label' : 'Week 1', 'value' : '14400' },  ");
-		graphJsonData.append("{ 'label' : 'Week 2', 'value' : '19600' },  ");
-		graphJsonData.append("{ 'label' : 'Week 3', 'value' : '24000\' }, ");
-		graphJsonData.append("{ 'label' : 'Week 4', 'value' : '15700' } ] } ");*/
 		String temp = "{ 'chart': { 'caption' : 'Weekly Sales Summary' , 'xAxisName' : 'Week', 'yAxisName' : 'Sales', 'numberPrefix' : '$' },'data' : [ { 'label' : 'Week 1', 'value' : '14400' },{ 'label' : 'Week 2', 'value' : '19600' },{ 'label' : 'Week 3', 'value' : '24000' },{ 'label' : 'Week 4', 'value' : '15700' } ]    }";
 		System.out.println("temppJsonSTring ============= "+temp);
 		model.addAttribute("graphJsonData", createdJsonSTring);

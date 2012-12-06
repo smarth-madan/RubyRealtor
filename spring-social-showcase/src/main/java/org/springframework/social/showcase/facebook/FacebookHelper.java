@@ -35,7 +35,7 @@ public class FacebookHelper {
 			title = title.replaceAll("\"", "");
 			System.out.println("Title:"+title);
 			graphJsonData.append("{ 'chart': { 'caption' : '"+title+"' , ");
-			graphJsonData.append("'xAxisName' : '"+xAxisName+"', 'yAxisName' : '"+yAxisName+"', 'numberPrefix' : '$' }, 'data' : [ ");
+			graphJsonData.append("'xAxisName' : '"+xAxisName+"', 'yAxisName' : '"+yAxisName+"', 'numberPrefix' : '' }, 'data' : [ ");
 			
 		
 			List<Values> valueList = insights.getValuesList();
@@ -56,9 +56,9 @@ public class FacebookHelper {
 						System.out.println("valueString ="+valueString);
 						System.out.println("Time ="+value.getEnd_time());
 						if(listSize!=0)
-						graphJsonData.append("{ 'label' : '"+value.getEnd_time()+"', 'value' : '"+valueString+"' },");
+						graphJsonData.append("{ 'label' : '"+value.getEnd_time().substring(0,10)+"', 'value' : '"+valueString+"' },");
 						else if(listSize==0){
-							graphJsonData.append("{ 'label' : '"+value.getEnd_time()+"', 'value' : '"+valueString+"' } ");
+							graphJsonData.append("{ 'label' : '"+value.getEnd_time().substring(0,10)+"', 'value' : '"+valueString+"' } ");
 						}
 					}
 				}

@@ -7,7 +7,7 @@
 <h3>Analytics page:</h3>
 </p>
 
-<table border="1" width="100%">
+<table width="100%">
 	<tr>
 		<td><div id="chartContainer1"
 				style="width: 400px; float: left"></div></td>
@@ -33,14 +33,16 @@
                     
       var myChart = new FusionCharts("<c:url value="/resources/js/Area2D.swf" />", 
           "myChartId", "100%", "100%", "0", "0");       
-      myChart.setXMLData( largeData );         
+		var jsonString = "<c:out value="${graphJsonData4}" />";
+		var jsonStringModified = jsonString.replace(/&#039;/g,'"');
+		myChart.setJSONData (jsonStringModified);        
       myChart.render("largeDataChartContainer");                   
       // -->     
     </script>
 
 <script type="text/javascript"><!--
       var myChart = new FusionCharts("<c:url value="/resources/js/Pie3D.swf" />", "myChartId", "400", "300", "0", "1");  								
-      myChart.setXMLData("<chart caption='Weekly Sales Summary' xAxisName='Week' yAxisName='Sales' numberPrefix='$'><set label='Week 1' value='14400' /><set label='Week 2' value='19600' /><set label='Week 3' value='24000' /><set label='Week 4' value='15700' /></chart>");                               
+      myChart.setXMLData("<chart caption='Weekly New Properties' xAxisName='House Type' yAxisName='No. of Houses' numberPrefix=''><set label='Appartments' value='138' /><set label='House' value='57' /><set label='Condo' value='24' /><set label='Penthouse' value='10' /></chart>");                               
 	  myChart.render("pieChartContainer");
        // -->
       </script>
@@ -48,7 +50,7 @@
 <script type="text/javascript"><!--         
       var myChart = new FusionCharts( "<c:url value="/resources/js/Column3D.swf" />", 
       "myChartId", "400", "300", "0", "1" );
-	  var jsonString = "<c:out value="${graphJsonData}" />";
+	  var jsonString = "<c:out value="${graphJsonData1}" />";
 	  var jsonStringModified = jsonString.replace(/&#039;/g,'"');
 	  myChart.setJSONData (jsonStringModified);
      /*  myChart.setXMLUrl("<c:url value="/resources/js/Data.xml" />"); */
@@ -58,7 +60,7 @@
 <script type="text/javascript"><!--         
       var myChart = new FusionCharts( "<c:url value="/resources/js/Column3D.swf" />", 
       "myChartId", "400", "300", "0", "1" );
-	  var jsonString = "<c:out value="${graphJsonData}" />";
+	  var jsonString = "<c:out value="${graphJsonData2}" />";
 	  var jsonStringModified = jsonString.replace(/&#039;/g,'"');
 	  myChart.setJSONData (jsonStringModified);
 /*  myChart.setXMLUrl("<c:url value="/resources/js/Data.xml" />"); */
@@ -68,7 +70,7 @@
 <script type="text/javascript"><!--         
       var myChart = new FusionCharts( "<c:url value="/resources/js/Column3D.swf" />", 
       "myChartId", "400", "300", "0", "1" );
-	  var jsonString = "<c:out value="${graphJsonData}" />";
+	  var jsonString = "<c:out value="${graphJsonData3}" />";
 	  var jsonStringModified = jsonString.replace(/&#039;/g,'"');
 	  myChart.setJSONData (jsonStringModified);
 /*  myChart.setXMLUrl("<c:url value="/resources/js/Data.xml" />"); */
@@ -78,7 +80,7 @@
 <script type="text/javascript"><!--         
       var myChart = new FusionCharts( "<c:url value="/resources/js/Column3D.swf" />", 
       "myChartId", "400", "300", "0", "1" );
-      var jsonString = "<c:out value="${graphJsonData}" />";
+      var jsonString = "<c:out value="${graphJsonData2}" />";
 	  var jsonStringModified = jsonString.replace(/&#039;/g,'"');
 	  myChart.setJSONData (jsonStringModified);
 /*  myChart.setXMLUrl("<c:url value="/resources/js/Data.xml" />"); */

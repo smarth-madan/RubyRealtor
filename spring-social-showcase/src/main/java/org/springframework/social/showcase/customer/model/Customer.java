@@ -1,6 +1,5 @@
 package org.springframework.social.showcase.customer.model;
 
-import java.sql.Timestamp;
 
 public class Customer {
 	
